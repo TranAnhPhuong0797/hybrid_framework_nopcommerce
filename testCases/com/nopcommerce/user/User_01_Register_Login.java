@@ -13,6 +13,7 @@ public class User_01_Register_Login {
 	@Test
 	public void TC_01() {
 		System.out.println("Test");
+		System.out.println("Test");
 	}
 	
 	@Test
