@@ -13,7 +13,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
-public class User_01_Register_Login_DRY {
+public class Level_01_User_01_Register_Login_DRY {
 	/* Note:
 	 * This class violated the DRY (Don't repeat yourself) standard
 	 * Repeating the same features/code lines in the same class/framework
@@ -146,7 +146,7 @@ public class User_01_Register_Login_DRY {
 	
 	@AfterClass
 	public void afterClass() {
-		//driver.quit();
+		driver.quit();
 	}
 
 }
