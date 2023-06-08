@@ -8,6 +8,10 @@ import pageUI.RegisterPageUI;
 public class RegisterPageObject extends BasePage{
 	private WebDriver driver;
 	
+	public RegisterPageObject(WebDriver driver) {
+		this.driver = driver;
+	}
+	
 	public void clickToRegisterButton() {
 		waitForElementClickable(driver, RegisterPageUI.REGISTER_BUTTON);
 		clickToElement(driver, RegisterPageUI.REGISTER_BUTTON);
@@ -45,22 +49,22 @@ public class RegisterPageObject extends BasePage{
 
 	public void inputToLastNameTextBox(String lastName) {
 		waitForAllElementsVisible(driver, RegisterPageUI.LAST_NAME_TEXTBOX);
-		sendkeyToElement(driver, RegisterPageUI.FIRST_NAME_TEXTBOX, lastName);
+		sendkeyToElement(driver, RegisterPageUI.LAST_NAME_TEXTBOX, lastName);
 	}
 
 	public void inputToEmailTextBox(String email) {
 		waitForAllElementsVisible(driver, RegisterPageUI.EMAIL_TEXTBOX);
-		sendkeyToElement(driver, RegisterPageUI.FIRST_NAME_TEXTBOX, email);
+		sendkeyToElement(driver, RegisterPageUI.EMAIL_TEXTBOX, email);
 	}
 
 	public void inputToPasswordTextBox(String password) {
 		waitForAllElementsVisible(driver, RegisterPageUI.PASSWORD_TEXTBOX);
-		sendkeyToElement(driver, RegisterPageUI.FIRST_NAME_TEXTBOX, password);
+		sendkeyToElement(driver, RegisterPageUI.PASSWORD_TEXTBOX, password);
 	}
 
 	public void inputToConfirmPasswordTextBox(String confirmPassword) {
 		waitForAllElementsVisible(driver, RegisterPageUI.CONFIRM_PASSWORD_TEXTBOX);
-		sendkeyToElement(driver, RegisterPageUI.FIRST_NAME_TEXTBOX, confirmPassword);		
+		sendkeyToElement(driver, RegisterPageUI.CONFIRM_PASSWORD_TEXTBOX, confirmPassword);		
 	}
 
 	public String getErrorExistingEmailMessage() {
