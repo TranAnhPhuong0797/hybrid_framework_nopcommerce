@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 import pageObject.HomePageObject;
 import pageObject.RegisterPageObject;
 
-public class Level_03_User_01_Register_Login_PageObject{
+public class Level_03_User_01_Register_PageObject{
 	private WebDriver driver;
 	private String projectpath = System.getProperty("user.dir");
 	private String emailAddress, firstname, lastname, password;

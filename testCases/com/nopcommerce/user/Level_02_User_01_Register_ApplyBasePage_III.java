@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 import common.BasePage;
 
-public class Level_02_User_01_Register_Login_ApplyBasePage_III extends BasePage {
+public class Level_02_User_01_Register_ApplyBasePage_III extends BasePage {
 	WebDriver driver;
 	String projectpath = System.getProperty("user.dir");
 	String emailAddress;
