@@ -5,18 +5,18 @@
 	<test name="Run on Firefox">
 		<parameter name="browser" value="firefox"></parameter>
 		<classes>
-			<class name="com.nopcommerce.user.Level_04_Multiple_Browsers_Login" />
+			<class name="com.nopcommerce.user.Level_05_Register_PageFactory" />
 		</classes>
 	</test>
 	
-		<test name="Run on Chrome">
+	<test name="Run on Chrome">
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
 			<class name="com.nopcommerce.user.Level_04_Multiple_Browsers_Login" />
 		</classes>
 	</test>
 	
-		<test name="Run on Edge">
+	<test name="Run on Edge">
 		<parameter name="browser" value="edge"></parameter>
 		<classes>
 			<class name="com.nopcommerce.user.Level_04_Multiple_Browsers_Login" />
