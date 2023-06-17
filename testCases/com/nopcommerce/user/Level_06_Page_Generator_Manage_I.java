@@ -14,7 +14,7 @@ import pageObject.HomePageObject;
 import pageObject.LoginPageObject;
 import pageObject.RegisterPageObject;
 
-public class Level_04_Multiple_Browsers_Login extends BaseTest{
+public class Level_06_Page_Generator_Manage_I extends BaseTest{
 	private WebDriver driver;
 	private String emailAddress, invalidEmail, emailNotFound, firstname, lastname, validPassword, incorrectPassword;
 
@@ -26,8 +26,9 @@ public class Level_04_Multiple_Browsers_Login extends BaseTest{
 	@BeforeClass
 	public void beforeClass(String browserName) {
 		driver = getBrowserName(browserName);
-		
-		homePage = new HomePageObject(driver);		
+		homePage = new HomePageObject(driver);
+		registerPage = new RegisterPageObject(driver);
+		loginPage = new LoginPageObject(driver);
 		
 		firstname = "Nguyen";
 		lastname = "Van A";
@@ -40,9 +41,7 @@ public class Level_04_Multiple_Browsers_Login extends BaseTest{
 		//Preconditions
 		System.out.println("Preconditions - Step 1: Click to register Link");
 		homePage.clickToRegisterLink();
-		registerPage = new RegisterPageObject(driver);
-		loginPage = new LoginPageObject(driver);
-		
+
 		System.out.println("Preconditions - Step 2: Input to required fields");
 		registerPage.inputToFirstNameTextBox(firstname);
 		registerPage.inputToLastNameTextBox(lastname);

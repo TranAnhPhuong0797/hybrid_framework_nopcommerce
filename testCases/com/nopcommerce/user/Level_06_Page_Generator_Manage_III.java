@@ -12,9 +12,11 @@ import org.testng.annotations.Test;
 import common.BaseTest;
 import pageObject.HomePageObject;
 import pageObject.LoginPageObject;
+import pageObject.MyAccountPageObject;
+import pageObject.PageGeneratorManager;
 import pageObject.RegisterPageObject;
 
-public class Level_04_Multiple_Browsers_Login extends BaseTest{
+public class Level_06_Page_Generator_Manage_III extends BaseTest{
 	private WebDriver driver;
 	private String emailAddress, invalidEmail, emailNotFound, firstname, lastname, validPassword, incorrectPassword;
 
@@ -26,8 +28,7 @@ public class Level_04_Multiple_Browsers_Login extends BaseTest{
 	@BeforeClass
 	public void beforeClass(String browserName) {
 		driver = getBrowserName(browserName);
-		
-		homePage = new HomePageObject(driver);		
+		homePage = PageGeneratorManager.getHomePage(driver);
 		
 		firstname = "Nguyen";
 		lastname = "Van A";
@@ -39,9 +40,7 @@ public class Level_04_Multiple_Browsers_Login extends BaseTest{
 		
 		//Preconditions
 		System.out.println("Preconditions - Step 1: Click to register Link");
-		homePage.clickToRegisterLink();
-		registerPage = new RegisterPageObject(driver);
-		loginPage = new LoginPageObject(driver);
+		registerPage = homePage.clickToRegisterLink();
 		
 		System.out.println("Preconditions - Step 2: Input to required fields");
 		registerPage.inputToFirstNameTextBox(firstname);
@@ -57,16 +56,16 @@ public class Level_04_Multiple_Browsers_Login extends BaseTest{
 		Assert.assertEquals(registerPage.getRegisterSuccessMessage(), "Your registration completed");
 		
 		System.out.println("Preconditions - Step 5: Click to Register link");
-		homePage.clickToRegisterLink();
+		registerPage = homePage.clickToRegisterLink();
 	}
 
 	@Test
 	public void Login_01_Login_With_EmptyData() {
 		System.out.println("TC-01 - Step 1: Click to login link");
-		homePage.clickToLoginLink();
+		loginPage = homePage.clickToLoginLink();
 		
 		System.out.println("TC-01 - Step 2: Click to login button");
-		loginPage.clickToLoginButton();
+		homePage = loginPage.clickToLoginButton();
 		
 		System.out.println("TC-01 - Step 3: Verify error message");
 		Assert.assertEquals(loginPage.getErrorMessageAtEmailTextbox(), "Please enter your email");
@@ -75,13 +74,13 @@ public class Level_04_Multiple_Browsers_Login extends BaseTest{
 	@Test
 	public void Login_02_Login_With_InvalidEmail() {
 		System.out.println("TC-02 - Step 1: Click to login link");
-		homePage.clickToLoginLink();
+		loginPage = homePage.clickToLoginLink();
 		
 		System.out.println("TC-02 - Step 2: Input invalid email");
 		loginPage.inputEmailTextBox(invalidEmail);
 		
 		System.out.println("TC-02 - Step 3: Click to login button");
-		loginPage.clickToLoginButton();
+		homePage = loginPage.clickToLoginButton();
 		
 		System.out.println("TC-02 - Step 4: Verify error message");
 		Assert.assertEquals(loginPage.getErrorMessageAtEmailTextbox(), "Wrong email");
@@ -90,13 +89,13 @@ public class Level_04_Multiple_Browsers_Login extends BaseTest{
 	@Test
 	public void Login_03_Login_With_Email_Not_Register() {
 		System.out.println("TC-03 - Step 1: Click to login link");
-		homePage.clickToLoginLink();	
+		loginPage = homePage.clickToLoginLink();	
 		
 		System.out.println("TC-03 - Step 2: Input email not found");
 		loginPage.inputEmailTextBox(emailNotFound);
 		
 		System.out.println("TC-03 - Step 3: Click to login button");
-		loginPage.clickToLoginButton();
+		homePage = loginPage.clickToLoginButton();
 		
 		System.out.println("TC-03 - Step 4: Verify error message");
 		Assert.assertEquals(loginPage.getErrorMessageUnsuccessgfull(), "Login was unsuccessful. Please correct the errors and try again.\nNo customer account found");
@@ -105,7 +104,7 @@ public class Level_04_Multiple_Browsers_Login extends BaseTest{
 	@Test
 	public void Login_04_Login_With_Email_Register_Password_Empty() {
 		System.out.println("TC-04 - Step 1: Click to login link");
-		homePage.clickToLoginLink();
+		loginPage = homePage.clickToLoginLink();
 		
 		System.out.println("TC-04 - Step 2: Input email");
 		loginPage.inputEmailTextBox(emailAddress);
@@ -115,7 +114,7 @@ public class Level_04_Multiple_Browsers_Login extends BaseTest{
 		loginPage.inputPasswordTextbox("");
 		
 		System.out.println("TC-04 - Step 3: Click to login button");
-		loginPage.clickToLoginButton();
+		homePage = loginPage.clickToLoginButton();
 		
 		System.out.println("TC-04 - Step 4: Verify error message");
 		Assert.assertEquals(loginPage.getErrorMessageUnsuccessgfull(), "Login was unsuccessful. Please correct the errors and try again.\nThe credentials provided are incorrect");
@@ -124,7 +123,7 @@ public class Level_04_Multiple_Browsers_Login extends BaseTest{
 	@Test
 	public void Login_05_Login_With_Email_Register_Password_Invalid() {
 		System.out.println("TC-05 - Step 1: Click to login link");
-		homePage.clickToLoginLink();
+		loginPage = homePage.clickToLoginLink();
 		
 		System.out.println("TC-05 - Step 2: Input email");
 		loginPage.inputEmailTextBox(emailAddress);
@@ -133,7 +132,7 @@ public class Level_04_Multiple_Browsers_Login extends BaseTest{
 		loginPage.inputPasswordTextbox(incorrectPassword);
 
 		System.out.println("TC-05 - Step 4: Click to login button");
-		loginPage.clickToLoginButton();
+		homePage = loginPage.clickToLoginButton();
 		
 		System.out.println("TC-05 - Step 5: Verify error message");
 		Assert.assertEquals(loginPage.getErrorMessageUnsuccessgfull(), "Login was unsuccessful. Please correct the errors and try again.\nThe credentials provided are incorrect");
@@ -142,7 +141,7 @@ public class Level_04_Multiple_Browsers_Login extends BaseTest{
 	@Test
 	public void Login_06_Login_With_Email_Register_Password_Valid() {
 		System.out.println("TC-06 - Step 1: Click to login link");
-		homePage.clickToLoginLink();
+		loginPage = homePage.clickToLoginLink();
 		
 		System.out.println("TC-06 - Step 2: Input email");
 		loginPage.inputEmailTextBox(emailAddress);
@@ -151,13 +150,14 @@ public class Level_04_Multiple_Browsers_Login extends BaseTest{
 		loginPage.inputPasswordTextbox(validPassword);
 		
 		System.out.println("TC-06 - Step 4: Click to login button");
-		loginPage.clickToLoginButton();
+		homePage = loginPage.clickToLoginButton();
 		
-		
-		homePage = new HomePageObject(driver);
 		
 		System.out.println("TC-06 - Step 5: Verify login success");
 		Assert.assertTrue(homePage.isMyAccountLinkDisplayed());
+		
+		homePage.clickToMyAccountLink();
+		
 	}
 	
 	
