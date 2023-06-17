@@ -10,8 +10,8 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import common.BaseTest;
-import pageObject.HomePageObject;
-import pageObject.RegisterPageObject;
+import pageObject.nopcommerce.HomePageObject;
+import pageObject.nopcommerce.RegisterPageObject;
 
 public class Level_04_Multiple_Browsers_Register extends BaseTest {
 	private WebDriver driverTestClass;

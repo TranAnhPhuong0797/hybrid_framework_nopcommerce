@@ -10,8 +10,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import pageObject.HomePageObject;
-import pageObject.RegisterPageObject;
+import pageObject.nopcommerce.HomePageObject;
+import pageObject.nopcommerce.RegisterPageObject;
 
 public class Level_03_User_01_Register_PageObject{
 	private WebDriver driver;

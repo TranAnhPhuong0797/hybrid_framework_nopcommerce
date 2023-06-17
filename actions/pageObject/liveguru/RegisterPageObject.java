@@ -1,0 +1,54 @@
+package pageObject.liveguru;
+
+import org.openqa.selenium.WebDriver;
+
+import common.BasePage;
+import pageUI.liveguru.RegisterPageUI;
+
+
+public class RegisterPageObject extends BasePage{
+	private WebDriver driver;
+	
+	public RegisterPageObject(WebDriver driver) {
+		this.driver = driver;
+	}
+
+	public void inputToFirstNameTextBox(String firstName) {
+		waitForElementVisible(driver, RegisterPageUI.FIRST_NAME_TEXTBOX);
+		sendkeyToElement(driver, RegisterPageUI.FIRST_NAME_TEXTBOX, firstName);
+	}
+
+	public void inputToLastNameTextBox(String lastName) {
+		waitForElementVisible(driver, RegisterPageUI.LAST_NAME_TEXTBOX);
+		sendkeyToElement(driver, RegisterPageUI.LAST_NAME_TEXTBOX, lastName);
+	}
+
+	public void inputToEmailTextBox(String email) {
+		waitForElementVisible(driver, RegisterPageUI.EMAIL_TEXTBOX);
+		sendkeyToElement(driver, RegisterPageUI.EMAIL_TEXTBOX, email);
+	}
+
+	public void inputToPasswordTextBox(String password) {
+		waitForElementVisible(driver, RegisterPageUI.PASSWORD_TEXTBOX);
+		sendkeyToElement(driver, RegisterPageUI.PASSWORD_TEXTBOX, password);
+	}
+
+	public void inputToConfirmPasswordTextBox(String confirmPassword) {
+		waitForElementVisible(driver, RegisterPageUI.CONFIRM_PASSWORD_TEXTBOX);
+		sendkeyToElement(driver, RegisterPageUI.CONFIRM_PASSWORD_TEXTBOX, confirmPassword);
+	}
+
+	public void clickToRegisterButton() {
+		waitForElementClickable(driver, RegisterPageUI.REGISTER_BUTTON);
+		clickToElement(driver, RegisterPageUI.REGISTER_BUTTON);
+	}
+
+	public String getRegisterSuccessMessage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	
+	
+}

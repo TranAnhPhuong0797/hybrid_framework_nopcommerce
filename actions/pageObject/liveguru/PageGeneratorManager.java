@@ -1,4 +1,4 @@
-package pageObject;
+package pageObject.liveguru;
 
 import org.openqa.selenium.WebDriver;
 
@@ -17,7 +17,7 @@ public class PageGeneratorManager {
 		return new RegisterPageObject(driver);
 	}
 	
-	public static MyAccountPageObject getMyAccountPage(WebDriver driver) {	
-		return new MyAccountPageObject(driver);
-	}
+//	public static MyAccountPageObject getMyAccountPage(WebDriver driver) {	
+//		return new MyAccountPageObject(driver);
+//	}
 }

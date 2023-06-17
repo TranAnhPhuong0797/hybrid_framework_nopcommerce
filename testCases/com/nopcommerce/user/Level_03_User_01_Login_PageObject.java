@@ -10,9 +10,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import pageObject.HomePageObject;
-import pageObject.LoginPageObject;
-import pageObject.RegisterPageObject;
+import pageObject.nopcommerce.HomePageObject;
+import pageObject.nopcommerce.LoginPageObject;
+import pageObject.nopcommerce.RegisterPageObject;
 
 public class Level_03_User_01_Login_PageObject{
 	private WebDriver driver;
