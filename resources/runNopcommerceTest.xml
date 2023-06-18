@@ -5,19 +5,8 @@
 	<test name="Run on Firefox">
 		<parameter name="browser" value="firefox"></parameter>
 		<classes>
-			<class name="com.nopcommerce.user.Level_06_Page_Generator_Manage_III" />
+			<class name="com.nopcommerce.user.Level_07_Switch_Page" />
 		</classes>
 	</test>
-	<test name="Run on Chrome">
-		<parameter name="browser" value="chrome"></parameter>
-		<classes>
-			<class name="com.nopcommerce.user.Level_06_Page_Generator_Manage_II" />
-		</classes>
-	</test>
-	<test name="Run on Edge">
-		<parameter name="browser" value="edge"></parameter>
-		<classes>
-			<class name="com.nopcommerce.user.Level_06_Page_Generator_Manage_I" />
-		</classes>
-	</test>
+
 </suite> <!-- Suite -->
