@@ -10,23 +10,23 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import common.BaseTest;
-import pageObject.nopcommerce.portal.HomePageObject;
-import pageObject.nopcommerce.portal.RegisterPageObject;
+import pageObject.nopcommerce.portal.UserHomePageObject;
+import pageObject.nopcommerce.portal.UserRegisterPageObject;
 
 public class Level_04_Multiple_Browsers_Register extends BaseTest {
 	private WebDriver driverTestClass;
 	private String emailAddress, firstname, lastname, password;
 
-	private HomePageObject homePage;
-	private RegisterPageObject registerPage;
+	private UserHomePageObject homePage;
+	private UserRegisterPageObject registerPage;
 
 	@Parameters("browser")
 	@BeforeClass
 	public void beforeClass(String browserName) {
 		driverTestClass = getBrowserName(browserName);
 		
-		homePage = new HomePageObject(driverTestClass);
-		registerPage = new RegisterPageObject(driverTestClass);
+		homePage = new UserHomePageObject(driverTestClass);
+		registerPage = new UserRegisterPageObject(driverTestClass);
 
 		firstname = "Nguyen";
 		lastname = "Van A";

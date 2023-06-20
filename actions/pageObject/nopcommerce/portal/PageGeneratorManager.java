@@ -2,50 +2,61 @@ package pageObject.nopcommerce.portal;
 
 import org.openqa.selenium.WebDriver;
 
+import pageObject.nopcommerce.admin.AdminDashboardPageObject;
+import pageObject.nopcommerce.admin.AdminLoginPageObject;
+
 
 public class PageGeneratorManager {
 
-	public static HomePageObject getHomePage(WebDriver driver) {
-		return new HomePageObject(driver);
+	public static UserHomePageObject getUserHomePage(WebDriver driver) {
+		return new UserHomePageObject(driver);
 	}
 
-	public static LoginPageObject getLoginPage(WebDriver driver) {
-		return new LoginPageObject(driver);
+	public static UserLoginPageObject getUserLoginPage(WebDriver driver) {
+		return new UserLoginPageObject(driver);
 	}
 
-	public static RegisterPageObject getRegistorPage(WebDriver driver) {	
-		return new RegisterPageObject(driver);
+	public static UserRegisterPageObject getUserRegistorPage(WebDriver driver) {	
+		return new UserRegisterPageObject(driver);
 	}
 	
-	public static CustomerInforPageObject getCustomerInforPage(WebDriver driver) {	
-		return new CustomerInforPageObject(driver);
+	public static UserCustomerInforPageObject getUserCustomerInforPage(WebDriver driver) {	
+		return new UserCustomerInforPageObject(driver);
 	}
 	
-	public static AddressPageObject getAddressPage(WebDriver driver) {
-		return new AddressPageObject(driver);
+	public static UserAddressPageObject getUserAddressPage(WebDriver driver) {
+		return new UserAddressPageObject(driver);
 	}
 	
-	public static OrderPageObject getOrderPage(WebDriver driver) {
-		return new OrderPageObject(driver);
+	public static UserOrderPageObject getUserOrderPage(WebDriver driver) {
+		return new UserOrderPageObject(driver);
 	}
 	
-	public static DownloadProductsPageObject getDownloadProductsPage(WebDriver driver) {
-		return new DownloadProductsPageObject(driver);
+	public static UserDownloadProductsPageObject getUserDownloadProductsPage(WebDriver driver) {
+		return new UserDownloadProductsPageObject(driver);
 	}
 	
-	public static BackInStockSubscriptionsPageObject getBackInStockSubscriptionsPage(WebDriver driver) {
-		return new BackInStockSubscriptionsPageObject(driver);
+	public static UserBackInStockSubscriptionsPageObject getUserBackInStockSubscriptionsPage(WebDriver driver) {
+		return new UserBackInStockSubscriptionsPageObject(driver);
 	}
 	
-	public static RewardPointPageObject getRewardPointPage(WebDriver driver) {
-		return new RewardPointPageObject(driver);
+	public static UserRewardPointPageObject getUserRewardPointPage(WebDriver driver) {
+		return new UserRewardPointPageObject(driver);
 	}
 	
-	public static ChangePasswordPageObject getChangePasswordPage(WebDriver driver) {
-		return new ChangePasswordPageObject(driver);
+	public static UserChangePasswordPageObject getUserChangePasswordPage(WebDriver driver) {
+		return new UserChangePasswordPageObject(driver);
 	}
 	
-	public static MyProductReviewPageObject getMyProductReviewPage(WebDriver driver) {
-		return new MyProductReviewPageObject(driver);
+	public static UserMyProductReviewPageObject getUserMyProductReviewPage(WebDriver driver) {
+		return new UserMyProductReviewPageObject(driver);
+	}
+	
+	public static AdminLoginPageObject getAdminLoginPage(WebDriver driver) {
+		return new AdminLoginPageObject(driver);
+	}
+	
+	public static AdminDashboardPageObject getAdminDashboardPage(WebDriver driver) {
+		return new AdminDashboardPageObject(driver);
 	}
 }

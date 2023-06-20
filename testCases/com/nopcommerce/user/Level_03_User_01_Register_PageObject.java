@@ -10,16 +10,16 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import pageObject.nopcommerce.portal.HomePageObject;
-import pageObject.nopcommerce.portal.RegisterPageObject;
+import pageObject.nopcommerce.portal.UserHomePageObject;
+import pageObject.nopcommerce.portal.UserRegisterPageObject;
 
 public class Level_03_User_01_Register_PageObject{
 	private WebDriver driver;
 	private String projectpath = System.getProperty("user.dir");
 	private String emailAddress, firstname, lastname, password;
 
-	private HomePageObject homePage;
-	private RegisterPageObject registerPage;
+	private UserHomePageObject homePage;
+	private UserRegisterPageObject registerPage;
 	
 	@BeforeClass
 	public void beforeClass() {
@@ -28,8 +28,8 @@ public class Level_03_User_01_Register_PageObject{
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.get("https://demo.nopcommerce.com/");
 		
-		homePage = new HomePageObject(driver);
-		registerPage = new RegisterPageObject(driver);
+		homePage = new UserHomePageObject(driver);
+		registerPage = new UserRegisterPageObject(driver);
 		
 		firstname = "Nguyen";
 		lastname = "Van A";

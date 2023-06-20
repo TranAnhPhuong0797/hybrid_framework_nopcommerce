@@ -3,29 +3,29 @@ package pageObject.nopcommerce.portal;
 import org.openqa.selenium.WebDriver;
 
 import common.BasePage;
-import pageUI.nopcommerce.HomePageUI;
+import pageUI.nopcommerce.User.HomePageUI;
 
-public class HomePageObject extends BasePage{
+public class UserHomePageObject extends BasePage{
 	private WebDriver driver;
 	
-	public HomePageObject(WebDriver driver) {
+	public UserHomePageObject(WebDriver driver) {
 		this.driver = driver;
 	}
 	
-	public RegisterPageObject clickToRegisterLink() {
+	public UserRegisterPageObject clickToRegisterLink() {
 		waitForElementClickable(driver, HomePageUI.REGISTER_LINK);
 		clickToElement(driver, HomePageUI.REGISTER_LINK);
 		// 2
 		//return new RegisterPageObject(driver);
 		
 		// 3
-		return PageGeneratorManager.getRegistorPage(driver);
+		return PageGeneratorManager.getUserRegistorPage(driver);
 	}
 
-	public LoginPageObject openLoginPage() {
+	public UserLoginPageObject openLoginPage() {
 		waitForElementClickable(driver, HomePageUI.LOGIN_LINK);
 		clickToElement(driver, HomePageUI.LOGIN_LINK);		
-		return PageGeneratorManager.getLoginPage(driver);
+		return PageGeneratorManager.getUserLoginPage(driver);
 	}
 
 	public boolean isMyAccountLinkDisplayed() {
@@ -33,9 +33,9 @@ public class HomePageObject extends BasePage{
 		return isElementDisplayed(driver, HomePageUI.MYACCOUNT_LINK);
 	}
 
-	public CustomerInforPageObject clickToMyAccountLink() {
+	public UserCustomerInforPageObject clickToMyAccountLink() {
 		waitForElementClickable(driver, HomePageUI.MYACCOUNT_LINK);
 		clickToElement(driver, HomePageUI.MYACCOUNT_LINK);
-		return PageGeneratorManager.getCustomerInforPage(driver);
+		return PageGeneratorManager.getUserCustomerInforPage(driver);
 	}
 }

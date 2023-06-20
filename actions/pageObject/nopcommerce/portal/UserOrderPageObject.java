@@ -4,10 +4,10 @@ import org.openqa.selenium.WebDriver;
 
 import common.BasePage;
 
-public class MyProductReviewPageObject extends BasePage{
+public class UserOrderPageObject extends BasePage{
 	WebDriver driver;
 	
-	public MyProductReviewPageObject(WebDriver driver) {
+	public UserOrderPageObject(WebDriver driver) {
 		this.driver = driver;
 	}
 }

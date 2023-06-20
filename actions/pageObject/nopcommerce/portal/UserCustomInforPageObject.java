@@ -1,5 +1,5 @@
 package pageObject.nopcommerce.portal;
 
-public class CustomInforPageObject {
+public class UserCustomInforPageObject {
 
 }

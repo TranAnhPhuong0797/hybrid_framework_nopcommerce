@@ -4,10 +4,10 @@ import org.openqa.selenium.WebDriver;
 
 import common.BasePage;
 
-public class BackInStockSubscriptionsPageObject extends BasePage{
+public class UserBackInStockSubscriptionsPageObject extends BasePage{
 	WebDriver driver;
 	
-	public BackInStockSubscriptionsPageObject(WebDriver driver) {
+	public UserBackInStockSubscriptionsPageObject(WebDriver driver) {
 		this.driver = driver;
 	}
 }

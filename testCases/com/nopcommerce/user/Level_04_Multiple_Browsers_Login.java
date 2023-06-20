@@ -10,24 +10,24 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import common.BaseTest;
-import pageObject.nopcommerce.portal.HomePageObject;
-import pageObject.nopcommerce.portal.LoginPageObject;
-import pageObject.nopcommerce.portal.RegisterPageObject;
+import pageObject.nopcommerce.portal.UserHomePageObject;
+import pageObject.nopcommerce.portal.UserLoginPageObject;
+import pageObject.nopcommerce.portal.UserRegisterPageObject;
 
 public class Level_04_Multiple_Browsers_Login extends BaseTest{
 	private WebDriver driver;
 	private String emailAddress, invalidEmail, emailNotFound, firstname, lastname, validPassword, incorrectPassword;
 
-	private HomePageObject homePage;
-	private RegisterPageObject registerPage;
-	private LoginPageObject loginPage;
+	private UserHomePageObject homePage;
+	private UserRegisterPageObject registerPage;
+	private UserLoginPageObject loginPage;
 	
 	@Parameters("browser")
 	@BeforeClass
 	public void beforeClass(String browserName) {
 		driver = getBrowserName(browserName);
 		
-		homePage = new HomePageObject(driver);		
+		homePage = new UserHomePageObject(driver);		
 		
 		firstname = "Nguyen";
 		lastname = "Van A";
@@ -40,8 +40,8 @@ public class Level_04_Multiple_Browsers_Login extends BaseTest{
 		//Preconditions
 		System.out.println("Preconditions - Step 1: Click to register Link");
 		homePage.clickToRegisterLink();
-		registerPage = new RegisterPageObject(driver);
-		loginPage = new LoginPageObject(driver);
+		registerPage = new UserRegisterPageObject(driver);
+		loginPage = new UserLoginPageObject(driver);
 		
 		System.out.println("Preconditions - Step 2: Input to required fields");
 		registerPage.inputToFirstNameTextBox(firstname);
@@ -154,7 +154,7 @@ public class Level_04_Multiple_Browsers_Login extends BaseTest{
 		loginPage.clickLoginButton();
 		
 		
-		homePage = new HomePageObject(driver);
+		homePage = new UserHomePageObject(driver);
 		
 		System.out.println("TC-06 - Step 5: Verify login success");
 		Assert.assertTrue(homePage.isMyAccountLinkDisplayed());

@@ -4,10 +4,10 @@ import org.openqa.selenium.WebDriver;
 
 import common.BasePage;
 
-public class OrderPageObject extends BasePage{
+public class UserChangePasswordPageObject extends BasePage{
 	WebDriver driver;
 	
-	public OrderPageObject(WebDriver driver) {
+	public UserChangePasswordPageObject(WebDriver driver) {
 		this.driver = driver;
 	}
 }
