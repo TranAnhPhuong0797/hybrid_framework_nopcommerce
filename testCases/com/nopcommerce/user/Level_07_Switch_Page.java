@@ -10,18 +10,18 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import common.BaseTest;
-import pageObject.nopcommerce.HomePageObject;
-import pageObject.nopcommerce.LoginPageObject;
-import pageObject.nopcommerce.MyProductReviewPageObject;
-import pageObject.nopcommerce.OrderPageObject;
-import pageObject.nopcommerce.AddressPageObject;
-import pageObject.nopcommerce.BackInStockSubscriptionsPageObject;
-import pageObject.nopcommerce.ChangePasswordPageObject;
-import pageObject.nopcommerce.CustomerInforPageObject;
-import pageObject.nopcommerce.DownloadProductsPageObject;
-import pageObject.nopcommerce.PageGeneratorManager;
-import pageObject.nopcommerce.RegisterPageObject;
-import pageObject.nopcommerce.RewardPointPageObject;
+import pageObject.nopcommerce.portal.AddressPageObject;
+import pageObject.nopcommerce.portal.BackInStockSubscriptionsPageObject;
+import pageObject.nopcommerce.portal.ChangePasswordPageObject;
+import pageObject.nopcommerce.portal.CustomerInforPageObject;
+import pageObject.nopcommerce.portal.DownloadProductsPageObject;
+import pageObject.nopcommerce.portal.HomePageObject;
+import pageObject.nopcommerce.portal.LoginPageObject;
+import pageObject.nopcommerce.portal.MyProductReviewPageObject;
+import pageObject.nopcommerce.portal.OrderPageObject;
+import pageObject.nopcommerce.portal.PageGeneratorManager;
+import pageObject.nopcommerce.portal.RegisterPageObject;
+import pageObject.nopcommerce.portal.RewardPointPageObject;
 
 public class Level_07_Switch_Page extends BaseTest {
 	private WebDriver driver;
@@ -76,7 +76,7 @@ public class Level_07_Switch_Page extends BaseTest {
 	@Test
 	public void User_02_Login() {
 		System.out.println("TC-02 - Step 1: Click to login link");
-		loginPage = homePage.clickToLoginLink();
+		loginPage = homePage.openLoginPage();
 
 		System.out.println("TC-02 - Step 2: Input email");
 		loginPage.inputEmailTextBox(emailAddress);
@@ -85,7 +85,7 @@ public class Level_07_Switch_Page extends BaseTest {
 		loginPage.inputPasswordTextbox(validPassword);
 
 		System.out.println("TC-02 - Step 4: Click to login button");
-		homePage = loginPage.clickToLoginButton();
+		homePage = loginPage.clickLoginButton();
 
 		System.out.println("TC-02 - Step 5: Verify login success");
 		Assert.assertTrue(homePage.isMyAccountLinkDisplayed());

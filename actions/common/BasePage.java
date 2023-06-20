@@ -16,15 +16,17 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import pageObject.nopcommerce.AddressPageObject;
-import pageObject.nopcommerce.BackInStockSubscriptionsPageObject;
-import pageObject.nopcommerce.ChangePasswordPageObject;
-import pageObject.nopcommerce.CustomerInforPageObject;
-import pageObject.nopcommerce.DownloadProductsPageObject;
-import pageObject.nopcommerce.MyProductReviewPageObject;
-import pageObject.nopcommerce.OrderPageObject;
-import pageObject.nopcommerce.PageGeneratorManager;
-import pageObject.nopcommerce.RewardPointPageObject;
+import pageObject.liveguru.HomePageObject;
+import pageObject.liveguru.LoginPageObject;
+import pageObject.nopcommerce.portal.AddressPageObject;
+import pageObject.nopcommerce.portal.BackInStockSubscriptionsPageObject;
+import pageObject.nopcommerce.portal.ChangePasswordPageObject;
+import pageObject.nopcommerce.portal.CustomerInforPageObject;
+import pageObject.nopcommerce.portal.DownloadProductsPageObject;
+import pageObject.nopcommerce.portal.MyProductReviewPageObject;
+import pageObject.nopcommerce.portal.OrderPageObject;
+import pageObject.nopcommerce.portal.PageGeneratorManager;
+import pageObject.nopcommerce.portal.RewardPointPageObject;
 import pageUI.nopcommerce.BasePageUI;
 
 public class BasePage {
@@ -36,7 +38,7 @@ public class BasePage {
 		return new BasePage();
 	}
 	
-	protected void openPageURL(WebDriver driver, String pageURL) {
+	public void openPageURL(WebDriver driver, String pageURL) {
 		driver.get(pageURL);
 	}
 
@@ -406,6 +408,7 @@ public class BasePage {
 		clickToElement(driver, BasePageUI.MY_PRODUCT_REVIEWS_LINK);
 		return PageGeneratorManager.getMyProductReviewPage(driver);
 	}
+	
 	
 	protected void sleepInSecond(long time) {
 		try {

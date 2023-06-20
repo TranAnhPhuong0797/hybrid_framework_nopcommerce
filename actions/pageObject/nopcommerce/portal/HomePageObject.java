@@ -1,4 +1,4 @@
-package pageObject.nopcommerce;
+package pageObject.nopcommerce.portal;
 
 import org.openqa.selenium.WebDriver;
 
@@ -22,7 +22,7 @@ public class HomePageObject extends BasePage{
 		return PageGeneratorManager.getRegistorPage(driver);
 	}
 
-	public LoginPageObject clickToLoginLink() {
+	public LoginPageObject openLoginPage() {
 		waitForElementClickable(driver, HomePageUI.LOGIN_LINK);
 		clickToElement(driver, HomePageUI.LOGIN_LINK);		
 		return PageGeneratorManager.getLoginPage(driver);

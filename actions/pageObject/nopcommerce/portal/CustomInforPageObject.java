@@ -1,4 +1,4 @@
-package pageObject.nopcommerce;
+package pageObject.nopcommerce.portal;
 
 public class CustomInforPageObject {
 

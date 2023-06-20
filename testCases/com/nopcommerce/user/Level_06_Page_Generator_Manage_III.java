@@ -10,10 +10,10 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import common.BaseTest;
-import pageObject.nopcommerce.HomePageObject;
-import pageObject.nopcommerce.LoginPageObject;
-import pageObject.nopcommerce.PageGeneratorManager;
-import pageObject.nopcommerce.RegisterPageObject;
+import pageObject.nopcommerce.portal.HomePageObject;
+import pageObject.nopcommerce.portal.LoginPageObject;
+import pageObject.nopcommerce.portal.PageGeneratorManager;
+import pageObject.nopcommerce.portal.RegisterPageObject;
 
 public class Level_06_Page_Generator_Manage_III extends BaseTest{
 	private WebDriver driver;
@@ -61,10 +61,10 @@ public class Level_06_Page_Generator_Manage_III extends BaseTest{
 	@Test
 	public void Login_01_Login_With_EmptyData() {
 		System.out.println("TC-01 - Step 1: Click to login link");
-		loginPage = homePage.clickToLoginLink();
+		loginPage = homePage.openLoginPage();
 		
 		System.out.println("TC-01 - Step 2: Click to login button");
-		homePage = loginPage.clickToLoginButton();
+		homePage = loginPage.clickLoginButton();
 		
 		System.out.println("TC-01 - Step 3: Verify error message");
 		Assert.assertEquals(loginPage.getErrorMessageAtEmailTextbox(), "Please enter your email");
@@ -73,13 +73,13 @@ public class Level_06_Page_Generator_Manage_III extends BaseTest{
 	@Test
 	public void Login_02_Login_With_InvalidEmail() {
 		System.out.println("TC-02 - Step 1: Click to login link");
-		loginPage = homePage.clickToLoginLink();
+		loginPage = homePage.openLoginPage();
 		
 		System.out.println("TC-02 - Step 2: Input invalid email");
 		loginPage.inputEmailTextBox(invalidEmail);
 		
 		System.out.println("TC-02 - Step 3: Click to login button");
-		homePage = loginPage.clickToLoginButton();
+		homePage = loginPage.clickLoginButton();
 		
 		System.out.println("TC-02 - Step 4: Verify error message");
 		Assert.assertEquals(loginPage.getErrorMessageAtEmailTextbox(), "Wrong email");
@@ -88,13 +88,13 @@ public class Level_06_Page_Generator_Manage_III extends BaseTest{
 	@Test
 	public void Login_03_Login_With_Email_Not_Register() {
 		System.out.println("TC-03 - Step 1: Click to login link");
-		loginPage = homePage.clickToLoginLink();	
+		loginPage = homePage.openLoginPage();	
 		
 		System.out.println("TC-03 - Step 2: Input email not found");
 		loginPage.inputEmailTextBox(emailNotFound);
 		
 		System.out.println("TC-03 - Step 3: Click to login button");
-		homePage = loginPage.clickToLoginButton();
+		homePage = loginPage.clickLoginButton();
 		
 		System.out.println("TC-03 - Step 4: Verify error message");
 		Assert.assertEquals(loginPage.getErrorMessageUnsuccessgfull(), "Login was unsuccessful. Please correct the errors and try again.\nNo customer account found");
@@ -103,7 +103,7 @@ public class Level_06_Page_Generator_Manage_III extends BaseTest{
 	@Test
 	public void Login_04_Login_With_Email_Register_Password_Empty() {
 		System.out.println("TC-04 - Step 1: Click to login link");
-		loginPage = homePage.clickToLoginLink();
+		loginPage = homePage.openLoginPage();
 		
 		System.out.println("TC-04 - Step 2: Input email");
 		loginPage.inputEmailTextBox(emailAddress);
@@ -113,7 +113,7 @@ public class Level_06_Page_Generator_Manage_III extends BaseTest{
 		loginPage.inputPasswordTextbox("");
 		
 		System.out.println("TC-04 - Step 3: Click to login button");
-		homePage = loginPage.clickToLoginButton();
+		homePage = loginPage.clickLoginButton();
 		
 		System.out.println("TC-04 - Step 4: Verify error message");
 		Assert.assertEquals(loginPage.getErrorMessageUnsuccessgfull(), "Login was unsuccessful. Please correct the errors and try again.\nThe credentials provided are incorrect");
@@ -122,7 +122,7 @@ public class Level_06_Page_Generator_Manage_III extends BaseTest{
 	@Test
 	public void Login_05_Login_With_Email_Register_Password_Invalid() {
 		System.out.println("TC-05 - Step 1: Click to login link");
-		loginPage = homePage.clickToLoginLink();
+		loginPage = homePage.openLoginPage();
 		
 		System.out.println("TC-05 - Step 2: Input email");
 		loginPage.inputEmailTextBox(emailAddress);
@@ -131,7 +131,7 @@ public class Level_06_Page_Generator_Manage_III extends BaseTest{
 		loginPage.inputPasswordTextbox(incorrectPassword);
 
 		System.out.println("TC-05 - Step 4: Click to login button");
-		homePage = loginPage.clickToLoginButton();
+		homePage = loginPage.clickLoginButton();
 		
 		System.out.println("TC-05 - Step 5: Verify error message");
 		Assert.assertEquals(loginPage.getErrorMessageUnsuccessgfull(), "Login was unsuccessful. Please correct the errors and try again.\nThe credentials provided are incorrect");
@@ -140,7 +140,7 @@ public class Level_06_Page_Generator_Manage_III extends BaseTest{
 	@Test
 	public void Login_06_Login_With_Email_Register_Password_Valid() {
 		System.out.println("TC-06 - Step 1: Click to login link");
-		loginPage = homePage.clickToLoginLink();
+		loginPage = homePage.openLoginPage();
 		
 		System.out.println("TC-06 - Step 2: Input email");
 		loginPage.inputEmailTextBox(emailAddress);
@@ -149,7 +149,7 @@ public class Level_06_Page_Generator_Manage_III extends BaseTest{
 		loginPage.inputPasswordTextbox(validPassword);
 		
 		System.out.println("TC-06 - Step 4: Click to login button");
-		homePage = loginPage.clickToLoginButton();
+		homePage = loginPage.clickLoginButton();
 		
 		
 		System.out.println("TC-06 - Step 5: Verify login success");
