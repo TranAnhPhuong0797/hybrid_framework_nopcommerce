@@ -12,9 +12,10 @@ public class UserRegisterPageObject extends BasePage{
 		this.driver = driver;
 	}
 	
-	public void clickToRegisterButton() {
+	public UserHomePageObject clickToRegisterButton() {
 		waitForElementClickable(driver, RegisterPageUI.REGISTER_BUTTON);
 		clickToElement(driver, RegisterPageUI.REGISTER_BUTTON);
+		return PageGeneratorManager.getUserHomePage(driver);
 	}
 	
 	public String getErrorMessageAtFirstNameTextBox() {
@@ -80,5 +81,20 @@ public class UserRegisterPageObject extends BasePage{
 	public void clickToLogoutLink() {
 		waitForElementClickable(driver, RegisterPageUI.LOGOUT_LINK);
 		clickToElement(driver, RegisterPageUI.LOGOUT_LINK);	
+	}
+	
+	public void clicktoContinueButton() {
+		waitForElementClickable(driver, RegisterPageUI.CONTINUE_BUTTON);
+		clickToElement(driver, RegisterPageUI.CONTINUE_BUTTON);
+	}
+	
+	public UserHomePageObject registerNewUserAccount(String firstName, String lastName, String email, String password, String confirmPassword) {
+		
+		inputToFirstNameTextBox(firstName);
+		inputToLastNameTextBox(lastName);
+		inputToEmailTextBox(email);
+		inputToPasswordTextBox(confirmPassword);
+		inputToConfirmPasswordTextBox(confirmPassword);
+		return clickToRegisterButton();
 	}
 }
