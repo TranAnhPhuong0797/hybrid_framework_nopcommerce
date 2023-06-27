@@ -127,10 +127,6 @@ public class BasePage {
 	private List<WebElement> getListElements(WebDriver driver, String xpathLocator) {
 		return driver.findElements(By.xpath(xpathLocator));
 	}
-
-//	private By getByXpath(String xpathLocator) {
-//		return By.xpath(xpathLocator);
-//	}
 	
 	//LocatorType: id= / css= / name= / class= / xpath= 
 	//LocatorType: ID= / CSS= / NAME= / CLASS= / XPATH=
@@ -155,7 +151,7 @@ public class BasePage {
 	
 	//If locatorType = xpath => true, if locatorType != xpath => false
 	private String getDynamicXpath(String locatorType, String... dynamicValues) {
-		if (locatorType.startsWith("xpath=")) {
+		if (locatorType.startsWith("xpath=") || locatorType.startsWith("XPATH=") || locatorType.startsWith("Xpath=") || locatorType.startsWith("XPath=")) {
 			locatorType = String.format(locatorType, (Object[])dynamicValues);
 		}
 		return locatorType;
@@ -457,6 +453,45 @@ public class BasePage {
 	protected void waitForAllElementsInvisible(WebDriver driver, String xpathLocator) {
 		WebDriverWait explicitwait = new WebDriverWait(driver, longTimeout);
 		explicitwait.until(ExpectedConditions.invisibilityOfAllElements(getListElements(driver, xpathLocator)));
+	}
+	
+	public BasePage openPagesAtMyAccountByName (WebDriver driver, String pageName) {
+		waitForElementClickable(driver, BasePageUI.DYNAMIC_PAGES_AT_MYACCOUNT_AREA, pageName);
+		clickToElement(driver, BasePageUI.DYNAMIC_PAGES_AT_MYACCOUNT_AREA, pageName);
+		
+		switch (pageName) {
+		case "Customer info":
+			return PageGeneratorManager.getUserCustomerInforPage(driver);
+			
+		case "Addresses":
+			return PageGeneratorManager.getUserAddressPage(driver);
+			
+		case "Orders":
+			return PageGeneratorManager.getUserOrderPage(driver);
+			
+		case "Downloadable products":
+			return PageGeneratorManager.getUserDownloadProductsPage(driver);
+			
+		case "Back in stock subscriptions":
+			return PageGeneratorManager.getUserBackInStockSubscriptionsPage(driver);
+			
+		case "Reward points":
+			return PageGeneratorManager.getUserRewardPointPage(driver);
+			
+		case "Change password":
+			return PageGeneratorManager.getUserChangePasswordPage(driver);
+			
+		case "My product reviews":
+			return PageGeneratorManager.getUserMyProductReviewPage(driver);
+			
+		default:
+			throw new RuntimeException("Invalid page name at My Account area.");
+		}
+	}
+	
+	public void openPagesAtMyAccountByPageName (WebDriver driver, String pageName) {
+		waitForElementClickable(driver, BasePageUI.DYNAMIC_PAGES_AT_MYACCOUNT_AREA, pageName);
+		clickToElement(driver, BasePageUI.DYNAMIC_PAGES_AT_MYACCOUNT_AREA, pageName);
 	}
 	
 	public UserCustomerInforPageObject openCustomerInforPage(WebDriver driver) {

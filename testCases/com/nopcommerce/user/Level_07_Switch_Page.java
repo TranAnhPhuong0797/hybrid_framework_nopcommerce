@@ -99,7 +99,6 @@ public class Level_07_Switch_Page extends BaseTest {
 
 	@Test
 	public void User_04_Switch_Page() {
-		//
 		// Customer Infor => Address
 		System.out.println("TC-04 - Step 1: Switch to page Address");
 		addressPage = customerInforPage.openAddressPage(driver);
@@ -132,6 +131,18 @@ public class Level_07_Switch_Page extends BaseTest {
 		
 		// Change Password Page => Customer Infor Page
 		customerInforPage = changePasswordPage.openCustomerInforPage(driver);
+	}
+	
+	@Test
+	public void User_05_Switch_Dynamic_Page() {
+		// use function openPagesAtMyAccountByName (in case the system only have 10-20 pages)
+		rewardPointPage = (UserRewardPointPageObject) customerInforPage.openPagesAtMyAccountByName(driver, "Reward points");
+		
+		addressPage = (UserAddressPageObject) rewardPointPage.openPagesAtMyAccountByName(driver, "Addresses");
+		
+		// use function openPagesAtMyAccountByPageName (in case the system have more than 10-20 pages)
+		changePasswordPage.openPagesAtMyAccountByPageName(driver, "Change password");
+		addressPage = PageGeneratorManager.getUserAddressPage(driver);
 	}
 
 	public int fakeNumber() {
