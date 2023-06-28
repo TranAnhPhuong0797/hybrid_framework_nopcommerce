@@ -30,7 +30,7 @@ public class BaseTest {
 		}else {
 			throw new RuntimeException("Browser name invalid");
 		}
-		driverBaseTest.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driverBaseTest.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
 		driverBaseTest.get(GlobalConstants.PORTAL_PAGE_URL);
 		//driverBaseTest.get("http://live.techpanda.org/index.php/");
 		

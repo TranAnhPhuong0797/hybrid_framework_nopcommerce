@@ -32,7 +32,7 @@ import pageUI.nopcommerce.User.BasePageUI;
 public class BasePage {
 	// Open URL
 	// Common functions
-	private long longTimeout = 30;
+	private long longTimeout = GlobalConstants.LONG_TIMEOUT;
 	
 	public BasePage getBasePage(){
 		return new BasePage();
