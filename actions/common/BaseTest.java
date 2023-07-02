@@ -63,4 +63,23 @@ public class BaseTest {
 //		
 //		return driver;
 //	}
+	
+	protected WebDriver getBrowserName(String browserName, String apURL) {
+		if(browserName.equals("firefox")) {
+			WebDriverManager.firefoxdriver().setup();
+			driverBaseTest = new FirefoxDriver();
+		}else if (browserName.equals("chrome")) {
+			WebDriverManager.chromedriver().setup();
+			driverBaseTest = new ChromeDriver();
+		}else if (browserName.equals("edge")) {
+			WebDriverManager.edgedriver().setup();
+			driverBaseTest = new EdgeDriver();
+		}else {
+			throw new RuntimeException("Browser name invalid");
+		}
+		driverBaseTest.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
+		driverBaseTest.get(apURL);
+		return driverBaseTest;
+	}
+	
 }

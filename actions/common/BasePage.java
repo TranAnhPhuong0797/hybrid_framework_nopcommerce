@@ -1,5 +1,6 @@
 package common;
 
+import java.awt.RenderingHints.Key;
 import java.util.List;
 import java.util.Set;
 
@@ -7,6 +8,7 @@ import common.BasePage;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -59,7 +61,7 @@ public class BasePage {
 		;
 	}
 
-	protected void refreshToPage(WebDriver driver) {
+	public void refreshToPage(WebDriver driver) {
 		driver.navigate().refresh();
 	}
 
@@ -120,12 +122,12 @@ public class BasePage {
 		driver.switchTo().window(parentID);
 	}
 
-	private WebElement getWebElement(WebDriver driver, String locatorType) {
+	public WebElement getWebElement(WebDriver driver, String locatorType) {
 		return driver.findElement(getByLocator(locatorType));
 	}
 
-	private List<WebElement> getListElements(WebDriver driver, String xpathLocator) {
-		return driver.findElements(By.xpath(xpathLocator));
+	public List<WebElement> getListElements(WebDriver driver, String locatorType) {
+		return driver.findElements(getByLocator(locatorType));
 	}
 	
 	//LocatorType: id= / css= / name= / class= / xpath= 
@@ -298,6 +300,16 @@ public class BasePage {
 	protected void hoverMouseToElement(WebDriver driver, String locatorType) {
 		Actions action = new Actions(driver);
 		action.moveToElement(getWebElement(driver, locatorType)).perform();
+	}
+	
+	public void pressKeyToElement(WebDriver driver, String locatorType, Keys key) {
+		Actions action = new Actions(driver);
+		action.sendKeys(getWebElement(driver, locatorType), key).perform();
+	}
+	
+	public void pressKeyToElement(WebDriver driver, String locatorType, Keys key, String... dynamicValues) {
+		Actions action = new Actions(driver);
+		action.sendKeys(getWebElement(driver, getDynamicXpath(locatorType, dynamicValues)), key).perform();
 	}
 
 	protected String getInnerText(WebDriver driver) {
@@ -554,7 +566,7 @@ public class BasePage {
 		return PageGeneratorManager.getAdminLoginPage(driver);
 	}
 	
-	protected void sleepInSecond(long time) {
+	public void sleepInSecond(long time) {
 		try {
 			Thread.sleep(time * 1000);
 		} catch (Exception e) {

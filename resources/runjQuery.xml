@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Nopcommerce">
+	<parameter name="url" value="https://www.jqueryscript.net/demo/CRUD-Data-Grid-Plugin-jQuery-Quickgrid/"></parameter>
 	<!-- Test -->
 	<test name="Run on Firefox">
 		<parameter name="browser" value="firefox"></parameter>
 		<classes>
-			<class name="com.nopcommerce.user.Level_07_Switch_Page" />
+			<class name="com.nopcommerce.data.DataTable_Grid" />
 		</classes>
 	</test>
 
