@@ -52,7 +52,6 @@ public class UserCustomerInforPageObject extends BasePage{
 
 	public void selectDays(String days) {
 		waitForElementVisible(driver, CustomerInforPageUI.DATE_OF_BIRTH_DAY);
-		selectItemInDefaultDropdown(driver, days);
 	}
 
 	public void selectMonths(String months) {

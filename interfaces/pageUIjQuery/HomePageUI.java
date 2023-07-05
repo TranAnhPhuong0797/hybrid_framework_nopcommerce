@@ -8,4 +8,11 @@ public class HomePageUI {
 	public static final String ALL_ROW_EACH_PAGE = "xpath=//tbody/tr";
 	public static final String ALL_ROW_COUNTRY_EACH_PAGE = "xpath=//tbody/tr/td[@data-key='country']";
 	
+	public static final String COLUMN_INDEX_BY_NAME = "xpath=//th[text()='%s']//preceding-sibling::th";
+	public static final String TEXTBOX_BY_COLUMN_INDEX_AND_ROW_INDEX = "xpath=//tbody//tr[%s]//td[%s]//input";
+	public static final String DROPDOWN_BY_COLUMN_INDEX_AND_ROW_INDEX = "xpath=//body//tr[%s]//td[%s]//select";
+	public static final String CHECKBOX_BY_COLUMN_INDEX_AND_ROW_INDEX = "xpath=//tbody//tr[%s]//td[%s]//input[@type='checkbox']";
+	public static final String ICON_NAME_BY_ROW_INDEX = "xpath=//tbody//tr[%s]//button[@title='%s']";
+	
+	public static final String LOAD_DATA_BUTTON = "xpath=//button[contains(text(),'Load Data')]";
 }
