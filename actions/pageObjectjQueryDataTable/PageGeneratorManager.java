@@ -1,4 +1,4 @@
-package pageObjectjQuery;
+package pageObjectjQueryDataTable;
 
 import org.openqa.selenium.WebDriver;
 

@@ -1,4 +1,4 @@
-package com.nopcommerce.data;
+package com.jquery;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import common.BaseTest;
-import pageObjectjQuery.HomePageObject;
-import pageObjectjQuery.PageGeneratorManager;
+import pageObjectjQueryDataTable.HomePageObject;
+import pageObjectjQueryDataTable.PageGeneratorManager;
 
 public class DataTable_Grid extends BaseTest {
 	private WebDriver driver;

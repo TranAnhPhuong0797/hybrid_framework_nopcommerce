@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Nopcommerce">
+<suite name="JqueryDataTable">
 	<!--<parameter name="url" value="https://www.jqueryscript.net/demo/CRUD-Data-Grid-Plugin-jQuery-Quickgrid/"></parameter>-->
 	<parameter name="url" value="https://www.jqueryscript.net/demo/jQuery-Dynamic-Data-Grid-Plugin-appendGrid/"></parameter>
 	<!-- Test -->
 	<test name="Run on Firefox">
 		<parameter name="browser" value="firefox"></parameter>
 		<classes>
-			<class name="com.nopcommerce.data.DataTable_Grid" />
+			<class name="com.jquery.DataTable_Grid" />
 		</classes>
 	</test>
 
