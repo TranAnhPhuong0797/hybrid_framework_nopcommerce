@@ -30,12 +30,15 @@ public class Level_13_Element_Undisplayed extends BaseTest{
 	
 	@Test
 	public void TC_02_Veirfy_Element_Undisplayed_In_Dom() {
-		
+		// Verify false - the function returns is Displayed
+		loginPageObject.enterToEmailAddressTextbox("");
+		verifyTrue(loginPageObject.isConfirmEmailAddressTextboxUndisplayed());
 	}
 	
 	@Test
 	public void TC_03_Veirfy_Element_Undisplayed_Not_In_Dom() {
-		
+		loginPageObject.clickCloseIconAtRegisterform();
+		verifyTrue(loginPageObject.isConfirmEmailAddressTextboxUndisplayed());
 	}
 			
 

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="FaceBook">
+	<listeners>
+		<listener class-name="common.MethodListener"></listener>
+	</listeners>
+	<parameter name="url" value="https://www.facebook.com/"></parameter>
+	<!-- Test -->
+	<test name="Run on Firefox">
+		<parameter name="browser" value="firefox"></parameter>
+		<classes>
+			<class name="com.facebook.register.Level_13_Element_Undisplayed" />
+		</classes>
+	</test>
+
+</suite> <!-- Suite -->
