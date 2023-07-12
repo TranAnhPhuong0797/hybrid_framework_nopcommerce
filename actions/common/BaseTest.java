@@ -2,6 +2,8 @@ package common;
 
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -14,6 +16,11 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class BaseTest {
 	private WebDriver driverBaseTest;
 	//private String projectpath = System.getProperty("user.dir");
+	protected final Log log;
+	
+	protected BaseTest() {
+		log = LogFactory.getLog(getClass());
+	}
 	
 	protected WebDriver getBrowserName(String browserName) {
 		
@@ -88,9 +95,9 @@ public class BaseTest {
 		boolean pass = true;
 		try {
 			if (condition == true) {
-				System.out.println(" -------------------------- PASSED -------------------------- ");
+				log.info(" -------------------------- PASSED -------------------------- ");
 			} else {
-				System.out.println(" -------------------------- FAILED -------------------------- ");
+				log.info(" -------------------------- FAILED -------------------------- ");
 			}
 			Assert.assertTrue(condition);
 		} catch (Throwable e) {
@@ -111,9 +118,9 @@ public class BaseTest {
 		boolean pass = true;
 		try {
 			if (condition == false) {
-				System.out.println(" -------------------------- PASSED -------------------------- ");
+				log.info(" -------------------------- PASSED -------------------------- ");
 			} else {
-				System.out.println(" -------------------------- FAILED -------------------------- ");
+				log.info(" -------------------------- FAILED -------------------------- ");
 			}
 			Assert.assertFalse(condition);
 		} catch (Throwable e) {
@@ -132,10 +139,10 @@ public class BaseTest {
 		boolean pass = true;
 		try {
 			Assert.assertEquals(actual, expected);
-			System.out.println(" -------------------------- PASSED -------------------------- ");
+			log.info(" -------------------------- PASSED -------------------------- ");
 		} catch (Throwable e) {
 			pass = false;
-			System.out.println(" -------------------------- FAILED -------------------------- ");
+			log.info(" -------------------------- FAILED -------------------------- ");
 			VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
 			Reporter.getCurrentTestResult().setThrowable(e);
 		}

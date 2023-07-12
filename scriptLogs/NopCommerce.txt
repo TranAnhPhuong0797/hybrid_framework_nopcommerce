@@ -1,0 +1,16 @@
+[2023-07-12 11:03:50,464] Register - Step 01: Navigate to Register Page
+[2023-07-12 11:03:51,377] Register - Step 02: Input values to field 'FirstName' with value is Nguyen
+[2023-07-12 11:03:51,428] Register - Step 03: Input values to field 'LastName' with value is Van A
+[2023-07-12 11:03:51,466] Register - Step 04: Input values to field 'Email' with value is testEmail2953@gmail.vn
+[2023-07-12 11:03:51,502] Register - Step 05: Input values to field 'Password' with value is 199000
+[2023-07-12 11:03:51,533] Register - Step 06: Input values to field 'Confirm Password' with value is 199000
+[2023-07-12 11:03:51,566] Register - Step 07: Click to 'Registor' button
+[2023-07-12 11:03:52,174] Register - Step 08: Verify register success message is displayed
+[2023-07-12 11:03:52,214] Register - Step 09: 
+[2023-07-12 11:04:22,229] Login - Step 01: Navigate to Login Page
+[2023-07-12 11:04:23,120] Login - Step 02: Input values to field 'Email' with value is testEmail2953@gmail.vn
+[2023-07-12 11:04:23,176] Login - Step 03: Input values to field 'Password' with value is 199000
+[2023-07-12 11:04:23,211] Login - Step 04: Click to 'Login' button
+[2023-07-12 11:04:23,809] Login - Step 05: Vertify 'My Account' link is displayed
+[2023-07-12 11:04:23,855]  -------------------------- FAILED -------------------------- 
+[2023-07-12 11:04:23,855] Login - Step 06: Navigate to My Account Page
