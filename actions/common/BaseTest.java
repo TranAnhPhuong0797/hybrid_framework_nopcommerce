@@ -17,6 +17,7 @@ public class BaseTest {
 	private WebDriver driverBaseTest;
 	//private String projectpath = System.getProperty("user.dir");
 	protected final Log log;
+	private long longTimeout = GlobalConstants.LONG_TIMEOUT;
 	
 	protected BaseTest() {
 		log = LogFactory.getLog(getClass());
@@ -39,11 +40,15 @@ public class BaseTest {
 		}else {
 			throw new RuntimeException("Browser name invalid");
 		}
-		driverBaseTest.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
+		driverBaseTest.manage().timeouts().implicitlyWait(longTimeout, TimeUnit.SECONDS);
 		driverBaseTest.get(GlobalConstants.PORTAL_PAGE_URL);
 		//driverBaseTest.get("http://live.techpanda.org/index.php/");
 		
 		return driverBaseTest;
+	}
+	
+	public WebDriver getWebDriver() {
+		return this.driverBaseTest;
 	}
 	
 	// Head less

@@ -10,6 +10,8 @@ public class GlobalConstants {
 	public static final String UPLOAD_FILE_FOLDER = PROJECT_PATH + File.separator + "uploadFiles" + File.separator;
 	public static final String DOWNLOAD_FILE_FOLDER = PROJECT_PATH + File.separator + "downloadFiles";
 	public static final String BROWSER_LOG_FOLDER = PROJECT_PATH + File.separator + "browserLogs";
+	public static final String REPORT_SCREENSHOT = PROJECT_PATH + File.separator + "reportNGImage" + File.separator;
+	public static final String EXTENT_PATH = PROJECT_PATH + File.separator + "extentV2" + File.separator;
 	
 	
 	public static final long SHORT_TIMEOUT = 5;

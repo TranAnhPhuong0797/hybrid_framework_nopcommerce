@@ -3,14 +3,16 @@
 <suite name="Nopcommerce">
 	<listeners>
 		<listener class-name="common.MethodListener"></listener>
+		<!--<listener class-name="reportConfig.ReportNGListener"></listener>-->
+		<listener class-name="reportConfig.ExtentTestListenerV2"></listener>
 		<listener class-name="org.uncommons.reportng.HTMLReporter"></listener>
 		<listener class-name="org.uncommons.reportng.JUnitXMLReporter"></listener>
 	</listeners>
 	<!-- Test -->
-	<test name="Run on Firefox">
-		<parameter name="browser" value="firefox"></parameter>
+	<test name="Run on Chrome">
+		<parameter name="browser" value="chrome"></parameter>
 		<classes>
-			<class name="com.nopcommerce.user.Level_14_Log_ReportNG" />
+			<class name="com.nopcommerce.user.Level_15_Extent_ScreenshotV2" />
 		</classes>
 	</test>
 
