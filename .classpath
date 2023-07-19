@@ -46,18 +46,16 @@
 	<classpathentry kind="lib" path="librariesSelenium/selenium-3.141.59-nodeps-sources.jar"/>
 	<classpathentry kind="lib" path="librariesSelenium/selenium-server-standalone-3.141.59.jar"/>
 	<classpathentry kind="lib" path="librariesSelenium/testng-6.14.3.jar"/>
-	<classpathentry kind="lib" path="libraryLog4j/commons-logging-1.2.jar"/>
 	<classpathentry kind="lib" path="libraryLog4j/log4j-1.2.16.jar"/>
 	<classpathentry kind="lib" path="libraryReportNG/commons-collections-3.2.1.jar"/>
 	<classpathentry kind="lib" path="libraryReportNG/guice-3.0.jar"/>
 	<classpathentry kind="lib" path="libraryReportNG/reportng-1.1.4.jar"/>
 	<classpathentry kind="lib" path="libraryReportNG/velocity-1.4.jar"/>
-	<classpathentry kind="lib" path="libExtendReportV2/bson-3.0.4.jar"/>
-	<classpathentry kind="lib" path="libExtendReportV2/extentreports-2.41.2.jar"/>
-	<classpathentry kind="lib" path="libExtendReportV2/freemarker-2.3.23.jar"/>
-	<classpathentry kind="lib" path="libExtendReportV2/jsoup-1.8.3.jar"/>
-	<classpathentry kind="lib" path="libExtendReportV2/mongodb-driver-3.0.4.jar"/>
-	<classpathentry kind="lib" path="libExtendReportV2/mongodb-driver-core-3.0.4.jar"/>
-	<classpathentry kind="lib" path="libExtendReportV2/sqlite-jdbc-3.8.11.1.jar"/>
+	<classpathentry kind="lib" path="libExtendReportV4/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="libExtendReportV5/extentreports-5.0.8.jar"/>
+	<classpathentry kind="lib" path="libExtendReportV5/freemarker-2.3.30.jar"/>
+	<classpathentry kind="lib" path="libExtendReportV5/lombok-1.18.12.jar"/>
+	<classpathentry kind="lib" path="libExtendReportV5/reactive-streams-1.0.3.jar"/>
+	<classpathentry kind="lib" path="libExtendReportV5/rxjava-3.0.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
