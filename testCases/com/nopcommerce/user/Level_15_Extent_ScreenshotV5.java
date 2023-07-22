@@ -18,7 +18,6 @@ import pageObject.nopcommerce.portal.UserCustomerInforPageObject;
 import pageObject.nopcommerce.portal.UserHomePageObject;
 import pageObject.nopcommerce.portal.UserLoginPageObject;
 import pageObject.nopcommerce.portal.UserRegisterPageObject;
-import reportConfig.ExtentManagerV5;
 import reportConfig.ExtentTestManagerV5;
 
 public class Level_15_Extent_ScreenshotV5 extends BaseTest{

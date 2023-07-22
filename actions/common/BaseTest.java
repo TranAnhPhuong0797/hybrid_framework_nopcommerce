@@ -1,5 +1,6 @@
 package common;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.logging.Log;
@@ -10,6 +11,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
+import org.testng.annotations.BeforeSuite;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -18,6 +20,11 @@ public class BaseTest {
 	//private String projectpath = System.getProperty("user.dir");
 	protected final Log log;
 	private long longTimeout = GlobalConstants.LONG_TIMEOUT;
+	
+	@BeforeSuite
+	public void initBeforeSuite() {
+		deleteAllureReport();
+	}
 	
 	protected BaseTest() {
 		log = LogFactory.getLog(getClass());
@@ -50,6 +57,23 @@ public class BaseTest {
 	public WebDriver getWebDriver() {
 		return this.driverBaseTest;
 	}
+	
+	public void deleteAllureReport() {
+		try {
+			String pathFolderDownload = GlobalConstants.PROJECT_PATH + "/allure-json";
+			File file = new File(pathFolderDownload);
+			File[] listOfFiles = file.listFiles();
+			for (int i = 0; i < listOfFiles.length; i++) {
+				if (listOfFiles[i].isFile()) {
+					System.out.println(listOfFiles[i].getName());
+					new File(listOfFiles[i].toString()).delete();
+				}
+			}
+		} catch (Exception e) {
+			System.out.print(e.getMessage());
+		}
+	}
+
 	
 	// Head less
 //	protected WebDriver getBrowserName(String browserName) {
