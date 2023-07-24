@@ -155,3 +155,49 @@
 [2023-07-13 08:40:47,530] Login - Step 03: Input values to field 'Password' with value is 199000
 [2023-07-13 08:40:47,597] Login - Step 04: Click to 'Login' button
 [2023-07-13 08:40:48,231] Login - Step 05: Vertify 'My Account' link is displayed
+[2023-07-23 10:44:03,288] Login - Step 01: Navigate to Login Page
+[2023-07-23 10:44:04,216] Login - Step 02: Input values to field 'Email' with value is testEmail5742@gmail.vn
+[2023-07-23 10:44:04,303] Login - Step 03: Input values to field 'Password' with value is 199000
+[2023-07-23 10:44:04,378] Login - Step 04: Click to 'Login' button
+[2023-07-24 09:28:52,366] Login - Step 01: Navigate to Login Page
+[2023-07-24 09:28:53,276] Login - Step 02: Input values to field 'Email' with value is testEmail5650@gmail.vn
+[2023-07-24 09:28:53,358] Login - Step 03: Input values to field 'Password' with value is 199000
+[2023-07-24 09:28:53,431] Login - Step 04: Click to 'Login' button
+[2023-07-24 09:37:59,748] Login - Step 01: Navigate to Login Page
+[2023-07-24 09:38:00,634] Login - Step 02: Input values to field 'Email' with value is testEmail7380@gmail.vn
+[2023-07-24 09:38:00,715] Login - Step 03: Input values to field 'Password' with value is 199000
+[2023-07-24 09:38:00,785] Login - Step 04: Click to 'Login' button
+[2023-07-24 10:00:46,456] Precondition - Step 01: Navigate to Login Page
+[2023-07-24 10:00:47,466] Precondition - Step 02: Set Cookie and reload
+[2023-07-24 10:00:50,500] Precondition - Step 04: Click to 'Login' button
+[2023-07-24 10:00:50,873] Precondition - Step 05: Verify 'My account' link is displayed
+[2023-07-24 10:04:24,546] Precondition - Step 01: Navigate to Login Page
+[2023-07-24 10:04:25,453] Precondition - Step 02: Set Cookie and reload
+[2023-07-24 10:04:28,494] Precondition - Step 04: Click to 'Login' button
+[2023-07-24 10:04:28,865] Precondition - Step 05: Verify 'My account' link is displayed
+[2023-07-24 10:05:16,156] Precondition - Step 01: Navigate to Login Page
+[2023-07-24 10:05:17,067] Precondition - Step 02: Set Cookie and reload
+[2023-07-24 10:05:20,106] Precondition - Step 03: Verify 'My account' link is displayed
+[2023-07-24 10:08:03,599] Precondition - Step 01: Navigate to Login Page
+[2023-07-24 10:08:04,830] Precondition - Step 02: Set Cookie and reload
+[2023-07-24 10:08:07,877] Precondition - Step 03: Verify 'My account' link is displayed
+[2023-07-24 10:10:31,443] Precondition - Step 01: Navigate to Login Page
+[2023-07-24 10:10:31,851] Precondition - Step 02: Set Cookie and reload
+[2023-07-24 10:10:34,887] Precondition - Step 03: Verify 'My account' link is displayed
+[2023-07-24 10:12:12,524] Precondition - Step 01: Navigate to Login Page
+[2023-07-24 10:12:13,578] Precondition - Step 02: Set Cookie and reload
+[2023-07-24 10:12:16,615] Precondition - Step 03: Verify 'My account' link is displayed
+[2023-07-24 10:15:01,250] Precondition - Step 01: Navigate to Login Page
+[2023-07-24 10:15:02,170] Precondition - Step 02: Set Cookie and reload
+[2023-07-24 10:17:46,759] Precondition - Step 01: Navigate to Register Page
+[2023-07-24 10:17:47,686] Precondition - Step 02: Input values to field 'FirstName' with value is Nguyen
+[2023-07-24 10:17:47,773] Precondition - Step 03: Input values to field 'LastName' with value is Van A
+[2023-07-24 10:17:47,851] Precondition - Step 04: Input values to field 'Email' with value is testEmail2099@gmail.vn
+[2023-07-24 10:17:47,929] Precondition - Step 05: Input values to field 'Password' with value is 199000
+[2023-07-24 10:17:48,000] Precondition - Step 06: Input values to field 'Confirm Password' with value is 199000
+[2023-07-24 10:17:48,071] Precondition - Step 07: Click to 'Registor' button
+[2023-07-24 10:17:48,696] Precondition - Step 08: Verify register success message is displayed
+[2023-07-24 10:17:48,733] Precondition - Step 09: Navigate to Login Page
+[2023-07-24 10:17:49,054] Precondition - Step 10: Input values to field 'Email' with value is testEmail2099@gmail.vn
+[2023-07-24 10:17:49,117] Precondition - Step 11: Input values to field 'Password' with value is 199000
+[2023-07-24 10:17:49,182] Precondition - Step 12: Click to 'Login' button
