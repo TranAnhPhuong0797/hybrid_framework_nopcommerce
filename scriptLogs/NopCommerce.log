@@ -201,3 +201,39 @@
 [2023-07-24 10:17:49,054] Precondition - Step 10: Input values to field 'Email' with value is testEmail2099@gmail.vn
 [2023-07-24 10:17:49,117] Precondition - Step 11: Input values to field 'Password' with value is 199000
 [2023-07-24 10:17:49,182] Precondition - Step 12: Click to 'Login' button
+[2023-07-25 09:48:12,759] OS name = windows 10
+[2023-07-25 09:48:12,765] Cannot invoke "Object.toString()" because "this.driverBaseTest" is null
+[2023-07-25 09:49:21,601] Precondition - Step 01: Navigate to Register Page
+[2023-07-25 09:49:22,803] Precondition - Step 02: Input values to field 'FirstName' with value is Nguyen
+[2023-07-25 09:49:22,893] Precondition - Step 03: Input values to field 'LastName' with value is Van A
+[2023-07-25 09:49:22,970] Precondition - Step 04: Input values to field 'Email' with value is testEmail1910@gmail.vn
+[2023-07-25 09:49:23,047] Precondition - Step 05: Input values to field 'Password' with value is 199000
+[2023-07-25 09:49:23,122] Precondition - Step 06: Input values to field 'Confirm Password' with value is 199000
+[2023-07-25 09:49:23,192] Precondition - Step 07: Click to 'Registor' button
+[2023-07-25 09:49:24,231] Precondition - Step 08: Verify register success message is displayed
+[2023-07-25 09:49:24,271] Precondition - Step 09: Navigate to Login Page
+[2023-07-25 09:49:24,699] Precondition - Step 10: Input values to field 'Email' with value is testEmail1910@gmail.vn
+[2023-07-25 09:49:24,762] Precondition - Step 11: Input values to field 'Password' with value is 199000
+[2023-07-25 09:49:24,826] Precondition - Step 12: Click to 'Login' button
+[2023-07-25 09:49:25,775] OS name = windows 10
+[2023-07-25 09:49:25,775] Driver instance name = chromedriver: chrome on windows (421062be0205d919ad463de6b720f280)
+[2023-07-25 09:50:23,247] Precondition - Step 01: Navigate to Register Page
+[2023-07-25 09:50:24,338] Precondition - Step 02: Input values to field 'FirstName' with value is Nguyen
+[2023-07-25 09:50:24,425] Precondition - Step 03: Input values to field 'LastName' with value is Van A
+[2023-07-25 09:50:24,502] Precondition - Step 04: Input values to field 'Email' with value is testEmail8608@gmail.vn
+[2023-07-25 09:50:24,579] Precondition - Step 05: Input values to field 'Password' with value is 199000
+[2023-07-25 09:50:24,652] Precondition - Step 06: Input values to field 'Confirm Password' with value is 199000
+[2023-07-25 09:50:24,724] Precondition - Step 07: Click to 'Registor' button
+[2023-07-25 09:50:25,663] Precondition - Step 08: Verify register success message is displayed
+[2023-07-25 09:50:25,791] OS name = windows 10
+[2023-07-25 09:50:25,791] Driver instance name = chromedriver: chrome on windows (e50f6978e5cd378896c6b2090762ee93)
+[2023-07-25 09:51:11,972] Precondition - Step 01: Navigate to Register Page
+[2023-07-25 09:51:13,282] Precondition - Step 02: Input values to field 'FirstName' with value is Nguyen
+[2023-07-25 09:51:13,368] Precondition - Step 03: Input values to field 'LastName' with value is Van A
+[2023-07-25 09:51:13,449] Precondition - Step 04: Input values to field 'Email' with value is testEmail5382@gmail.vn
+[2023-07-25 09:51:13,531] Precondition - Step 05: Input values to field 'Password' with value is 199000
+[2023-07-25 09:51:13,605] Precondition - Step 06: Input values to field 'Confirm Password' with value is 199000
+[2023-07-25 09:51:13,677] Precondition - Step 07: Click to 'Registor' button
+[2023-07-25 09:51:14,449] Precondition - Step 08: Verify register success message is displayed
+[2023-07-25 09:51:14,575] OS name = windows 10
+[2023-07-25 09:51:14,576] Driver instance name = chromedriver: chrome on windows (86aef6b479e6cd337c4629fca93f0242)
