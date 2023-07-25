@@ -1,4 +1,4 @@
-package com.nopcommerce.user;
+package com.nopcommerce.user.livecoding;
 
 import java.util.Random;
 

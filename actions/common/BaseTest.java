@@ -1,6 +1,7 @@
 package common;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.logging.Log;
@@ -17,47 +18,50 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
 	private WebDriver driverBaseTest;
-	//private String projectpath = System.getProperty("user.dir");
+	// private String projectpath = System.getProperty("user.dir");
 	protected final Log log;
 	private long longTimeout = GlobalConstants.LONG_TIMEOUT;
-	
+
 	@BeforeSuite
 	public void initBeforeSuite() {
 		deleteAllureReport();
 	}
-	
+
 	protected BaseTest() {
 		log = LogFactory.getLog(getClass());
 	}
-	
+
 	protected WebDriver getBrowserName(String browserName) {
-		
-		if(browserName.equals("firefox")) {
-			//System.setProperty("webdriver.gecko.driver", projectpath + "\\browserDrivers\\geckodriver.exe");
+
+		if (browserName.equals("firefox")) {
+			// System.setProperty("webdriver.gecko.driver", projectpath +
+			// "\\browserDrivers\\geckodriver.exe");
 			WebDriverManager.firefoxdriver().setup();
 			driverBaseTest = new FirefoxDriver();
-		}else if (browserName.equals("chrome")) {
-			//System.setProperty("webdriver.chrome.driver", projectpath + "\\browserDrivers\\chromedriver.exe");
+		} else if (browserName.equals("chrome")) {
+			// System.setProperty("webdriver.chrome.driver", projectpath +
+			// "\\browserDrivers\\chromedriver.exe");
 			WebDriverManager.chromedriver().setup();
 			driverBaseTest = new ChromeDriver();
-		}else if (browserName.equals("edge")) {
-			//System.setProperty("webdriver.edge.driver", projectpath + "\\browserDrivers\\msedgedriver.exe");
+		} else if (browserName.equals("edge")) {
+			// System.setProperty("webdriver.edge.driver", projectpath +
+			// "\\browserDrivers\\msedgedriver.exe");
 			WebDriverManager.edgedriver().setup();
 			driverBaseTest = new EdgeDriver();
-		}else {
+		} else {
 			throw new RuntimeException("Browser name invalid");
 		}
 		driverBaseTest.manage().timeouts().implicitlyWait(longTimeout, TimeUnit.SECONDS);
 		driverBaseTest.get(GlobalConstants.PORTAL_PAGE_URL);
-		//driverBaseTest.get("http://live.techpanda.org/index.php/");
-		
+		// driverBaseTest.get("http://live.techpanda.org/index.php/");
+
 		return driverBaseTest;
 	}
-	
+
 	public WebDriver getWebDriver() {
 		return this.driverBaseTest;
 	}
-	
+
 	public void deleteAllureReport() {
 		try {
 			String pathFolderDownload = GlobalConstants.PROJECT_PATH + "/allure-json";
@@ -74,7 +78,55 @@ public class BaseTest {
 		}
 	}
 
-	
+	protected void closeBrowserDriver() {
+		String cmd = null;
+		try {
+			String osName = System.getProperty("os.name").toLowerCase();
+			log.info("OS name = " + osName);
+
+			String driverInstanceName = driverBaseTest.toString().toLowerCase();
+			log.info("Driver instance name = " + driverInstanceName);
+
+			String browserDriverName = null;
+
+			if (driverInstanceName.contains("chrome")) {
+				browserDriverName = "chromedriver";
+			} else if (driverInstanceName.contains("internetexplorer")) {
+				browserDriverName = "IEDriverServer";
+			} else if (driverInstanceName.contains("firefox")) {
+				browserDriverName = "geckodriver";
+			} else if (driverInstanceName.contains("edge")) {
+				browserDriverName = "msedgedriver";
+			} else if (driverInstanceName.contains("opera")) {
+				browserDriverName = "operadriver";
+			} else {
+				browserDriverName = "safaridriver";
+			}
+
+			if (osName.contains("window")) {
+				cmd = "taskkill /F /FI \"IMAGENAME eq " + browserDriverName + "*\"";
+			} else {
+				cmd = "pkill " + browserDriverName;
+			}
+
+			if (driverBaseTest != null) {
+				driverBaseTest.manage().deleteAllCookies();
+				driverBaseTest.quit();
+			}
+		} catch (Exception e) {
+			log.info(e.getMessage());
+		} finally {
+			try {
+				Process process = Runtime.getRuntime().exec(cmd);
+				process.waitFor();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
 	// Head less
 //	protected WebDriver getBrowserName(String browserName) {
 //		
@@ -101,25 +153,25 @@ public class BaseTest {
 //		
 //		return driver;
 //	}
-	
+
 	protected WebDriver getBrowserName(String browserName, String apURL) {
-		if(browserName.equals("firefox")) {
+		if (browserName.equals("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
 			driverBaseTest = new FirefoxDriver();
-		}else if (browserName.equals("chrome")) {
+		} else if (browserName.equals("chrome")) {
 			WebDriverManager.chromedriver().setup();
 			driverBaseTest = new ChromeDriver();
-		}else if (browserName.equals("edge")) {
+		} else if (browserName.equals("edge")) {
 			WebDriverManager.edgedriver().setup();
 			driverBaseTest = new EdgeDriver();
-		}else {
+		} else {
 			throw new RuntimeException("Browser name invalid");
 		}
 		driverBaseTest.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
 		driverBaseTest.get(apURL);
 		return driverBaseTest;
 	}
-	
+
 	private boolean checkTrue(boolean condition) {
 		boolean pass = true;
 		try {
@@ -181,5 +233,5 @@ public class BaseTest {
 	protected boolean verifyEquals(Object actual, Object expected) {
 		return checkEquals(actual, expected);
 	}
-	
+
 }

@@ -140,6 +140,12 @@ public class BasePage {
 	public WebElement getWebElement(WebDriver driver, String locatorType) {
 		return driver.findElement(getByLocator(locatorType));
 	}
+	
+	public String getElementValueByJSXpath(WebDriver driver, String xpathLocator) {
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		xpathLocator = xpathLocator.replace("xpath=", "");
+		return (String) jsExecutor.executeScript("return $(document.evaluate(\"" + xpathLocator + "\", document, null, XpathResult.FIRST_ORDERED_NODE_TYPE, null) singleNodeValue),val()");
+	}
 
 	public List<WebElement> getListElements(WebDriver driver, String locatorType) {
 		return driver.findElements(getByLocator(locatorType));
