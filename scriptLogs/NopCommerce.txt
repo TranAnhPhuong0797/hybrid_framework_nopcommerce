@@ -1,10 +1,19 @@
-[2023-07-25 09:51:11,972] Precondition - Step 01: Navigate to Register Page
-[2023-07-25 09:51:13,282] Precondition - Step 02: Input values to field 'FirstName' with value is Nguyen
-[2023-07-25 09:51:13,368] Precondition - Step 03: Input values to field 'LastName' with value is Van A
-[2023-07-25 09:51:13,449] Precondition - Step 04: Input values to field 'Email' with value is testEmail5382@gmail.vn
-[2023-07-25 09:51:13,531] Precondition - Step 05: Input values to field 'Password' with value is 199000
-[2023-07-25 09:51:13,605] Precondition - Step 06: Input values to field 'Confirm Password' with value is 199000
-[2023-07-25 09:51:13,677] Precondition - Step 07: Click to 'Registor' button
-[2023-07-25 09:51:14,449] Precondition - Step 08: Verify register success message is displayed
-[2023-07-25 09:51:14,575] OS name = windows 10
-[2023-07-25 09:51:14,576] Driver instance name = chromedriver: chrome on windows (86aef6b479e6cd337c4629fca93f0242)
+[2023-07-27 08:51:03,681] Register - Step 01: Navigate to Register Page
+[2023-07-27 08:51:04,686] Register - Step 02: Input values to field 'FirstName' with value is Nguyen
+[2023-07-27 08:51:04,768] Register - Step 03: Input values to field 'LastName' with value is Van A
+[2023-07-27 08:51:04,842] Register - Step 04: Input values to field 'Email' with value is testEmail6789@gmail.vn
+[2023-07-27 08:51:04,918] Register - Step 04: Select values to field 'Date of birth' with value is 30
+[2023-07-27 08:51:04,988] Register - Step 04: Select values to field 'Date of birth' with value is June
+[2023-07-27 08:51:05,052] Register - Step 04: Select values to field 'Date of birth' with value is 1997
+[2023-07-27 08:51:05,112] Register - Step 05: Input values to field 'Password' with value is 199000
+[2023-07-27 08:51:05,184] Register - Step 06: Input values to field 'Confirm Password' with value is 199000
+[2023-07-27 08:51:05,259] Register - Step 07: Click to 'Registor' button
+[2023-07-27 08:51:05,902] Register - Step 08: Verify register success message is displayed
+[2023-07-27 08:51:05,977] Login - Step 01: Navigate to Login Page
+[2023-07-27 08:51:06,315] Login - Step 02: Input values to field 'Email' with value is testEmail6789@gmail.vn
+[2023-07-27 08:51:06,380] Login - Step 03: Input values to field 'Password' with value is 199000
+[2023-07-27 08:51:06,445] Login - Step 04: Click to 'Login' button
+[2023-07-27 08:51:07,058] Login - Step 05: Vertify 'My Account' link is displayed
+[2023-07-27 08:51:07,092] Login - Step 06: Click 'My Account' link
+[2023-07-27 08:51:08,129] Login - Step 07: Navigate to My Account Page
+[2023-07-27 08:51:25,260] Login - Step 08: Vertify 'Customer Infor' Page is displayed

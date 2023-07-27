@@ -187,6 +187,36 @@ public class BasePage {
 	public void clickToElement(WebDriver driver, String locatorType, String... dynamicValues ) {
 		getWebElement(driver, getDynamicXpath(locatorType, dynamicValues)).click();
 	}
+	
+	/** Click to dynamic Button by TextName
+	 * @author Phuong TA
+	 * @param driver
+	 * @param buttonText
+	 * */
+	public void clicktoButtonByText(WebDriver driver, String buttonText) {
+		waitForElementClickable(driver, BasePageUINopcommerce.DYNAMIC_BUTTON_BY_TEXT, buttonText);
+		clickToElement(driver, BasePageUINopcommerce.DYNAMIC_BUTTON_BY_TEXT, buttonText);
+	}
+	
+	/** Click to dynamic RadioButton by LabelName
+	 * @author Phuong TA
+	 * @param driver
+	 * @param radioLabelName
+	 * */
+	public void clickToRadioButtonByLabel(WebDriver driver, String radioLabelName) {
+		waitForElementClickable(driver, BasePageUINopcommerce.DYNAMIC_RADIO_BUTTON_BY_LABEL, radioLabelName);
+		checkToDefaultCheckboxOrRadio(driver, BasePageUINopcommerce.DYNAMIC_RADIO_BUTTON_BY_LABEL, radioLabelName);
+	}
+	
+	/** Click to dynamic Checkbox by LabelName
+	 * @author Phuong TA
+	 * @param driver
+	 * @param checkboxLabelName
+	 * */
+	public void clickToCheckboxButtonByLabel(WebDriver driver, String checkboxLabelName) {
+		waitForElementClickable(driver, BasePageUINopcommerce.DYNAMIC_CHECKBOX_BUTTON_BY_LABEL, checkboxLabelName);
+		checkToDefaultCheckboxOrRadio(driver, BasePageUINopcommerce.DYNAMIC_CHECKBOX_BUTTON_BY_LABEL, checkboxLabelName);
+	}
 
 	public void sendkeyToElement(WebDriver driver, String xpathLocator, String textValue) {
 		WebElement element = getWebElement(driver, xpathLocator);
@@ -216,6 +246,18 @@ public class BasePage {
 	public void selectItemInDefaultDropdown(WebDriver driver, String xpathLocator, String textItem, String... dynamicValues) {
 		Select select = new Select(getWebElement(driver, getDynamicXpath(xpathLocator, dynamicValues)));
 		select.selectByVisibleText(textItem);
+	}
+	
+	
+	/** Select to dynamic Dropdown by TextName
+	 * @author Phuong TA
+	 * @param driver
+	 * @param dropdown Attribute Name
+	 * @param itemValue
+	 * */
+	public void selectToDropdownByName(WebDriver driver, String dropdownAttributeName, String itemValue) {
+		waitForElementClickable(driver, BasePageUINopcommerce.DYNAMIC_DROPDOWN_BY_NAME, dropdownAttributeName);
+		selectItemInDefaultDropdown(driver, BasePageUINopcommerce.DYNAMIC_DROPDOWN_BY_NAME, itemValue, dropdownAttributeName);
 	}
 
 	protected String getSelectedItemDefaultInDrodown(WebDriver driver, String xpathLocator) {
@@ -509,6 +551,11 @@ public class BasePage {
 		WebDriverWait explicitwait = new WebDriverWait(driver, longTimeout);
 		explicitwait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(getByLocator(xpathLocator)));
 	}
+	
+	protected void waitForAllElementsVisible(WebDriver driver, String xpathLocator, String... dynamicValues) {
+		WebDriverWait explicitwait = new WebDriverWait(driver, longTimeout);
+		explicitwait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(getByLocator(getDynamicXpath(xpathLocator, dynamicValues))));
+	}
 
 	public void waitForElementClickable(WebDriver driver, String xpathLocator) {
 		WebDriverWait explicitwait = new WebDriverWait(driver, longTimeout);
@@ -593,6 +640,17 @@ public class BasePage {
 	public void openPagesAtMyAccountByPageName (WebDriver driver, String pageName) {
 		waitForElementClickable(driver, BasePageUINopcommerce.DYNAMIC_PAGES_AT_MYACCOUNT_AREA, pageName);
 		clickToElement(driver, BasePageUINopcommerce.DYNAMIC_PAGES_AT_MYACCOUNT_AREA, pageName);
+	}
+	
+	/** Enter to dynamic Textbox by ID
+	 * @author Phuong TA
+	 * @param driver
+	 * @param textboxId
+	 * @param value
+	 * */
+	public void inputToTextboxByID(WebDriver driver, String textboxId, String value) {
+		waitForAllElementsVisible(driver, BasePageUINopcommerce.DYNAMIC_TEXT_BOX_BY_ID, textboxId);
+		sendkeyToElement(driver, BasePageUINopcommerce.DYNAMIC_TEXT_BOX_BY_ID, value, textboxId);
 	}
 	
 	public UserCustomerInforPageObject openCustomerInforPage(WebDriver driver) {
