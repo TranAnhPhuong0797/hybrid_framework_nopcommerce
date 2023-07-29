@@ -1,10 +1,13 @@
 package pageObject.nopcommerce.portal;
 
+import static org.testng.Assert.assertTrue;
+
 import org.openqa.selenium.WebDriver;
 
 import common.BasePage;
 import io.qameta.allure.Step;
 import pageUI.nopcommerce.User.HomePageUI;
+import pageUI.nopcommerce.User.RegisterPageUI;
 
 public class UserHomePageObject extends BasePage{
 	private WebDriver driver;

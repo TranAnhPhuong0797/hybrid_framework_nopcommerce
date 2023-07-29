@@ -653,6 +653,17 @@ public class BasePage {
 		sendkeyToElement(driver, BasePageUINopcommerce.DYNAMIC_TEXT_BOX_BY_ID, value, textboxId);
 	}
 	
+	/** Enter to dynamic Textbox by text
+	 * @author Phuong TA
+	 * @param driver
+	 * @param textboxId
+	 * @param value
+	 * */
+	public void inputToTextboxByText(WebDriver driver, String textbox, String value) {
+		waitForAllElementsVisible(driver, BasePageUINopcommerce.DYNAMIC_TEXT_BOX_BY_TEXT, textbox);
+		sendkeyToElement(driver, BasePageUINopcommerce.DYNAMIC_TEXT_BOX_BY_TEXT, value, textbox);
+	}
+	
 	public UserCustomerInforPageObject openCustomerInforPage(WebDriver driver) {
 		waitForElementClickable(driver, BasePageUINopcommerce.CUSTOMER_INFOR_LINK);
 		clickToElement(driver, BasePageUINopcommerce.CUSTOMER_INFOR_LINK);

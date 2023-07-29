@@ -38,64 +38,101 @@ public class LiveCoding_nopcommerce_Login_TestCase extends BaseTest{
 		incorrectPassword= "012345";
 		
 		//Preconditions
+		log.info("Preconditions - Step 01: Navigate to Register Page");
 		registerPage = homePage.clickToRegisterLink();
+		
+		log.info("Preconditions - Step 02: Register new User account");
 		
 		registerPage.registerNewUserAccount(firstName, lastName, emailAddress, validPassword, validPassword);
 		
+		log.info("Preconditions - Step 03: Navigate to Login page");
 		loginPage = homePage.openLoginPage();
 	}
 
 	@Test
 	public void Login_01_Login_With_EmptyData() {
+		log.info("Login - Step 01: Click Login Button");
 		loginPage.clickLoginButton();
 		
+		log.info("Login - Step 02: Verify email error message");
 		Assert.assertEquals(loginPage.getErrorMessageAtEmailTextbox(), "Please enter your email");
 	}
 	
 	@Test
 	public void Login_02_Login_With_InvalidEmail() {
+		log.info("Login - Step 01: Input Invalid Email");
 		loginPage.inputEmailTextBox(invalidEmail);
+		
+		log.info("Login - Step 02: Input Password");
 		loginPage.inputPasswordTextbox(validPassword);
+		
+		log.info("Login - Step 03: Click Login Button");
 		loginPage.clickLoginButton();
 		
+		log.info("Login - Step 04: Verify email error message");
 		Assert.assertEquals(loginPage.getErrorMessageAtEmailTextbox(), "Wrong email");
 	}
 	
 	@Test
 	public void Login_03_Login_With_Email_Not_Register() {
+		log.info("Login - Step 01: Input Invalid Email");
 		loginPage.inputEmailTextBox(emailNotFound);
+		
+		log.info("Login - Step 02: Input Password");
 		loginPage.inputPasswordTextbox(validPassword);
+		
+		log.info("Login - Step 03: Click Login Button");
 		loginPage.clickLoginButton();
 		
+		log.info("Login - Step 04: Verify login unsuccessful message");
 		Assert.assertEquals(loginPage.getErrorMessageUnsuccessgfull(), "Login was unsuccessful. Please correct the errors and try again.\nNo customer account found");
 	}
 	
 	@Test
 	public void Login_04_Login_With_Email_Register_Password_Empty() {
+		log.info("Login - Step 01: Input Email");
 		loginPage.inputEmailTextBox(emailAddress);
+		
+		log.info("Login - Step 02: Input empty Password");
 		loginPage.inputPasswordTextbox("");
+		
+		log.info("Login - Step 03: Click Login Button");
 		loginPage.clickLoginButton();
 		
+		log.info("Login - Step 04: Verify login unsuccessful message");
 		Assert.assertEquals(loginPage.getErrorMessageUnsuccessgfull(), "Login was unsuccessful. Please correct the errors and try again.\nThe credentials provided are incorrect");
 	}
 	
 	@Test
 	public void Login_05_Login_With_Email_Register_Password_Invalid() {
+		log.info("Login - Step 01: Input Email");
 		loginPage.inputEmailTextBox(emailAddress);
+		
+		log.info("Login - Step 02: Input incorrect Password");
 		loginPage.inputPasswordTextbox(incorrectPassword);
+		
+		log.info("Login - Step 03: Click Login Button");
 		loginPage.clickLoginButton();
 		
+		log.info("Login - Step 04: Verify login unsuccessful message");
 		Assert.assertEquals(loginPage.getErrorMessageUnsuccessgfull(), "Login was unsuccessful. Please correct the errors and try again.\nThe credentials provided are incorrect");
 	}
 	
 	@Test
 	public void Login_06_Login_With_Email_Register_Password_Valid() {
+		log.info("Login - Step 01: Input Email");
 		loginPage.inputEmailTextBox(emailAddress);
+		
+		log.info("Login - Step 02: Input Password");
 		loginPage.inputPasswordTextbox(validPassword);
+		
+		log.info("Login - Step 03: Click Login Button");
 		loginPage.clickLoginButton();
 		
+		log.info("Login - Step 04: Verify My account link displayed");
 		Assert.assertTrue(homePage.isMyAccountLinkDisplayed());
 		
+		log.info("Login - Step 05: Click to My account link");
 		homePage.clickToMyAccountLink();
 	}
 	
