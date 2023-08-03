@@ -12,7 +12,10 @@ public class AddressesPageUI {
 	public static final String ZIP_CODE_TEXTBOX = "ID=Address_ZipPostalCode";
 	public static final String PHONE_NUMBER_TEXTBOX = "ID=Address_PhoneNumber";
 	public static final String FAX_NUMBER_TEXTBOX = "ID=Address_PhoneNumber";
-	
+		
 	public static final String COUNTRY_DROPDOWNLIST = "xpath=//label[contains(text(),'Country')]//following-sibling::select[@id='Address_CountryId']";
 	public static final String STATE_PROVINCE_DROPDOWNLIST = "xpath=//label[contains(text(),'State / province')]//following-sibling::select[@id='Address_StateProvinceId']";
+	
+	//Pattern Object
+	public static final String DELETE_BUTTON_ADDRESS_SECTION = "xpath=//strong[text()='%s']//parent::div[@class='title']//following-sibling::div[@class='buttons']//button[text()='Delete']";
 }

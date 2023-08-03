@@ -1,13 +1,11 @@
 package pageObject.nopcommerce.portal;
 
-import static org.testng.Assert.assertTrue;
 
 import org.openqa.selenium.WebDriver;
 
 import common.BasePage;
 import io.qameta.allure.Step;
 import pageUI.nopcommerce.User.HomePageUI;
-import pageUI.nopcommerce.User.RegisterPageUI;
 
 public class UserHomePageObject extends BasePage{
 	private WebDriver driver;
@@ -45,5 +43,17 @@ public class UserHomePageObject extends BasePage{
 		waitForElementClickable(driver, HomePageUI.MYACCOUNT_LINK);
 		clickToElement(driver, HomePageUI.MYACCOUNT_LINK);
 		return PageGeneratorManager.getUserCustomerInforPage(driver);
+	}
+	
+	@Step("Back to Home Page")
+	public void backToHomePage() {
+		waitForElementClickable(driver, HomePageUI.LOGO_HOME);
+		clickToElement(driver, HomePageUI.LOGO_HOME);		
+	}
+
+	@Step("Select menu {0}")
+	public void selectHeaderMenu(String menu) {
+		waitForElementClickable(driver, HomePageUI.HEADER_MENU, menu);
+		clickToElement(driver, HomePageUI.HEADER_MENU, menu);
 	}
 }

@@ -53,6 +53,7 @@ public class BaseTest {
 		}
 		driverBaseTest.manage().timeouts().implicitlyWait(longTimeout, TimeUnit.SECONDS);
 		driverBaseTest.get(GlobalConstants.PORTAL_PAGE_URL);
+		driverBaseTest.manage().window().fullscreen();
 		// driverBaseTest.get("http://live.techpanda.org/index.php/");
 
 		return driverBaseTest;

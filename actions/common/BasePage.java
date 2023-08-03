@@ -151,6 +151,10 @@ public class BasePage {
 		return driver.findElements(getByLocator(locatorType));
 	}
 	
+	public List<WebElement> getListElements(WebDriver driver, String locatorType, String...dynamicValues ) {
+		return driver.findElements(getByLocator(getDynamicXpath(locatorType, dynamicValues)));
+	}
+	
 	//LocatorType: id= / css= / name= / class= / xpath= 
 	//LocatorType: ID= / CSS= / NAME= / CLASS= / XPATH=
 	//LocatorType: Id= / Css= / Name= / Class= / Xpath=

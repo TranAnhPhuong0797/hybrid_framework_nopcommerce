@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import common.BasePage;
 import io.qameta.allure.Step;
+import pageUI.nopcommerce.User.BasePageUINopcommerce;
 import pageUI.nopcommerce.User.RegisterPageUI;
 
 public class UserRegisterPageObject extends BasePage{
@@ -94,6 +95,9 @@ public class UserRegisterPageObject extends BasePage{
 	
 	@Step("Click to logout link")
 	public UserHomePageObject clickToLogoutLink() {
+		if (isElementDisplayed(driver, BasePageUINopcommerce.BAR_NOTIFICATION_CHANGE_PASSWORD_SUCCESS)==true) {
+			clickToElement(driver, BasePageUINopcommerce.CLOSE_NOTIFICATION_BUTTON);
+		}
 		waitForElementClickable(driver, RegisterPageUI.LOGOUT_LINK);
 		clickToElement(driver, RegisterPageUI.LOGOUT_LINK);	
 		return PageGeneratorManager.getUserHomePage(driver);

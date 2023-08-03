@@ -10,7 +10,10 @@ public class BasePageUINopcommerce {
 	public static final String CHANGE_PASSWORD_LINK = "xpath=//div[contains(@class,'account-navigation')]//a[contains(text(),'Change password')]";
 	public static final String MY_PRODUCT_REVIEWS_LINK = "xpath=//div[contains(@class,'account-navigation')]//a[contains(text(),'My product reviews')]";
 	
-
+	//Notifications
+	public static final String BAR_NOTIFICATION_CHANGE_PASSWORD_SUCCESS = "xpath=//div[@class='bar-notification success']/p[text()='Password was changed']";
+	public static final String CLOSE_NOTIFICATION_BUTTON = "xpath=//div[@class='bar-notification success']/span[@class='close']";
+	public static final String BAR_NOTIFICATION = "xpath=//div[@class='bar-notification success']//p";
 	
 	public static final String LOGOUT_LINK_AT_USER = "xpath=//a[@class='ico-logout']";
 	public static final String LOGOUT_LINK_AT_ADMIN = "xpath=//a[text()='Logout']";
@@ -23,4 +26,6 @@ public class BasePageUINopcommerce {
 	public static final String DYNAMIC_DROPDOWN_BY_NAME = "xpath=//select[@name='%s']";
 	public static final String DYNAMIC_RADIO_BUTTON_BY_LABEL = "xpath=//label[text()='%s']//preceding-sibling::input";
 	public static final String DYNAMIC_CHECKBOX_BUTTON_BY_LABEL = "xpath=//label[contains(text(),'%s')]//following-sibling::input";
+	public static final String BAR_NOTIFICATION_SUCCESS = "xpath=//div[@class='bar-notification success']/p[text()='%s']";
+	public static final String ADDRESS_INFOR_SECTION = "xpath=//strong[text()='%s']//parent::div[@class='title']//following-sibling::ul";
 }
