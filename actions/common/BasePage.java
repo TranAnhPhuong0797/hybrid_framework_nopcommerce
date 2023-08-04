@@ -668,6 +668,17 @@ public class BasePage {
 		sendkeyToElement(driver, BasePageUINopcommerce.DYNAMIC_TEXT_BOX_BY_TEXT, value, textbox);
 	}
 	
+	/** Enter to dynamic TextArea by ID
+	 * @author Phuong TA
+	 * @param driver
+	 * @param textAreaId
+	 * @param value
+	 * */
+	public void inputToTextareaByID(WebDriver driver, String textareaId, String value) {
+		waitForAllElementsVisible(driver, BasePageUINopcommerce.DYNAMIC_TEXT_AREA_BY_ID, textareaId);
+		sendkeyToElement(driver, BasePageUINopcommerce.DYNAMIC_TEXT_AREA_BY_ID, value, textareaId);
+	}
+	
 	public UserCustomerInforPageObject openCustomerInforPage(WebDriver driver) {
 		waitForElementClickable(driver, BasePageUINopcommerce.CUSTOMER_INFOR_LINK);
 		clickToElement(driver, BasePageUINopcommerce.CUSTOMER_INFOR_LINK);
