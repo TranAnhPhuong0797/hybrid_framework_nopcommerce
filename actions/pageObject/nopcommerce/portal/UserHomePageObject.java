@@ -56,4 +56,10 @@ public class UserHomePageObject extends BasePage{
 		waitForElementClickable(driver, HomePageUI.HEADER_MENU, menu);
 		clickToElement(driver, HomePageUI.HEADER_MENU, menu);
 	}
+
+	@Step("Click Customer service Link in footer {0}")
+	public void clickCustomerServiceLinkInFooter(String link) {
+		waitForElementClickable(driver, HomePageUI.FOOTER_MENU_CUSTOMER_SERVICE_LINK, link);
+		clickToElement(driver, HomePageUI.FOOTER_MENU_CUSTOMER_SERVICE_LINK, link);
+	}
 }

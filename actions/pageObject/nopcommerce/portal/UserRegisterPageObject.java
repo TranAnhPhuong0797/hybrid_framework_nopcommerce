@@ -96,6 +96,7 @@ public class UserRegisterPageObject extends BasePage{
 	@Step("Click to logout link")
 	public UserHomePageObject clickToLogoutLink() {
 		if (isElementDisplayed(driver, BasePageUINopcommerce.BAR_NOTIFICATION_CHANGE_PASSWORD_SUCCESS)==true) {
+			waitForElementClickable(driver, BasePageUINopcommerce.CLOSE_NOTIFICATION_BUTTON);
 			clickToElement(driver, BasePageUINopcommerce.CLOSE_NOTIFICATION_BUTTON);
 		}
 		waitForElementClickable(driver, RegisterPageUI.LOGOUT_LINK);
