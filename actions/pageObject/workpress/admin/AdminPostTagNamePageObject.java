@@ -1,5 +1,12 @@
 package pageObject.workpress.admin;
 
-public class AdminPostTagNamePageObject {
+import org.openqa.selenium.WebDriver;
 
+public class AdminPostTagNamePageObject {
+private WebDriver driver;
+	
+	
+	public AdminPostTagNamePageObject(WebDriver driver) {
+		this.driver = driver;
+	}
 }
