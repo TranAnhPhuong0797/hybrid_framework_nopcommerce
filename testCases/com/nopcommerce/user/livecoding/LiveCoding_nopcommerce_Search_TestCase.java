@@ -1,7 +1,5 @@
 package com.nopcommerce.user.livecoding;
 
-import java.util.Random;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -54,9 +52,11 @@ public class LiveCoding_nopcommerce_Search_TestCase extends BaseTest{
 		log.info("Search Page - Step 01: Navigate to Search page");
 		userHomePage.clickCustomerServiceLinkInFooter("Search");
 		
+		
 		log.info("Search Page - Step 02: Click Search button");
 		userSearchPage = PageGeneratorManager.getUserSearchPage(driver);
 		userSearchPage.clickSearchButton();
+		
 		
 		log.info("Search Page - Step 03: Verify error message");
 		userSearchPage.verifySearchErrorMessage("Search term minimum length is 3 characters");
@@ -198,10 +198,6 @@ public class LiveCoding_nopcommerce_Search_TestCase extends BaseTest{
 		userSearchPage.VeirfyProductNameIsDisplayed("Apple MacBook Pro 13-inch");
 	}
 	
-	public int fakeNumber() {
-		Random rand = new Random();
-		return rand.nextInt(9999);
-	}
 	
 	@AfterClass
 	public void afterClass() {

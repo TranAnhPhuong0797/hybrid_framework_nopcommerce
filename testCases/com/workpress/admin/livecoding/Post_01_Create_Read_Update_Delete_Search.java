@@ -1,6 +1,7 @@
 package com.workpress.admin.livecoding;
 
 import java.util.Random;
+import java.lang.reflect.Method;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
@@ -8,12 +9,15 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.Status;
+
 import common.BaseTest;
 import pageObject.workpress.admin.AdminDashboardPageObject;
 import pageObject.workpress.admin.AdminLoginPageObject;
 import pageObject.workpress.admin.AdminPostAddNewPageObject;
 import pageObject.workpress.admin.AdminPostSearchPageObject;
 import pageObject.workpress.admin.PageGeneratorManager;
+import reportConfig.ExtentTestManagerV5;
 
 
 
@@ -26,52 +30,53 @@ public class Post_01_Create_Read_Update_Delete_Search extends BaseTest{
 	
 	@Parameters({"browser", "urlAdmin"})
 	@BeforeClass
-	public void beforeClass(String browserName, String url) {
+	public void beforeClass(String browserName, String url, Method method) {
 		//Preconditions
-		log.info("Preconditions - Step 01: Open browser and admin url");
+		ExtentTestManagerV5.startTest(method.getName(), "Preconditions Login with admin user");
+		ExtentTestManagerV5.getTest().log(Status.INFO, "Preconditions - Step 01: Open browser and admin url");
 		driver = getBrowserName(browserName, url);
 		adminLoginPO = PageGeneratorManager.getAdminLoginPage(driver);
-
-		log.info("Preconditions - Step 02: Enter username with value " + adminUserName);
+		
+		ExtentTestManagerV5.getTest().log(Status.INFO, "Preconditions - Step 02: Enter username with value " + adminUserName);
 		adminLoginPO.enterToUserNameTextbox(adminUserName);
-			
-		log.info("Preconditions - Step 02: Enter password with value" + adminPassword);
+		
+		ExtentTestManagerV5.getTest().log(Status.INFO, "Preconditions - Step 02: Enter password with value" + adminPassword);
 		adminLoginPO.enterToPasswordTextbox(adminPassword);
 		
-		log.info("Preconditions - Step 03: Click to 'login' button");
-		adminLoginPO.clickTologinButton();
-		
-		adminDashboard = PageGeneratorManager.getAdminDashboardPage(driver);
+		ExtentTestManagerV5.getTest().log(Status.INFO, "Preconditions - Step 03: Click to 'login' button");
+		adminDashboard = adminLoginPO.clickTologinButton();
 	}
 	
 	@Test
-	public void Post_01_Create_New_Post() {
-		log.info("Create Post - Step 01: Click to 'Post' menu link");
-		adminDashboard.clickToMenuLink();
+	public void Post_01_Create_New_Post(Method method) {
+		ExtentTestManagerV5.startTest(method.getName(), "Create new post");
+		ExtentTestManagerV5.getTest().log(Status.INFO, "Create Post - Step 01: Click to 'Post' menu link");
+		adminPostSearch = adminDashboard.clickToMenuLink();
 		
-		log.info("Create Post - Step 02: Get page URL");
+		ExtentTestManagerV5.getTest().log(Status.INFO, "Create Post - Step 02: Get page URL");
 		searchPostURL = adminPostSearch.getPageURL(driver);
 		
-		log.info("Create Post - Step 03: Click to 'Add new' button");
-		adminPostSearch.clickToAddNewButton();
+		ExtentTestManagerV5.getTest().log(Status.INFO, "Create Post - Step 03: Click to 'Add new' button");
+		adminPostAddNew = adminPostSearch.clickToAddNewButton();
 		
-		log.info("Create Post - Step 04: Enter to post title");
+		ExtentTestManagerV5.getTest().log(Status.INFO, "Create Post - Step 04: Enter to post title");
 		adminPostAddNew.enterToPostTitle(postTitle);
 		
-		log.info("Create Post - Step 05: Enter to post title body");
+		ExtentTestManagerV5.getTest().log(Status.INFO, "Create Post - Step 05: Enter to post title body");
 		adminPostAddNew.enterToPostBody(postBody);
 		
-		log.info("Create Post - Step 06: Click to 'Publish' button");
+		ExtentTestManagerV5.getTest().log(Status.INFO, "Create Post - Step 06: Click to 'Publish' button");
 		adminPostAddNew.clickToPublishButton();
 		
-		log.info("Create Post - Step 07: Verify 'Post Publish' message is displayed");
+		ExtentTestManagerV5.getTest().log(Status.INFO, "Create Post - Step 07: Verify 'Post Publish' message is displayed");
 		verifyTrue(adminPostAddNew.isPostPublishMessageDisplayed("Post Publish."));
 		
 	}
 	
 	@Test
-	public void Post_02_Search_Post() {
-		log.info("Search Post - Step 01: Open 'Search post' page");
+	public void Post_02_Search_Post(Method method) {
+		ExtentTestManagerV5.startTest(method.getName(), "Search Post");
+		ExtentTestManagerV5.getTest().log(Status.INFO, "Search Post - Step 01: Open 'Search post' page");
 		adminPostAddNew.openSearchPostPage(searchPostURL);
 	}
 	

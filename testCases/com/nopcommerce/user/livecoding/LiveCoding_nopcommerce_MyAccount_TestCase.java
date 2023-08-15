@@ -1,7 +1,5 @@
 package com.nopcommerce.user.livecoding;
 
-import java.util.Random;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -240,13 +238,6 @@ public class LiveCoding_nopcommerce_MyAccount_TestCase extends BaseTest{
 		log.info("My account - Step 12: Veirfy my product review visibility");
 		myProductReviewPage.verifyProductReviewTitle("Test review title");
 		myProductReviewPage.verifyProductReviewContent("Good Product");
-	}
-	
-	
-	
-	public int fakeNumber() {
-		Random rand = new Random();
-		return rand.nextInt(9999);
 	}
 	
 	@AfterClass

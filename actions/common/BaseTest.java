@@ -8,8 +8,10 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.BeforeSuite;
@@ -158,11 +160,27 @@ public class BaseTest {
 	protected WebDriver getBrowserName(String browserName, String apURL) {
 		if (browserName.equals("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
-			driverBaseTest = new FirefoxDriver();
-		} else if (browserName.equals("chrome")) {
+			FirefoxOptions options = new FirefoxOptions();
+			options.setAcceptInsecureCerts(false);
+			driverBaseTest = new FirefoxDriver(options);
+		}else if (browserName.equals("h_firefox")) {
+			WebDriverManager.firefoxdriver().setup();
+			FirefoxOptions options = new FirefoxOptions();
+			options.addArguments("--headless");
+			options.addArguments("window-size=1920*1080");
+			driverBaseTest = new FirefoxDriver(options);
+		}else if (browserName.equals("chrome")) {
 			WebDriverManager.chromedriver().setup();
-			driverBaseTest = new ChromeDriver();
-		} else if (browserName.equals("edge")) {
+			ChromeOptions options = new ChromeOptions();
+			options.setAcceptInsecureCerts(true);
+			driverBaseTest = new ChromeDriver(options);
+		}else if (browserName.equals("h_chrome")) {
+			WebDriverManager.chromedriver().setup();
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--headless");
+			options.addArguments("window-size=1920*1080");
+			driverBaseTest = new ChromeDriver(options);
+		}else if (browserName.equals("edge")) {
 			WebDriverManager.edgedriver().setup();
 			driverBaseTest = new EdgeDriver();
 		} else {
