@@ -5,6 +5,9 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import common.BasePage;
+
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
@@ -31,6 +34,7 @@ import pageObject.nopcommerce.portal.UserOrderPageObject;
 import pageObject.nopcommerce.admin.AdminLoginPageObject;
 import pageObject.nopcommerce.portal.PageGeneratorManager;
 import pageObject.nopcommerce.portal.UserRewardPointPageObject;
+import pageObject.workpress.UserHomePO;
 import pageUI.nopcommerce.User.BasePageUINopcommerce;
 import pageUIjQueryUploadFile.BasePageUIjQuery;
 
@@ -182,6 +186,35 @@ public class BasePage {
 			locatorType = String.format(locatorType, (Object[])dynamicValues);
 		}
 		return locatorType;
+	}
+	
+	protected String getCurrentDay() {
+		DateTime nowUTC = new DateTime(DateTimeZone.UTC);
+		int day = nowUTC.getDayOfMonth();
+		if (day < 10) {
+			String dayValue = "0" + day;
+			return dayValue;
+		}
+		return String.valueOf(day);
+	}
+
+	protected String getCurrentMonth() {
+		DateTime now = new DateTime(DateTimeZone.UTC);
+		int month = now.getMonthOfYear();
+		if (month < 10) {
+			String monthValue = "0" + month;
+			return monthValue;
+		}
+		return String.valueOf(month);
+	}
+
+	protected String getCurrentYear() {
+		DateTime now = new DateTime(DateTimeZone.UTC);
+		return now.getYear() + "";
+	}
+
+	protected String getCurrentDate() {
+		return getCurrentMonth() + "/" + getCurrentDay() + "/" + getCurrentYear();
 	}
 
 	public void clickToElement(WebDriver driver, String locatorType) {
@@ -737,6 +770,11 @@ public class BasePage {
 		waitForElementClickable(driver, BasePageUINopcommerce.LOGOUT_LINK_AT_ADMIN);
 		clickToElement(driver, BasePageUINopcommerce.LOGOUT_LINK_AT_ADMIN);
 		return PageGeneratorManager.getAdminLoginPage(driver);
+	}
+	
+	public UserHomePO openEndUserSite(WebDriver driver, String endUserUrl) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	public void sleepInSecond(long time) {

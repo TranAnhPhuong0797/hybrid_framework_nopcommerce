@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import common.BasePage;
-import io.qameta.allure.Step;
+//import io.qameta.allure.Step;
 import pageUI.nopcommerce.User.AddressesPageUI;
 import pageUI.nopcommerce.User.BasePageUINopcommerce;
 
@@ -15,13 +15,13 @@ public class UserAddressPageObject extends BasePage{
 		this.driver = driver;
 	}
 	
-	@Step("Select country dropdownlist with value is {0}")
+//	@Step("Select country dropdownlist with value is {0}")
 	public void selectCountryDropdownlist(String country) {
 		waitForElementVisible(driver, AddressesPageUI.COUNTRY_DROPDOWNLIST);
 		selectItemInDefaultDropdown(driver, AddressesPageUI.COUNTRY_DROPDOWNLIST, country);
 	}
 	
-	@Step("Select country dropdownlist with value is {0}")
+//	@Step("Select country dropdownlist with value is {0}")
 	public void selectStateProvinceDropdownlist(String stateProvince) {
 		waitForElementVisible(driver, AddressesPageUI.STATE_PROVINCE_DROPDOWNLIST);
 		selectItemInDefaultDropdown(driver, AddressesPageUI.STATE_PROVINCE_DROPDOWNLIST, stateProvince);

@@ -1,4 +1,4 @@
-package pageObject.workpress.admin;
+package pageObject.workpress;
 
 import org.openqa.selenium.WebDriver;
 
@@ -27,5 +27,17 @@ public class PageGeneratorManager {
 	
 	public static AdminPostTagNamePageObject getAdminPostTagName(WebDriver driver) {
 		return new AdminPostTagNamePageObject(driver);
+	}
+	
+	public static UserHomePO getUserHomePage(WebDriver driver) {
+		return new UserHomePO(driver);
+	}
+	
+	public static UserPostSearchPageObject getUserSeachPOPage(WebDriver driver) {
+		return new UserPostSearchPageObject(driver);
+	}
+	
+	public static UserPostDetailPageObject getUserPostDetailPOPage(WebDriver driver) {
+		return new UserPostDetailPageObject(driver);
 	}
 }

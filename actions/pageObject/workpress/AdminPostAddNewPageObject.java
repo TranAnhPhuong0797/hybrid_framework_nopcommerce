@@ -1,4 +1,4 @@
-package pageObject.workpress.admin;
+package pageObject.workpress;
 
 import org.openqa.selenium.WebDriver;
 
@@ -15,12 +15,18 @@ private WebDriver driver;
 
 
 	public void enterToPostTitle(String postTitle) {
+		waitForElementClickable(driver, AdminPostAddNewPageUI.POST_TITLE_BUTTON);
+		clickToElement(driver, AdminPostAddNewPageUI.POST_TITLE_BUTTON);
+		
 		waitForElementVisible(driver, AdminPostAddNewPageUI.POST_TITLE_TEXTBOX);
 		sendkeyToElement(driver, AdminPostAddNewPageUI.POST_TITLE_TEXTBOX, postTitle);
 	}
 
 
 	public void enterToPostBody(String postBody) {
+		waitForElementClickable(driver, AdminPostAddNewPageUI.POST_BODY_BUTTON);
+		clickToElement(driver, AdminPostAddNewPageUI.POST_BODY_BUTTON);
+		
 		waitForElementVisible(driver, AdminPostAddNewPageUI.POST_BODY_TEXTAREA);
 		sendkeyToElement(driver, AdminPostAddNewPageUI.POST_BODY_TEXTAREA, postBody);
 	}

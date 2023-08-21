@@ -1,4 +1,4 @@
-package pageObject.workpress.admin;
+package pageObject.workpress;
 
 import org.openqa.selenium.WebDriver;
 
@@ -19,4 +19,23 @@ private WebDriver driver;
 		clickToElement(driver, AdminPostSearchPageUI.ADD_NEW_BUTTON);
 		return PageGeneratorManager.getAdminPostAddNew(driver);
 	}
+
+
+	public void enterToSearchTextBox(String postTitle) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public void clickToSearchPostButton() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public boolean isPostSearchTableDisplayed(String string, String postTitle) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

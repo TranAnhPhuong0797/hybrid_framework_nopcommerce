@@ -1,4 +1,4 @@
-package pageObject.workpress.admin;
+package pageObject.workpress;
 
 import org.openqa.selenium.WebDriver;
 

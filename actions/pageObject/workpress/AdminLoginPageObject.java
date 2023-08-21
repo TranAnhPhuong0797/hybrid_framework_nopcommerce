@@ -1,4 +1,4 @@
-package pageObject.workpress.admin;
+package pageObject.workpress;
 
 import org.openqa.selenium.WebDriver;
 
@@ -26,8 +26,9 @@ private WebDriver driver;
 	}
 
 
-	public void clickTologinButton() {
+	public AdminDashboardPageObject clickTologinButton() {
 		waitForElementClickable(driver, AdminLoginPageUI.LOGIN_BUTTON);
 		clickToElement(driver, AdminLoginPageUI.LOGIN_BUTTON);
+		return PageGeneratorManager.getAdminDashboardPage(driver);
 	}
 }

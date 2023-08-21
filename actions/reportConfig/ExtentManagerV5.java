@@ -19,7 +19,8 @@ public class ExtentManagerV5 {
 
 		extentReports.attachReporter(reporter);
 		extentReports.setSystemInfo("Company", "Automation FC");
-		extentReports.setSystemInfo("Project", "NopCommerce");
+//		extentReports.setSystemInfo("Project", "NopCommerce");
+		extentReports.setSystemInfo("Project", "WorkPress");
 		extentReports.setSystemInfo("Team", "Basus VN");
 		extentReports.setSystemInfo("JDK version", GlobalConstants.JAVA_VERSION);
 		return extentReports;
