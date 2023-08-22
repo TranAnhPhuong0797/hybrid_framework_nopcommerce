@@ -18,7 +18,7 @@ import org.testng.annotations.BeforeSuite;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class BaseTest {
+public class BaseTest extends BasePage{
 	private WebDriver driverBaseTest;
 	// private String projectpath = System.getProperty("user.dir");
 	protected final Log log;
