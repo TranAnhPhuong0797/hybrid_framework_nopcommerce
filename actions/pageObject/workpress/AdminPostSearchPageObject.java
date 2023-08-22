@@ -22,20 +22,20 @@ private WebDriver driver;
 
 
 	public void enterToSearchTextBox(String postTitle) {
-		// TODO Auto-generated method stub
-		
+		waitForElementClickable(driver, AdminPostSearchPageUI.SEARCH_TEXTBOX);
+		sendkeyToElement(driver, AdminPostSearchPageUI.SEARCH_TEXTBOX, postTitle);
 	}
 
 
 	public void clickToSearchPostButton() {
-		// TODO Auto-generated method stub
-		
+		waitForElementClickable(driver, AdminPostSearchPageUI.SEARCH_BUTTON);
+		clickToElement(driver, AdminPostSearchPageUI.SEARCH_BUTTON);
 	}
 
 
-	public boolean isPostSearchTableDisplayed(String string, String postTitle) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean isPostSearchTableDisplayed(String headerName, String cellValue) {
+		waitForElementVisible(driver, AdminPostSearchPageUI.TABLE_ROW_VALUE_BY_HEADER_NAME, headerName, cellValue);
+		return isElementDisplayed(driver, AdminPostSearchPageUI.TABLE_ROW_VALUE_BY_HEADER_NAME, headerName, cellValue);
 	}
 
 }

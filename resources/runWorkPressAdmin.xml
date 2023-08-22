@@ -15,8 +15,8 @@
 	<parameter name="urlAdmin" value="https://localhost/wp-admin/"></parameter>
 	<parameter name="urlUser" value="https://localhost/"></parameter>
 	<!-- Test -->
-	<test name="Run on Chrome">
-		<parameter name="browser" value="chrome"></parameter>
+	<test name="Run on Firefox">
+		<parameter name="browser" value="firefox"></parameter>
 		<classes>
 			<class name="com.workpress.admin.livecoding.Post_01_Create_Read_Update_Delete_Search" />
 		</classes>

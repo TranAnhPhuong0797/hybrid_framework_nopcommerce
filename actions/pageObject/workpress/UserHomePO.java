@@ -2,18 +2,34 @@ package pageObject.workpress;
 
 import org.openqa.selenium.WebDriver;
 
-public class UserHomePO {
+import common.BasePage;
+import pageUI.workpress.user.UserHomePageUI;
+
+public class UserHomePO extends BasePage{
 	private WebDriver driver;
 	public UserHomePO(WebDriver driver) {
 		this.driver = driver;
 	}
-	public boolean isPostSearchInforDisplayed(String postTitle) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 	public UserPostDetailPageObject clickToPostTitle(String postTitle) {
-		// TODO Auto-generated method stub
-		return null;
+		waitForElementClickable(driver, UserHomePageUI.POST_TITLE_TEXT, postTitle);
+		clickToElement(driver, UserHomePageUI.POST_TITLE_TEXT, postTitle);
+		return PageGeneratorManager.getUserPostDetailPOPage(driver);
+	}
+	public boolean isPostSearchInforDisplayedWithPostTitle(String postTitle) {
+		waitForElementVisible(driver, UserHomePageUI.POST_TITLE_TEXT, postTitle);
+		return isElementDisplayed(driver, UserHomePageUI.POST_TITLE_TEXT, postTitle);
+	}
+	public boolean isPostSearchInforDisplayedithPostBody(String postTitle, String postBody) {
+		waitForElementVisible(driver, UserHomePageUI.POST_BODY_TEXT, postTitle, postBody);
+		return isElementDisplayed(driver, UserHomePageUI.POST_BODY_TEXT, postTitle, postBody);
+	}
+	public boolean isPostSearchInforDisplayedithPostAuthor(String postTitle, String author) {
+		waitForElementVisible(driver, UserHomePageUI.POST_AUTHOR_TEXT_BY_POST_TITLE, postTitle, author);
+		return isElementDisplayed(driver, UserHomePageUI.POST_AUTHOR_TEXT_BY_POST_TITLE, postTitle, author);
+	}
+	public boolean isPostSearchInforDisplayedithPostCurrentDay(String postTitle, String currentDay) {
+		waitForElementVisible(driver, UserHomePageUI.POST__CURRENT_DAY_TEXT_BY_POST_TITLE, postTitle, currentDay);
+		return isElementDisplayed(driver, UserHomePageUI.POST__CURRENT_DAY_TEXT_BY_POST_TITLE, postTitle, currentDay);
 	}
 	
 	

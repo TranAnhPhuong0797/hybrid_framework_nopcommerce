@@ -17,7 +17,6 @@ private WebDriver driver;
 	public void enterToPostTitle(String postTitle) {
 		waitForElementVisible(driver, AdminPostAddNewPageUI.POST_TITLE_TEXTBOX);
 		sendkeyToElement(driver, AdminPostAddNewPageUI.POST_TITLE_TEXTBOX, postTitle);
-//		switchToDefaultContent(driver);
 	}
 
 

@@ -161,7 +161,7 @@ public class BaseTest extends BasePage{
 		if (browserName.equals("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
 			FirefoxOptions options = new FirefoxOptions();
-			options.setAcceptInsecureCerts(false);
+			options.setAcceptInsecureCerts(true);
 			driverBaseTest = new FirefoxDriver(options);
 		}else if (browserName.equals("h_firefox")) {
 			WebDriverManager.firefoxdriver().setup();

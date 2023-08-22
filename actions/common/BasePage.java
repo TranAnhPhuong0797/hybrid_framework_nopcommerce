@@ -214,7 +214,7 @@ public class BasePage {
 	}
 
 	protected String getCurrentDate() {
-		return getCurrentMonth() + "/" + getCurrentDay() + "/" + getCurrentYear();
+		return getCurrentDay() + "/" + getCurrentMonth() + "/" + getCurrentYear();
 	}
 
 	public void clickToElement(WebDriver driver, String locatorType) {
@@ -773,8 +773,8 @@ public class BasePage {
 	}
 	
 	public UserHomePO openEndUserSite(WebDriver driver, String endUserUrl) {
-		// TODO Auto-generated method stub
-		return null;
+		openPageURL(driver, endUserUrl);
+		return pageObject.workpress.PageGeneratorManager.getUserHomePage(driver);
 	}
 	
 	public void sleepInSecond(long time) {

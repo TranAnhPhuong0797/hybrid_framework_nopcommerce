@@ -25,7 +25,7 @@ public class Post_01_Create_Read_Update_Delete_Search extends BaseTest{
 	String searchPostURL;
 	String postTitle = "Post" + fakeNumber() ;
 	String postBody = "Live coding" + fakeNumber();
-	String author = "Phuongtran97";
+	String author = "phuongtran97";
 	String adminUrl, endUserUrl;
 	String currentDay = getCurrentDate();
 	
@@ -94,29 +94,41 @@ public class Post_01_Create_Read_Update_Delete_Search extends BaseTest{
 		log.info("Search Post - Step 03: Click 'Search Posts' button");
 		adminPostSearch.clickToSearchPostButton();
 		
-		log.info("Search Post - Step 04: Verify search table contains" + postTitle);
+		log.info("Search Post - Step 04: Verify search table contains " + postTitle);
 		verifyTrue(adminPostSearch.isPostSearchTableDisplayed("Title", postTitle));
 		
-		log.info("Search Post - Step 05: Verify search table contains" + author);
+		log.info("Search Post - Step 05: Verify search table contains " + author);
 		verifyTrue(adminPostSearch.isPostSearchTableDisplayed("Author", author));
 		
 		log.info("Search Post - Step 06: Open End User site");
 		userHome = adminPostSearch.openEndUserSite(driver, endUserUrl);
 		
-		log.info("Search Post - Step 07: Veirfy post infor displayed at Home Page");
-		verifyTrue(userHome.isPostSearchInforDisplayed(postTitle));
-		verifyTrue(userHome.isPostSearchInforDisplayed(postBody));
-		verifyTrue(userHome.isPostSearchInforDisplayed(author));
-		verifyTrue(userHome.isPostSearchInforDisplayed("Posted on " + currentDay));
+		log.info("Search Post - Step 07: Veirfy post Title infor displayed at Home Page");
+		verifyTrue(userHome.isPostSearchInforDisplayedWithPostTitle(postTitle));
 		
-		log.info("Search Post - Step 08: Click to Post Title");
+		log.info("Search Post - Step 08: Veirfy post Body infor displayed at Home Page");
+		verifyTrue(userHome.isPostSearchInforDisplayedithPostBody(postTitle, postBody));
+		
+		log.info("Search Post - Step 09: Veirfy post Author infor displayed at Home Page");
+		verifyTrue(userHome.isPostSearchInforDisplayedithPostAuthor(postTitle, author));
+		
+		log.info("Search Post - Step 10: Veirfy post CurrentDay infor displayed at Home Page");
+		verifyTrue(userHome.isPostSearchInforDisplayedithPostCurrentDay(postTitle, currentDay));
+		
+		log.info("Search Post - Step 11: Click to Post Title");
 		userPostDetail = userHome.clickToPostTitle(postTitle);
 		
-		log.info("Search Post - Step 09: Verify Post Infor displayed at Post detail page");
-		verifyTrue(userPostDetail.isPostInforDisplayed(postTitle));
-		verifyTrue(userPostDetail.isPostInforDisplayed(postBody));
-		verifyTrue(userPostDetail.isPostInforDisplayed(author));
-		verifyTrue(userPostDetail.isPostInforDisplayed(currentDay));
+		log.info("Search Post - Step 12: Verify Post Title Infor displayed at Post detail page");
+		verifyTrue(userPostDetail.isPostSearchInforDisplayedWithPostTitle(postTitle));
+		
+		log.info("Search Post - Step 13: Verify Post Body Infor displayed at Post detail page");
+		verifyTrue(userPostDetail.isPostSearchInforDisplayedithPostBody(postTitle, postBody));
+		
+		log.info("Search Post - Step 14: Verify Post Author Infor displayed at Post detail page");
+		verifyTrue(userPostDetail.isPostSearchInforDisplayedithPostAuthor(postTitle, author));
+		
+		log.info("Search Post - Step 15: Verify Post CurrentDay Infor displayed at Post detail page");
+		verifyTrue(userPostDetail.isPostSearchInforDisplayedithPostCurrentDay(postTitle, currentDay));
 	}
 	
 	@Test

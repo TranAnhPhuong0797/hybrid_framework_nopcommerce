@@ -41,7 +41,7 @@
 	<classpathentry kind="lib" path="libWeddriverManager/webdrivermanager-5.3.0.jar"/>
 	<classpathentry kind="lib" path="librariesSelenium/selenium-3.141.59-nodeps-sources.jar"/>
 	<classpathentry kind="lib" path="librariesSelenium/selenium-server-standalone-3.141.59.jar" sourcepath="librariesSelenium/selenium-3.141.59-nodeps-sources.jar"/>
-	<classpathentry kind="lib" path="librariesSelenium/testng-6.14.3.jar"/>
+	<classpathentry kind="lib" path="librariesSelenium/testng-6.14.3.jar" sourcepath="librariesSelenium/testng-6.14.3.jar"/>
 	<classpathentry kind="lib" path="libraryLog4j/log4j-1.2.16.jar"/>
 	<classpathentry kind="lib" path="libraryReportNG/commons-collections-3.2.1.jar"/>
 	<classpathentry kind="lib" path="libraryReportNG/guice-3.0.jar"/>
