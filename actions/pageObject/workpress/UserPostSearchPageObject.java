@@ -7,4 +7,10 @@ public class UserPostSearchPageObject {
 	public UserPostSearchPageObject(WebDriver driver) {
 		this.driver = driver;
 	}
+	
+	public boolean isNothingFoundMessageDisplayed(String string) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

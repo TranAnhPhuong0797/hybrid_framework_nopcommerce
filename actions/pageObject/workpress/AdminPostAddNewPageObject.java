@@ -20,18 +20,27 @@ private WebDriver driver;
 	}
 
 
-	public void enterToPostBody(String postBody) {
+	public void enterAddNewToPostBody(String postBody) {
 		waitForElementClickable(driver, AdminPostAddNewPageUI.POST_BODY_BUTTON);
 		clickToElement(driver, AdminPostAddNewPageUI.POST_BODY_BUTTON);
 		
 		waitForElementVisible(driver, AdminPostAddNewPageUI.POST_BODY_TEXTAREA);
 		sendkeyToElement(driver, AdminPostAddNewPageUI.POST_BODY_TEXTAREA, postBody);
 	}
+	
+	public void enterEditToPostBody(String postBody) {
+		waitForElementClickable(driver, AdminPostAddNewPageUI.POST_BODY_TEXTAREA);
+		clickToElement(driver, AdminPostAddNewPageUI.POST_BODY_TEXTAREA);
+		
+		waitForElementVisible(driver, AdminPostAddNewPageUI.POST_BODY_TEXTAREA);
+		clearValueToElementByDeleteKeys(driver, AdminPostAddNewPageUI.POST_BODY_TEXTAREA);
+		sendkeyToElement(driver, AdminPostAddNewPageUI.POST_BODY_TEXTAREA, postBody);
+	}
 
 
-	public void clickToPublishButton() {
-		waitForElementClickable(driver, AdminPostAddNewPageUI.PUBLISH_BUTTON);
-		clickToElement(driver, AdminPostAddNewPageUI.PUBLISH_BUTTON);
+	public void clickToPublishOrUpdateButton() {
+		waitForElementClickable(driver, AdminPostAddNewPageUI.PUBLISH_UPDATE_BUTTON);
+		clickToElement(driver, AdminPostAddNewPageUI.PUBLISH_UPDATE_BUTTON);
 	}
 
 	public void clickToRePublishButton() {
@@ -39,9 +48,9 @@ private WebDriver driver;
 		clickToElement(driver, AdminPostAddNewPageUI.RE_PUBLISH_BUTTON);
 	}
 
-	public boolean isPostPublishMessageDisplayed(String message) {
-		waitForElementVisible(driver, AdminPostAddNewPageUI.PUBLISH_MESSAGE, message);
-		return isElementDisplayed(driver, AdminPostAddNewPageUI.PUBLISH_MESSAGE, message);
+	public boolean isPostPublishOrUpdatedMessageDisplayed(String message) {
+		waitForElementVisible(driver, AdminPostAddNewPageUI.PUBLISH_UPDATED_MESSAGE, message);
+		return isElementDisplayed(driver, AdminPostAddNewPageUI.PUBLISH_UPDATED_MESSAGE, message);
 	}
 
 

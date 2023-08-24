@@ -28,5 +28,4 @@ public class UserPostDetailPageObject extends BasePage{
 		return isElementDisplayed(driver, UserPostDetailPageUI.POST__CURRENT_DAY_TEXT_BY_POST_TITLE, postTitle, currentDay);
 	}
 	
-	
 }

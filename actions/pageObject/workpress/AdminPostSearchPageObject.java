@@ -38,4 +38,40 @@ private WebDriver driver;
 		return isElementDisplayed(driver, AdminPostSearchPageUI.TABLE_ROW_VALUE_BY_HEADER_NAME, headerName, cellValue);
 	}
 
+	public AdminPostAddNewPageObject clickToPostTitleLink(String postTitle) {
+		waitForElementClickable(driver, AdminPostSearchPageUI.ROW_TITLE_DETAIL_BY_TITLE_NAME, postTitle);
+		clickToElement(driver, AdminPostSearchPageUI.ROW_TITLE_DETAIL_BY_TITLE_NAME, postTitle);
+		return PageGeneratorManager.getAdminPostAddNew(driver);
+	}
+
+
+	public void selectPostCheckByTitle(String editTitle) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public void selectTextItemInActionDropdown(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public boolean isMoveToTrashMessageDisplayed(String string) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	public boolean isNoPostFoundMessageDisplayed(String string) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	public void clickToApplyButton() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

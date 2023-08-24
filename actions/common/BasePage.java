@@ -34,6 +34,7 @@ import pageObject.nopcommerce.portal.UserOrderPageObject;
 import pageObject.nopcommerce.admin.AdminLoginPageObject;
 import pageObject.nopcommerce.portal.PageGeneratorManager;
 import pageObject.nopcommerce.portal.UserRewardPointPageObject;
+import pageObject.workpress.AdminDashboardPageObject;
 import pageObject.workpress.UserHomePO;
 import pageUI.nopcommerce.User.BasePageUINopcommerce;
 import pageUIjQueryUploadFile.BasePageUIjQuery;
@@ -265,6 +266,11 @@ public class BasePage {
 		WebElement element = getWebElement(driver, getDynamicXpath(xpathLocator, dynamicValues));
 		element.clear();
 		element.sendKeys(textValue);
+	}
+	
+	public void clearValueToElementByDeleteKeys(WebDriver driver, String xpathLocator) {
+		WebElement element = getWebElement(driver, xpathLocator);
+		element.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 	}
 	
 	public String getTextElement(WebDriver driver, String xpathLocator) {
@@ -775,6 +781,11 @@ public class BasePage {
 	public UserHomePO openEndUserSite(WebDriver driver, String endUserUrl) {
 		openPageURL(driver, endUserUrl);
 		return pageObject.workpress.PageGeneratorManager.getUserHomePage(driver);
+	}
+	
+	public AdminDashboardPageObject openAdminUserSite(WebDriver driver, String adminUrl) {
+		openPageURL(driver, adminUrl);
+		return pageObject.workpress.PageGeneratorManager.getAdminDashboardPage(driver);
 	}
 	
 	public void sleepInSecond(long time) {
