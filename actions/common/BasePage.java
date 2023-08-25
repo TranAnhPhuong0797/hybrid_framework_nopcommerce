@@ -424,6 +424,21 @@ public class BasePage {
 			return false;
 		}
 	}
+	
+	public boolean isElementUndisplayed(WebDriver driver, String locatorType, String...dynamicValues) {
+		overrideImplicitTimeout(driver, shortTimeout);
+		List<WebElement> elements = getListElements(driver, getDynamicXpath(locatorType, dynamicValues));
+		overrideImplicitTimeout(driver, longTimeout);
+		
+		if (elements.size() == 0) {
+			return true;
+		} else if (elements.size() > 0 && !elements.get(0).isDisplayed()) {	
+			return true;
+		}else {
+			System.out.println("Element is in DOM and visible");
+			return false;
+		}
+	}
 
 	public boolean isElementEnabled(WebDriver driver, String locatorType) {
 		return getWebElement(driver, locatorType).isEnabled();

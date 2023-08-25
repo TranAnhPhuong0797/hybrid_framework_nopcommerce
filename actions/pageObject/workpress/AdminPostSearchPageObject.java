@@ -46,32 +46,32 @@ private WebDriver driver;
 
 
 	public void selectPostCheckByTitle(String editTitle) {
-		// TODO Auto-generated method stub
-		
+		waitForElementClickable(driver, AdminPostSearchPageUI.ROW_CHECKBOX_BY_TITLE_NAME, editTitle);
+		checkToDefaultCheckboxOrRadio(driver, AdminPostSearchPageUI.ROW_CHECKBOX_BY_TITLE_NAME, editTitle);
 	}
 
 
-	public void selectTextItemInActionDropdown(String string) {
-		// TODO Auto-generated method stub
-		
+	public void selectTextItemInActionDropdown(String option) {
+		waitForElementClickable(driver, AdminPostSearchPageUI.ACTIONS_DROPDOWN, option);
+		selectItemInDefaultDropdown(driver, AdminPostSearchPageUI.ACTIONS_DROPDOWN, option);
 	}
 
 
-	public boolean isMoveToTrashMessageDisplayed(String string) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean isMoveToTrashMessageDisplayed(String message) {
+		waitForElementVisible(driver, AdminPostSearchPageUI.MOVE_TO_TRASH_MESSAGE, message);
+		return isElementDisplayed(driver, AdminPostSearchPageUI.MOVE_TO_TRASH_MESSAGE, message);
 	}
 
 
-	public boolean isNoPostFoundMessageDisplayed(String string) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean isNoPostFoundMessageDisplayed(String message) {
+		waitForAllElementsVisible(driver, AdminPostSearchPageUI.NO_POST_FOUND_MESSAGE, message);
+		return isElementDisplayed(driver, AdminPostSearchPageUI.NO_POST_FOUND_MESSAGE, message);
 	}
 
 
 	public void clickToApplyButton() {
-		// TODO Auto-generated method stub
-		
+		waitForElementClickable(driver, AdminPostSearchPageUI.APPLY_BUTTON);
+		clickToElement(driver, AdminPostSearchPageUI.APPLY_BUTTON);
 	}
 
 }

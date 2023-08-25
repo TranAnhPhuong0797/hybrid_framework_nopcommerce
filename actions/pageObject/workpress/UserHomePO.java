@@ -31,17 +31,17 @@ public class UserHomePO extends BasePage{
 		waitForElementVisible(driver, UserHomePageUI.POST__CURRENT_DAY_TEXT_BY_POST_TITLE, postTitle, currentDay);
 		return isElementDisplayed(driver, UserHomePageUI.POST__CURRENT_DAY_TEXT_BY_POST_TITLE, postTitle, currentDay);
 	}
-	public boolean isPostSearchInforUndisplayedWithPostTitle(String editTitle) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean isPostSearchInforUndisplayedWithPostTitle(String postTitle) {
+		return isElementUndisplayed(driver, UserHomePageUI.POST_TITLE_TEXT, postTitle);
 	}
 	public void enterToSearchTextBox(String editTitle) {
-		// TODO Auto-generated method stub
-		
+		waitForElementVisible(driver, UserHomePageUI.BODY_SEARCH_TEXT);
+		sendkeyToElement(driver, UserHomePageUI.BODY_SEARCH_TEXT, editTitle);
 	}
 	public UserPostSearchPageObject clickToSearchButton() {
-		// TODO Auto-generated method stub
-		return null;
+		waitForElementClickable(driver, UserHomePageUI.BODY_SEARCH_BUTTON);
+		clickToElement(driver, UserHomePageUI.BODY_SEARCH_BUTTON);
+		return PageGeneratorManager.getUserSeachPOPage(driver);
 	}
 	
 	

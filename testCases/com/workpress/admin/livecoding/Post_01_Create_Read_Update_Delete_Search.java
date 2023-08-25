@@ -232,8 +232,8 @@ public class Post_01_Create_Read_Update_Delete_Search extends BaseTest{
 		log.info("Delete Post - Step 05: Select Post detail checkbox");
 		adminPostSearch.selectPostCheckByTitle(editTitle);
 		
-		log.info("Delete Post - Step 06: Select action 'Move to trash'");
-		adminPostSearch.selectTextItemInActionDropdown("Move to trash");
+		log.info("Delete Post - Step 06: Select action 'Move to Trash'");
+		adminPostSearch.selectTextItemInActionDropdown("Move to Trash");
 		
 		log.info("Delete Post - Step 07: Click to 'Apply' button");
 		adminPostSearch.clickToApplyButton();
