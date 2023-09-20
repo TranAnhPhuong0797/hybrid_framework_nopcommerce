@@ -2,6 +2,9 @@ package common;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.logging.Log;
@@ -160,26 +163,64 @@ public class BaseTest extends BasePage{
 	protected WebDriver getBrowserName(String browserName, String apURL) {
 		if (browserName.equals("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
+			//Disabled driver logs for Firefox
+			System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true");
+			System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, GlobalConstants.PROJECT_PATH + "\\browserLogs\\FirefoxLog.log");
 			FirefoxOptions options = new FirefoxOptions();
 			options.setAcceptInsecureCerts(true);
+			//Disabled Notification & Location for Firefox
+			options.addArguments("--disable notifications");
+			options.addArguments("--disable geolocation");
+			//Auto Save and Download files
+			options.addPreference("browser.download.folderList", 2);
+			options.addPreference("browser.download.dir", GlobalConstants.PROJECT_PATH + "\\downloadFiles");
+			options.addPreference("browser.download.useDownloadDir", true);
+			options.addPreference("browser.helperApps.neverAsk.saveToDisk", "multipart/x-zip,application/zip.application/x-zip-compressed,application/x-compressed,application/msword,application/csv,text/csv,image/png,image/jpeg,application/pdf,text/html,text/plain,application/excel,application/vnd.ms-excel,application/x-excel,application/x-msexcel,application/octet-stream");
+			options.addPreference("pdfjs.disabled", true);
+			//Open private browser for Firefox
+//			options.addArguments("-private");
 			driverBaseTest = new FirefoxDriver(options);
+			
 		}else if (browserName.equals("h_firefox")) {
 			WebDriverManager.firefoxdriver().setup();
 			FirefoxOptions options = new FirefoxOptions();
 			options.addArguments("--headless");
 			options.addArguments("window-size=1920*1080");
 			driverBaseTest = new FirefoxDriver(options);
+			
 		}else if (browserName.equals("chrome")) {
 			WebDriverManager.chromedriver().setup();
+			//Disabled driver logs for Chrome
+			System.setProperty("webdriver.chrome.args", "--disable-logging");
+			System.setProperty("webdricer.chrome.silentOutput", "true");
 			ChromeOptions options = new ChromeOptions();
 			options.setAcceptInsecureCerts(true);
+			//Disabled Notification & Location for Chrome
+			options.addArguments("--disable notifications");
+			options.addArguments("--disable geolocation");
+			options.setExperimentalOption("userAutomationExtension", false);
+			options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+			//Disbaled "Save Password" in Chrome
+			Map<String, Object> prefs = new HashMap<String, Object>();
+			prefs.put("credentials_enable_service", false);
+			prefs.put("profile.password_manager_enabled", false);
+			options.setExperimentalOption("prefs", prefs);
+			//Auto Save and Download files
+			Map<String, Object> chromePrefs = new HashMap<String, Object>();
+			chromePrefs.put("profile.default_content_settings.popups", 0);
+			chromePrefs.put("download.default_directory", GlobalConstants.PROJECT_PATH + "\\downloadFiles");
+			options.setExperimentalOption("prefs", chromePrefs);
+			//Open private browser for Chrome
+//			options.addArguments("--incognito");
 			driverBaseTest = new ChromeDriver(options);
+			
 		}else if (browserName.equals("h_chrome")) {
 			WebDriverManager.chromedriver().setup();
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--headless");
 			options.addArguments("window-size=1920*1080");
 			driverBaseTest = new ChromeDriver(options);
+			
 		}else if (browserName.equals("edge")) {
 			WebDriverManager.edgedriver().setup();
 			driverBaseTest = new EdgeDriver();
