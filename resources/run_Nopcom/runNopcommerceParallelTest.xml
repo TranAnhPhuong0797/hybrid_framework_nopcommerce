@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Nopcommerce">
+<suite name="Nopcommerce" parallel="classes" thread-count="5">
 	<listeners>
 		<!--<listener class-name="common.MethodListener"></listener>-->
 		<!--<listener class-name="reportConfig.ReportNGListener"></listener>-->
@@ -16,7 +16,10 @@
 		<parameter name="browser" value="firefox"></parameter>
 		<classes>
 			<!--<class name="com.nopcommerce.com.common_01_Register_Cookie" />-->
-			<class name="com.nopcommerce.user.livecoding.LiveCoding_nopcommerce_Sort_Display_Paging_TestCase" />
+			<class name="com.nopcommerce.user.livecoding.LiveCoding_nopcommerce_Login_TestCase" />
+			<class name="com.nopcommerce.user.livecoding.LiveCoding_nopcommerce_Register_TestCase" />
+			<class name="com.nopcommerce.user.livecoding.LiveCoding_nopcommerce_Search_TestCase" />
+			<class name="com.nopcommerce.user.livecoding.LiveCoding_nopcommerce_MyAccount_TestCase" />
 		</classes>
 	</test>
 
