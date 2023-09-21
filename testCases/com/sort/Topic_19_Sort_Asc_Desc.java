@@ -1,6 +1,7 @@
 package com.sort;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -25,18 +26,28 @@ public class Topic_19_Sort_Asc_Desc extends BaseTest{
 	
 	@Test
 	public void Sort_01_name() {
-		//Asc
+		//Asc name
 		productPage.selectItemInProductSortDropdown("Name (A to Z)");
 		productPage.sleepInSecond(3);
+		Assert.assertTrue(productPage.isProductNameSortByAscending());
 		
-		//Desc
+		//Desc name
 		productPage.selectItemInProductSortDropdown("Name (Z to A)");
 		productPage.sleepInSecond(3);
+		Assert.assertTrue(productPage.isProductNameSortByDescending());
 	}
 	
 	@Test
 	public void Sort_02_price() {
+		//Asc Price
+		productPage.selectItemInProductSortDropdown("Price (low to high)");
+		productPage.sleepInSecond(3);
+		Assert.assertTrue(productPage.isProductPriceSortByAscending());
 		
+		//Desc Price
+		productPage.selectItemInProductSortDropdown("Price (high to low)");
+		productPage.sleepInSecond(3);
+		Assert.assertTrue(productPage.isProductPriceSortByDescending());
 	}
 	
 	@AfterClass
