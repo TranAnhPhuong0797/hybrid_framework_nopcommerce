@@ -20,6 +20,7 @@
 			<class name="com.nopcommerce.user.livecoding.LiveCoding_nopcommerce_Register_TestCase" />
 			<class name="com.nopcommerce.user.livecoding.LiveCoding_nopcommerce_Search_TestCase" />
 			<class name="com.nopcommerce.user.livecoding.LiveCoding_nopcommerce_MyAccount_TestCase" />
+			<class name="com.nopcommerce.user.livecoding.LiveCoding_nopcommerce_Sort_Display_Paging_TestCase" />
 		</classes>
 	</test>
 
