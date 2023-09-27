@@ -13,16 +13,7 @@ import pageObject.nopcommerce.portal.PageGeneratorManager;
 import pageObject.nopcommerce.portal.UserRegisterPageObject;
 import pageObject.nopcommerce.portal.UserSearchPageObject;
 
-public class LiveCoding_nopcommerce_Search_TestCase extends BaseTest{
-	private WebDriver driver;
-	private String emailAddress, validPassword;
-	private String firstName, lastName;
-
-	private UserHomePageObject userHomePage;
-	private UserRegisterPageObject userRegisterPage;
-	private UserLoginPageObject userLoginPage;
-	private UserSearchPageObject userSearchPage;
-	
+public class LiveCoding_nopcommerce_Search_TestCase extends BaseTest{	
 	@Parameters("browser")
 	@BeforeClass
 	public void beforeClass(String browserName) {
@@ -204,4 +195,12 @@ public class LiveCoding_nopcommerce_Search_TestCase extends BaseTest{
 		driver.quit();
 	}
 
+	private WebDriver driver;
+	private String emailAddress, validPassword;
+	private String firstName, lastName;
+
+	private UserHomePageObject userHomePage;
+	private UserRegisterPageObject userRegisterPage;
+	private UserLoginPageObject userLoginPage;
+	private UserSearchPageObject userSearchPage;
 }

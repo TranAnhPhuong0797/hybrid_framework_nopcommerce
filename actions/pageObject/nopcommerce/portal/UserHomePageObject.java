@@ -62,4 +62,9 @@ public class UserHomePageObject extends BasePage{
 		waitForElementClickable(driver, HomePageUI.FOOTER_MENU_CUSTOMER_SERVICE_LINK, link);
 		clickToElement(driver, HomePageUI.FOOTER_MENU_CUSTOMER_SERVICE_LINK, link);
 	}
+
+	public void selectProductInSectionFeaturedProducts(String productName) {
+		waitForElementVisible(driver, HomePageUI.PRODUCT_BY_NAME);
+		clickToElement(driver, HomePageUI.PRODUCT_BY_NAME, productName);
+	}
 }

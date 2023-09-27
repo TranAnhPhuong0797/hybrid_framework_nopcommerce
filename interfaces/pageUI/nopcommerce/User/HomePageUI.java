@@ -12,4 +12,6 @@ public class HomePageUI {
 	//Footer locator
 	public static final String FOOTER_MENU_CUSTOMER_SERVICE_LINK = "xpath=//div[@class='footer']//div[@class='footer-block customer-service']//a[text()='%s']";
 	
+	//Featured products
+	public static final String PRODUCT_BY_NAME = "xpath=//div[@class='product-item']//h2[@class='product-title']/a[text()='%s']";
 }

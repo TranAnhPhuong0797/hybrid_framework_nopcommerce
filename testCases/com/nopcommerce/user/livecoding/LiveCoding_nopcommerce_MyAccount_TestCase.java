@@ -21,21 +21,6 @@ import pageObject.nopcommerce.portal.UserDetailProductPageObject;
 import pageObject.nopcommerce.portal.UserRegisterPageObject;
 
 public class LiveCoding_nopcommerce_MyAccount_TestCase extends BaseTest{
-	private WebDriver driver;
-	private String emailAddress, validPassword;
-	private String firstName, lastName, companyName, gender, days, months, years,country, stateProvince, city, address1, address2, zipcode, phoneNumber, faxNumber, newPassword;
-
-	private UserHomePageObject userHomePage;
-	private UserRegisterPageObject userRegisterPage;
-	private UserLoginPageObject userLoginPage;
-	private UserCustomerInforPageObject customerInforPage;
-	private UserAddressPageObject addressPage;
-	private UserChangePasswordPageObject changePasswordPage;
-	private UserCategoriesPageObject categoryPage;
-	private UserDetailProductPageObject detailProductPage;
-	private UserMyProductReviewPageObject myProductReviewPage;
-	private UserProductReviewPageObject productReviewPage;
-	
 	@Parameters("browser")
 	@BeforeClass
 	public void beforeClass(String browserName) {
@@ -245,4 +230,18 @@ public class LiveCoding_nopcommerce_MyAccount_TestCase extends BaseTest{
 		driver.quit();
 	}
 
+	private WebDriver driver;
+	private String emailAddress, validPassword;
+	private String firstName, lastName, companyName, gender, days, months, years,country, stateProvince, city, address1, address2, zipcode, phoneNumber, faxNumber, newPassword;
+
+	private UserHomePageObject userHomePage;
+	private UserRegisterPageObject userRegisterPage;
+	private UserLoginPageObject userLoginPage;
+	private UserCustomerInforPageObject customerInforPage;
+	private UserAddressPageObject addressPage;
+	private UserChangePasswordPageObject changePasswordPage;
+	private UserCategoriesPageObject categoryPage;
+	private UserDetailProductPageObject detailProductPage;
+	private UserMyProductReviewPageObject myProductReviewPage;
+	private UserProductReviewPageObject productReviewPage;
 }

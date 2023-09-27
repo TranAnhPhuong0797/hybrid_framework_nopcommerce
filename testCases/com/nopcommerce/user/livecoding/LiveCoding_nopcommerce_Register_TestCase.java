@@ -15,12 +15,6 @@ import pageObject.nopcommerce.portal.PageGeneratorManager;
 import pageObject.nopcommerce.portal.UserRegisterPageObject;
 
 public class LiveCoding_nopcommerce_Register_TestCase extends BaseTest{
-	private WebDriver driver;
-	private String emailAddress, invalidEmail, firstname, lastname, validPassword, incorrectPassword;
-
-	private UserHomePageObject homePage;
-	private UserRegisterPageObject registerPage;
-	
 	@Parameters("browser")
 	@BeforeClass
 	public void beforeClass(String browserName) {
@@ -177,4 +171,9 @@ public class LiveCoding_nopcommerce_Register_TestCase extends BaseTest{
 		driver.quit();
 	}
 
+	private WebDriver driver;
+	private String emailAddress, invalidEmail, firstname, lastname, validPassword, incorrectPassword;
+
+	private UserHomePageObject homePage;
+	private UserRegisterPageObject registerPage;
 }
