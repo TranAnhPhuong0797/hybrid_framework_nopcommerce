@@ -61,5 +61,8 @@
 	<classpathentry kind="lib" path="libAllure/bsh-2.0b6.jar"/>
 	<classpathentry kind="lib" path="libWeddriverManager/byte-buddy-1.8.15.jar"/>
 	<classpathentry kind="lib" path="librariesSelenium/joda-time-2.0.jar"/>
+	<classpathentry kind="lib" path="libFaker/generex-1.0.2.jar"/>
+	<classpathentry kind="lib" path="libFaker/javafaker-1.0.1.jar" sourcepath="libFaker/javafaker-1.0.1-sources.jar"/>
+	<classpathentry kind="lib" path="libFaker/snakeyaml-1.23.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

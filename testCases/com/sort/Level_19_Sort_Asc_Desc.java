@@ -12,7 +12,7 @@ import paggObjectSauceLabSort.LoginPageOb;
 import paggObjectSauceLabSort.PageGeneratorManager;
 import paggObjectSauceLabSort.ProductPageOb;
 
-public class Topic_19_Sort_Asc_Desc extends BaseTest{
+public class Level_19_Sort_Asc_Desc extends BaseTest{
 	@Parameters({"browser","appUrl"})
 	@BeforeClass
 	public void beforeClass(String browserName, String sauceLabUrl) {
