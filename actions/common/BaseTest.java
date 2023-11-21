@@ -160,7 +160,7 @@ public class BaseTest extends BasePage{
 //		return driver;
 //	}
 
-	protected WebDriver getBrowserName(String browserName, String apURL) {
+	protected WebDriver getBrowserName(String browserName, String appUrl) {
 		if (browserName.equals("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
 			//Disabled driver logs for Firefox
@@ -228,8 +228,40 @@ public class BaseTest extends BasePage{
 			throw new RuntimeException("Browser name invalid");
 		}
 		driverBaseTest.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
-		driverBaseTest.get(apURL);
+		driverBaseTest.get(appUrl);
 		return driverBaseTest;
+	}
+	
+	protected String getEnvironmentUrl(String serverName) {
+		String envUrl = null;
+		EnvironmentList environments = EnvironmentList.valueOf(serverName.toUpperCase());
+		//Method Switch/Case
+		switch (environments) {
+		case DEV:
+			envUrl = "https://www.guru99.com/";
+			break;
+		case TEST:
+			envUrl = "https://tiki.vn/";
+			break;
+		case PREPROD:
+			envUrl = "https://demo.nopcommerce.com/";
+			break;
+
+		default:
+			envUrl = null;
+			break;
+		}
+		
+		
+		//Method if/else
+		if (environments == EnvironmentList.DEV) {
+			envUrl = "https://www.guru99.com/";
+		}else if (environments == EnvironmentList.TEST) {
+			envUrl = "https://tiki.vn/";
+		}else if (environments == EnvironmentList.PREPROD) {
+			envUrl = "https://demo.nopcommerce.com/";
+		}
+		return envUrl;
 	}
 
 	private boolean checkTrue(boolean condition) {

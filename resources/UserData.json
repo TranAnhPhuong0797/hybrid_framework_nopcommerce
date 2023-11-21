@@ -5,5 +5,24 @@
 	"password": "123456",
 	"date": "30",
 	"month": "June",
-	"year": "1997"
+	"year": "1997",
+	"login":{
+		"username": "automationfc.vn@gmail.com",
+		"password": "123456"
+	},
+	"sport":[
+		{
+			"name": "badminton",
+			"point": "7.0"
+		},
+		{
+			"name": "football",
+			"point": "8.0"
+		},
+		{
+			"name": "tennic",
+			"point": "6.0"
+		}
+	]
+	
 }
