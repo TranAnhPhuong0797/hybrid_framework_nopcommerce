@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Nopcommerce">
+	<parameter name="url" value="https://demo.nopcommerce.com/"></parameter>
+	<listeners>
+		<listener class-name="common.MethodListener"></listener>
+		<listener class-name="reportConfig.ReportNGListener"></listener>
+		<listener class-name="reportConfig.ExtentTestListenerV5"></listener>
+		<listener class-name="org.uncommons.reportng.HTMLReporter"></listener>
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter"></listener>
+	</listeners>
+	<!-- Test -->
+<!--	<test name="Run on Firefox">
+		<parameter name="browser" value="firefox"></parameter>
+		<parameter name="osName" value="macOS 13"></parameter>
+		<classes>
+			<class name="com.nopcommerce.clouldtesting.LiveCoding_nop_Login_SourceLap" />
+		</classes>
+	</test>-->
+
+	<test name="Run on Chrome">
+		<parameter name="browser" value="chrome"></parameter>
+		<parameter name="osName" value="Windows 10"></parameter>
+		<classes>
+			<class name="com.nopcommerce.clouldtesting.LiveCoding_nop_Login_SourceLap" />
+		</classes>
+	</test>
+
+</suite> <!-- Suite -->

@@ -2,6 +2,8 @@ package common;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -9,12 +11,16 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.BeforeSuite;
@@ -228,6 +234,106 @@ public class BaseTest extends BasePage{
 			throw new RuntimeException("Browser name invalid");
 		}
 		driverBaseTest.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
+		driverBaseTest.get(appUrl);
+		return driverBaseTest;
+	}
+	
+	protected WebDriver getBrowserDriverGrid(String browserName, String appUrl, String osName, String ipAddress, String portNumber) {
+		DesiredCapabilities capability = null;
+		Platform platform = null;
+
+		if (osName.contains("windows")) {
+			platform = Platform.WINDOWS;
+		} else {
+			platform = Platform.MAC;
+		}
+
+		switch (browserName.toLowerCase()) {
+			case "firefox" :
+				capability = DesiredCapabilities.firefox();
+				capability.setBrowserName("firefox");
+				capability.setPlatform(platform);
+
+				FirefoxOptions fOptions = new FirefoxOptions();
+				fOptions.merge(capability);
+				break;
+			case "chrome" :
+				capability = DesiredCapabilities.chrome();
+				capability.setBrowserName("chrome");
+				capability.setPlatform(platform);
+
+				ChromeOptions cOptions = new ChromeOptions();
+				cOptions.merge(capability);
+				break;
+			case "edge" :
+				capability = DesiredCapabilities.edge();
+				capability.setBrowserName("edge");
+				capability.setPlatform(platform);
+
+				EdgeOptions eOptions = new EdgeOptions();
+				eOptions.merge(capability);
+				break;
+			default :
+				throw new RuntimeException("Browser is not valid!");
+		}
+
+		try {
+			driverBaseTest = new RemoteWebDriver(new URL(String.format("http://%s:%s/wd/hub", ipAddress, portNumber)), capability);
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		
+		driverBaseTest.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
+		driverBaseTest.get(appUrl);
+		return driverBaseTest;
+	}
+	
+	protected WebDriver getBrowserDriverBrowserstack(String browserName, String appUrl, String osName, String osVersion) {
+		DesiredCapabilities capabilities = new DesiredCapabilities();
+		capabilities.setCapability("os", osName);
+		capabilities.setCapability("os_version", osVersion);
+		capabilities.setCapability("browser", browserName);
+		capabilities.setCapability("browser_version", "latest");
+		capabilities.setCapability("browserstack.debug", "true");
+		capabilities.setCapability("project", "Nopcommerce");
+		capabilities.setCapability("resolution", "1920x1080");
+		capabilities.setCapability("browserstack.selenium_version", "3.141.59");
+		capabilities.setCapability("name", "Run on" + osName + " | " + osVersion + " | " + browserName);
+		
+		try {
+			driverBaseTest = new RemoteWebDriver(new URL(GlobalConstants.BROWSER_STACK_URL), capabilities);
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		
+		driverBaseTest.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
+		driverBaseTest.get(appUrl);
+		return driverBaseTest;
+	}
+	
+	protected WebDriver getBrowserDriverSauceLab(String browserName, String appUrl, String osName) {
+		DesiredCapabilities capabilities = new DesiredCapabilities();
+		capabilities.setCapability("platformName", osName);
+		capabilities.setCapability("browserName", browserName);
+		capabilities.setCapability("browserVersion", "latest");
+		capabilities.setCapability("name", "Run on" + osName + " | " + browserName);
+		
+		Map<String, Object> sauceOptions = new HashMap<>();
+		if (osName.contains("Windows")) {
+			sauceOptions.put("screenResolution", "1920x1080");
+		}else {
+			sauceOptions.put("screenResolution", "1920x1440");
+		}
+		capabilities.setCapability("sauce:options", sauceOptions);
+		
+		try {
+			driverBaseTest = new RemoteWebDriver(new URL(GlobalConstants.SAUCE_LAB_URL), capabilities);
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		
+		driverBaseTest.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
+		driverBaseTest.manage().window().maximize();
 		driverBaseTest.get(appUrl);
 		return driverBaseTest;
 	}
