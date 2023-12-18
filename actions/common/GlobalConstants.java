@@ -24,6 +24,9 @@ public class GlobalConstants {
 	public static final String SAUCE_AUTOMATE_KEY = "c847b2c2-7bef-485a-afea-59b923519fbb";
 	public static final String SAUCE_LAB_URL = "https://" + SAUCE_USERNAME + ":" + SAUCE_AUTOMATE_KEY + "@ondemand.eu-central-1.saucelabs.com:443/wd/hub";
 	
+	public static final String LAMBDA_USERNAME = "trananhphuongbl112";
+	public static final String LAMBDA_AUTOMATE_KEY = "61S0HSmXwzxoXPUmKdsAigXCWLUBC99OYotPP6dV8CCc8wk5GP";
+	public static final String LAMBDA_URL = "https://" + LAMBDA_USERNAME + ":" + LAMBDA_AUTOMATE_KEY + "@hub.lambdatest.com/wd/hub";
 	
 	public static final long SHORT_TIMEOUT = 5;
 	public static final long LONG_TIMEOUT = 30;

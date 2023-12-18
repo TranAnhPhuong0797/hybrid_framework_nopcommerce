@@ -22,7 +22,7 @@ public class DataTable_Grid extends BaseTest {
 	@Parameters({ "browser", "url" })
 	@BeforeClass
 	public void beforeClass(String browserName, String url) {
-		driver = getBrowserName(browserName, url);
+		driver = getBrowserNameLocal(browserName, url);
 		homePage = PageGeneratorManager.getHomePageObject(driver);
 	}
 

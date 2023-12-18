@@ -23,7 +23,7 @@ public class Level_21_Multiple_Environment_TestNG_Param extends BaseTest{
 	@Parameters({"browser","environment"})
 	@BeforeClass
 	public void beforeClass(String browserName, String environmentName) {
-		driver = getBrowserName(browserName, environmentName);
+		driver = getBrowserNameLocal(browserName, environmentName);
 		
 		homePage = PageGeneratorManager.getUserHomePage(driver);
 		registerPage = PageGeneratorManager.getUserRegistorPage(driver);

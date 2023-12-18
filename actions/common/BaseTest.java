@@ -166,7 +166,7 @@ public class BaseTest extends BasePage{
 //		return driver;
 //	}
 
-	protected WebDriver getBrowserName(String browserName, String appUrl) {
+	protected WebDriver getBrowserNameLocal(String browserName, String appUrl) {
 		if (browserName.equals("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
 			//Disabled driver logs for Firefox
@@ -328,6 +328,34 @@ public class BaseTest extends BasePage{
 		
 		try {
 			driverBaseTest = new RemoteWebDriver(new URL(GlobalConstants.SAUCE_LAB_URL), capabilities);
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		
+		driverBaseTest.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
+		driverBaseTest.manage().window().maximize();
+		driverBaseTest.get(appUrl);
+		return driverBaseTest;
+	}
+	
+	protected WebDriver getBrowserDriverLambda(String browserName, String appUrl, String osName) {
+		DesiredCapabilities capabilities = new DesiredCapabilities();
+		capabilities.setCapability("platformName", osName);
+		capabilities.setCapability("browserName", browserName);
+		capabilities.setCapability("version", "latest");
+		capabilities.setCapability("visual", true);
+		capabilities.setCapability("video", true);
+		capabilities.setCapability("project", "Norcommerce");
+		
+		if (osName.contains("Windows")) {
+			capabilities.setCapability("screenResolution", "1920x1080");
+		}else {
+			capabilities.setCapability("screenResolution", "1440x900");
+		}
+		capabilities.setCapability("name", "Run on" + osName + " | " + browserName);
+		
+		try {
+			driverBaseTest = new RemoteWebDriver(new URL(GlobalConstants.LAMBDA_URL), capabilities);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}

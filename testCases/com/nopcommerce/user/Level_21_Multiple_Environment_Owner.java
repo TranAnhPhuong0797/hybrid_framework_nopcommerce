@@ -30,7 +30,7 @@ public class Level_21_Multiple_Environment_Owner extends BaseTest{
 		//constructor
 		evironments = ConfigFactory.create(Environments.class);
 		
-		driver = getBrowserName(browserName, evironments.appUrl());
+		driver = getBrowserNameLocal(browserName, evironments.appUrl());
 		
 		System.out.println(evironments.appUrl());
 		System.out.println(evironments.appUser());

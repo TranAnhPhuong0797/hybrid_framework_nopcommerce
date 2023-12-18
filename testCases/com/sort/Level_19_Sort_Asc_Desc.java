@@ -16,7 +16,7 @@ public class Level_19_Sort_Asc_Desc extends BaseTest{
 	@Parameters({"browser","appUrl"})
 	@BeforeClass
 	public void beforeClass(String browserName, String sauceLabUrl) {
-		driver = getBrowserName(browserName, sauceLabUrl);
+		driver = getBrowserNameLocal(browserName, sauceLabUrl);
 		loginPage = PageGeneratorManager.getLoginPage(driver);
 
 		loginPage.enterToUserNameTextbox("standard_user");
