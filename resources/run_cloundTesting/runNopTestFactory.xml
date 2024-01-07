@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Nopcommerce">
+	<listeners>
+		<listener class-name="common.MethodListener"></listener>
+		<listener class-name="reportConfig.ReportNGListener"></listener>
+		<listener class-name="reportConfig.ExtentTestListenerV5"></listener>
+		<listener class-name="org.uncommons.reportng.HTMLReporter"></listener>
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter"></listener>
+	</listeners>
+	<!-- Test -->
+	<parameter name="envName" value="local"></parameter>
+	<parameter name="serverName" value="TESTING"></parameter>
+	<test name="Run on firefox">
+		<parameter name="browser" value="FIREFOX"></parameter>
+		
+		<classes>
+			<class name="com.nopcommerce.clouldtesting.LiveCoding_nop_Login_Factory" />
+		</classes>
+	</test>
+
+
+</suite> <!-- Suite -->

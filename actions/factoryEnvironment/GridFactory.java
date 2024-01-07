@@ -37,8 +37,10 @@ public class GridFactory {
 		
 		if (osName.contains("windows")) {
 			platform = Platform.WINDOWS;
-		} else {
+		} else if (osName.contains("mac")){
 			platform = Platform.MAC;
+		}else {
+			platform = Platform.ANY;
 		}
 
 		switch (browser) {

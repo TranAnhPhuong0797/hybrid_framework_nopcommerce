@@ -25,6 +25,12 @@ import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.BeforeSuite;
 
+import factoryEnvironment.BrowserStackFactory;
+import factoryEnvironment.EnvironmentList;
+import factoryEnvironment.GridFactory;
+import factoryEnvironment.LambdaFactory;
+import factoryEnvironment.LocalFactory;
+import factoryEnvironment.SaucelabFactory;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest extends BasePage{
@@ -165,6 +171,33 @@ public class BaseTest extends BasePage{
 //		
 //		return driver;
 //	}
+	
+	protected WebDriver getBrowserDriver(String envName, String serverName, String browserName, String ipAddress, String portNumber, String osName, String osVersion) {
+		switch (envName.toLowerCase()) {
+		case "local":
+			driverBaseTest = new LocalFactory(browserName).createDriver();
+			break;
+		case "grid":
+			driverBaseTest = new GridFactory(browserName, ipAddress, portNumber, osName).createDriver();
+			break;
+		case "browserstack":
+			driverBaseTest = new BrowserStackFactory(browserName, osVersion, osName).createDriver();
+			break;
+		case "saucelab":
+			driverBaseTest = new SaucelabFactory(browserName, osName).createDriver();
+			break;
+		case "lambda":
+			driverBaseTest = new LambdaFactory(browserName, osName).createDriver();
+			break;
+		default:
+			driverBaseTest = new LocalFactory(browserName).createDriver();
+			break;
+		}
+		driverBaseTest.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
+		driverBaseTest.manage().window().maximize();
+		driverBaseTest.get(getEnvironmentUrl(serverName));
+		return driverBaseTest;
+	}
 
 	protected WebDriver getBrowserNameLocal(String browserName, String appUrl) {
 		if (browserName.equals("firefox")) {
@@ -372,10 +405,10 @@ public class BaseTest extends BasePage{
 		//Method Switch/Case
 		switch (environments) {
 		case DEV:
-			envUrl = "https://www.guru99.com/";
+			envUrl = "https://demo.nopcommerce.com/";
 			break;
-		case TEST:
-			envUrl = "https://tiki.vn/";
+		case TESTING:
+			envUrl = "https://demo.nopcommerce.com/";
 			break;
 		case PREPROD:
 			envUrl = "https://demo.nopcommerce.com/";
@@ -390,7 +423,7 @@ public class BaseTest extends BasePage{
 		//Method if/else
 		if (environments == EnvironmentList.DEV) {
 			envUrl = "https://www.guru99.com/";
-		}else if (environments == EnvironmentList.TEST) {
+		}else if (environments == EnvironmentList.TESTING) {
 			envUrl = "https://tiki.vn/";
 		}else if (environments == EnvironmentList.PREPROD) {
 			envUrl = "https://demo.nopcommerce.com/";
