@@ -15,7 +15,7 @@ public class FirefoxDriverManage implements BrowserFactory{
 		WebDriverManager.firefoxdriver().setup();
 		FirefoxOptions options = new FirefoxOptions();
 		System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true");
-		System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, GlobalConstants.BROWSER_LOG_FOLDER);
+//		System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, GlobalConstants.BROWSER_LOG_FOLDER);
 		//set capabilities/options
 		options.addArguments("-private");
 		options.addPreference("browser.download.folderList", 2);

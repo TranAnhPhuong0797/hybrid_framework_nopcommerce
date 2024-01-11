@@ -422,9 +422,9 @@ public class BaseTest extends BasePage{
 		
 		//Method if/else
 		if (environments == EnvironmentList.DEV) {
-			envUrl = "https://www.guru99.com/";
+			envUrl = "https://demo.nopcommerce.com/";
 		}else if (environments == EnvironmentList.TESTING) {
-			envUrl = "https://tiki.vn/";
+			envUrl = "https://demo.nopcommerce.com/";
 		}else if (environments == EnvironmentList.PREPROD) {
 			envUrl = "https://demo.nopcommerce.com/";
 		}

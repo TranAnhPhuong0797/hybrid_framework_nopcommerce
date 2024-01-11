@@ -19,7 +19,7 @@ import pageObject.nopcommerce.portal.UserRegisterPageObject;
 public class LiveCoding_nop_Login_Factory extends BaseTest{
 	@Parameters({"envName", "serverName", "browser", "ipAddress", "portNumber", "osName", "osVersion"})
 	@BeforeClass
-	public void beforeClass(@Optional("local") String envName, @Optional("TESTING") String serverName, @Optional("FIREFOX") String browserName, @Optional("localhost") String ipAddress, @Optional("4444") String portNumber, @Optional("windows") String osName, @Optional("10") String osVersion) {
+	public void beforeClass(@Optional("local") String envName, @Optional("dev") String serverName, @Optional("firefox") String browserName, @Optional("localhost") String ipAddress, @Optional("4444") String portNumber, @Optional("windows") String osName, @Optional("10") String osVersion) {
 		driver = getBrowserDriver(envName, serverName, browserName, ipAddress, portNumber, osName, osVersion);
 		homePage = PageGeneratorManager.getUserHomePage(driver);
 		firstName = "Tony";

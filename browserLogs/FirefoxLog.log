@@ -1,18 +1,18 @@
-1704252760714	geckodriver	INFO	Listening on 127.0.0.1:6072
-1704252760855	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--disable notifications" "--disable geolocation" "-no-remote" "-profile" "C:\\Users\\Admin\\AppData\\Local\\Temp\\rust_mozprofile3AZFQ6"
+1704600486220	geckodriver	INFO	Listening on 127.0.0.1:10477
+1704600486455	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--disable notifications" "--disable geolocation" "-no-remote" "-profile" "C:\\Users\\Admin\\AppData\\Local\\Temp\\rust_mozprofileBMhRtJ"
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
-1704252761104	Marionette	INFO	Marionette enabled
+1704600487249	Marionette	INFO	Marionette enabled
 Dynamically enable window occlusion 0
-1704252761107	Marionette	INFO	Listening on port 58761
+1704600487253	Marionette	INFO	Listening on port 53481
 console.error: "Warning: unrecognized command line flag -disable notifications\n"
-Read port: 58761
-1704252761321	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Admin\\AppData\\Local\\Temp\\rust_mozprofile3AZFQ6\\search.json.mozlz4", (void 0)))
+Read port: 53481
+1704600487486	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Admin\\AppData\\Local\\Temp\\rust_mozprofileBMhRtJ\\search.json.mozlz4", (void 0)))
 [ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
 console.warn: LoginRecipes: "Falling back to a synchronous message for: https://demo.nopcommerce.com."
 console.warn: LoginRecipes: "Falling back to a synchronous message for: https://demo.nopcommerce.com."
-1704252768294	Marionette	INFO	Stopped listening on port 58761
+1704600495156	Marionette	INFO	Stopped listening on port 53481
 Dynamically enable window occlusion 1
 WARNING: A blocker encountered an error while we were waiting.
           Blocker:  Waiting for ping task
@@ -55,8 +55,30 @@ WARNING: A blocker encountered an error while we were waiting.
           Blocker:  Waiting for ping task
           Phase: TelemetryController: Waiting for pending ping activity
           State: (none)
-WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
-WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+WARNING: Error: Phase "profile-before-change" is finished, it isJ too late to regisater completion convaSdition "Ocript error: reS.Filesour: flce://gre/modulues/AsyncShutsh I/O queued befordowe prn.syso.mjs, lfilieBeforeChne 727: Erraor: Phase "profile-before-change" is finge"
+WARNING: anisddBloched, it ker@iresources too late :to re//gre/modules/AsyncShutdown.gissys.mjter s:727:15completio
+addBlocker@reson condurceitio://gre/mn "Oodules/AsyS.File: fncShulustdown.sys.mjs:5h I/O queued b23:e26
+adfore profileBefdBlooreChange"cker@resource://gre/m
+odulJavaes/AScript esyncShutdown.sys.mjsrror: resourc:458:15e
+setupShutdown@resour://gre/modules/Asyce://gncShutdowre/modn.sys.mules/osfjs, line 727: ileErr/osfile_async_fronor: Phat.jsm:1548:28se "pro
+file-before-cha@resource://nge" isgre/ fimodunishles/osfile/osfied, it is tle_oo lasync_front.ate tojsm: register1568:16 completion condition "OS.File: 
+@resourcflush I/O queuede:// beforegre/modul profileBes/osfile.jsmefor:12:30eChang
+@re"
+esoJavurceaScrip://t errorgre/: resoumrcodules/e://Telegre/metryStmoduorage.syles/AsyncShutdown.syss.mj.mjs:10:28
+_checks, line 7Pend27: Error: Phase "pingProfiingsle-befo@resource://gre/modre-ules/TelchangeemetrySend.sys.m" is fjs:8inished, 63:1it is too late to 7
+setup@reregistsourer completce://gre/modulesion conditi/Telon "emetryOS.File: flush Send.syIs.mj/O s:803:18
+setup@resource://gre/modules/Telemequeued before profiltryeBeSend.sys.mjs:24foreChange"
+JavaScr1ipt er:30ror:
+se resotupTeurce:lem//greetry//thimoduless._de/AsynlayedInitTcShutask<@resoudown.srce://gre/modys.mjsule, lis/Tene 727: lemError: PhetryCase "ontrollerParent.sys.mpjs:82rofile-4:36
+befobserve@resourceore-change:" is f/i/gre/modules/AsyncShutdownnished, it is too late to register complet.sys.ionmjs:576 condit:16
+
+WARNING: A bion "OS.File: flush I/O lqueued bocker encounefore tered an erprofileBeforror while we wereeChange" waiting.
+          Blocker:  Teleme
+JavaScritryController: shuttipt ng dowerron
+ r:          resource://grePhas/modules/Asynce: pShutdownrof.sys.mjs, line 727: Errorile-: Phase "profile-before-change" is fibefonished, re-cit is too late to hrangeegi-telster completioemetn cry
+     onditi     State: Erroon "OS.File: flush I/O qur getting state: Error: Phase "peued brofiefore profileBeforeChange"
+JavaScript errle-bor: resource://gre/eformodules/AsyncSe-chutdown.sys.mjs, line 727: Error: hange" is finished, Phase "profile-before-chit is ange" itoo ls finished, it is ate tto reoo lgister ate compltetioo regn coistnditier completion con "OS.File: fondition "OSlush I.File: flush I/O /O queued befoqueuere pd before profrofiileBleBeforeforeChange"
+eChange" at addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
 addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
 addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
 setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
@@ -67,32 +89,10 @@ _checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:863:17
 setup@resource://gre/modules/TelemetrySend.sys.mjs:803:18
 setup@resource://gre/modules/TelemetrySend.sys.mjs:241:30
 setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:824:36
-observe@resource://gre/modules/AsJavaScript error: resource://gre/moduyncShules/AsyncShutdown.sys.mjs, line 727: Error:tdow Phase "profile-before-cnhang.sys.me" is finished, it is too late to register completionjs:5 c76:ond16
-
-WARNING: A bloiticon "ker OS.Filencounte: feredlush an err I/O quor whileued beefore prof we ileBeforewereChange" waiti
-ng.
- JavaScrip   t erro r: resource:/    /gre/modules/AsyncShut downB.sys.mjsloc, line ker:727:  Teleme ErrtryorC: Ponthroller: shutting down
-          Phaase "profisle-be: proeforfie-chle-befoare-cnge"hange-teleme is finishted,ry
- it is too late to r        egis  Stter cate: Error omplgettingetion sta conte: Error:dition  "OS.PhasFilee "p: flush I/O qrofile-beueued bforeefo-re profilchaneBeforge" ieChange"
-Jas fivnaSishecd, it iript error: rs tooesour latce://gere/modul to es/AsyncShregister completion condutdowition n.sy"OS.s.mjsFile: , linfluse 727:h I/O q Error: Phase "profueuile-before-change" ied s finished, bit is too lefore profate to register complileetioBeforen conditiChanon "ge" at addBlocker@resOS.File: flush I/O queued beource:/fore pro/grefileBeforeChange"
-J/modavaSules/Ascript eyncSrrorhutd:own res.sys.mjs:727:15
-ource://gre/moduleaddBlockesr@resour/Asce:/yncSh/greu/modutdownles/Asy.ncShutdown.ssys.ys.mmjs:523:2js,6
-a liddBlne ocker@resource://gre/modules/AsyncShut727: down.sys.mjs:458Error::15
-setupShutdown@resource:/ Pha/gre/modules/osfile/osfile_async_fronse "profile-bet.jsm:1548:28fore
-@reso-changurce:/e" /greis finished,/modules/osf it ile/osfilis too e_async_front.jsm:1568:16late
-@resource://gre to regis/modules/osfileter completion .jsm:12:3cond0
-@ition "OSresource:/.Fil/gre/me: fodullushes/Telem I/O queued before pretryofilStorageeBefor.syeChas.mjs:nge"10:28
-_ch
-JavaScrieckPendinpt egPirrorngs@resourc: ree://gre/modules/sourcTelemee:/tryS/gre/mend.odules/AsyncShutsys.mjs:86d3:17o
-setwn.sysup@r.mjseso, line 727: Errorurce: Phase://gre "p/modules/Telemrofile-etrySend.sys.mjs:803:18
-setbefore-up@resource:chang//gree" is /mofinidules/Telemetrshed, it iySend.ss too lays.mjte to register comps:24letion condition "OS.File: flush I/O queued 1:30
-sebefotupTelemetry/this._delayedInitTarske p<@resourofirce://glre/moduleBeforeChangees/TelemetryContr"
-JolleavaScrParent.sys.mjs:824:36
 observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
 
-WARNING: Error: Phase "prrofile-beipt error: refore-change" isours finished, it is tce://goo late tore/modules/AsyncShu register completitdown.sys.mjson c, linonde 7itio27: Errorn: Phase  "O"profiS.Filele-b: flefore-ushchan I/O qge" iueues finished, it is too d beflate to ore profileBregistefoer comreChpletion coange"
-WnditioARNING: addBn "locker@rOS.Filesourcee: f://lush I/O queued beforgre/mode pulesrofil/AsyeBeforeChancShnge"
-utdown.sys.mjs:727:15
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
 addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
 addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
 setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
