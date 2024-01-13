@@ -38,12 +38,12 @@ public class SaucelabFactory {
 		capabilities.setCapability("sauce:options", sauceOptions);
 		
 		try {
-			driver = new RemoteWebDriver(new URL(GlobalConstants.SAUCE_LAB_URL), capabilities);
+			driver = new RemoteWebDriver(new URL(GlobalConstants.getGlobalConstants().getSauceLabUrl()), capabilities);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
 		
-		driver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(GlobalConstants.getGlobalConstants().getLongTimeout(), TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 //		driver.get(appUrl);
 		return driver;

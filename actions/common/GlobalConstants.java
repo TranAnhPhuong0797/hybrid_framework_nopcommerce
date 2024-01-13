@@ -2,33 +2,54 @@ package common;
 
 import java.io.File;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class GlobalConstants {
-	public static final String PORTAL_PAGE_URL = "https://demo.nopcommerce.com/";
-	public static final String ADMIN_PAGE_URL = "https://admin-demo.nopcommerce.com/";
 	
-	public static final String PROJECT_PATH = System.getProperty("user.dir");
-	public static final String JAVA_VERSION = System.getProperty("java.version");
-	public static final String OS_NAME = System.getProperty("os.name");
-	public static final String UPLOAD_FILE_FOLDER = PROJECT_PATH + File.separator + "uploadFiles" + File.separator;
-	public static final String DOWNLOAD_FILE_FOLDER = PROJECT_PATH + File.separator + "downloadFiles";
-	public static final String BROWSER_LOG_FOLDER = PROJECT_PATH + File.separator + "browserLogs";
-	public static final String REPORT_SCREENSHOT = PROJECT_PATH + File.separator + "reportNGImage" + File.separator;
-	public static final String EXTENT_PATH = PROJECT_PATH + File.separator + "extentV5" + File.separator;
+	private static GlobalConstants globalConstants;
+	
+	private GlobalConstants() {
+		
+	}
+	
+	
+	public static synchronized GlobalConstants getGlobalConstants() {
+		if (globalConstants == null) {
+			globalConstants = new GlobalConstants();
+		}
+		return globalConstants;
+	}
+	
+	
+	private final String portalPageUrl = "https://demo.nopcommerce.com/";
+	private final String adminPageUrl = "https://admin-demo.nopcommerce.com/";
+	
+	private final String projectPath = System.getProperty("user.dir");
+	private final String javaVersion = System.getProperty("java.version");
+	private final String osName = System.getProperty("os.name");
+	private final String uploadFileFolder = projectPath + File.separator + "uploadFiles" + File.separator;
+	private final String downloadFileFolder = projectPath + File.separator + "downloadFiles";
+	private final String browserLogFolder = projectPath + File.separator + "browserLogs";
+	private final String reportScreenshort = projectPath + File.separator + "reportNGImage" + File.separator;
+	private final String extentPath = projectPath + File.separator + "extentV5" + File.separator;
 	
 	//Cloud variables
-	public static final String BROWSER_USERNAME = "phuongtranautomaf85ei";
-	public static final String BROWSER_AUTOMATE_KEY = "xgzPpeG6931sMtuZYtfc";
-	public static final String BROWSER_STACK_URL = "https://" + BROWSER_USERNAME + ":" + BROWSER_AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
+	private final String browserUsename = "phuongtranautomaf85ei";
+	private final String browserAutomateKey = "xgzPpeG6931sMtuZYtfc";
+	private final String browserStackUrl = "https://" + browserUsename + ":" + browserAutomateKey + "@hub-cloud.browserstack.com/wd/hub";
 	
-	public static final String SAUCE_USERNAME = "oauth-trananhphuongbl112-b898d";
-	public static final String SAUCE_AUTOMATE_KEY = "c847b2c2-7bef-485a-afea-59b923519fbb";
-	public static final String SAUCE_LAB_URL = "https://" + SAUCE_USERNAME + ":" + SAUCE_AUTOMATE_KEY + "@ondemand.eu-central-1.saucelabs.com:443/wd/hub";
+	private final String sauceUsername = "oauth-trananhphuongbl112-b898d";
+	private final String sauceAutomateKey = "c847b2c2-7bef-485a-afea-59b923519fbb";
+	private final String sauceLabUrl = "https://" + sauceUsername + ":" + sauceAutomateKey + "@ondemand.eu-central-1.saucelabs.com:443/wd/hub";
 	
-	public static final String LAMBDA_USERNAME = "trananhphuongbl112";
-	public static final String LAMBDA_AUTOMATE_KEY = "61S0HSmXwzxoXPUmKdsAigXCWLUBC99OYotPP6dV8CCc8wk5GP";
-	public static final String LAMBDA_URL = "https://" + LAMBDA_USERNAME + ":" + LAMBDA_AUTOMATE_KEY + "@hub.lambdatest.com/wd/hub";
+	private final String lambdaUsername = "trananhphuongbl112";
+	private final String lambdaAutomateKey = "61S0HSmXwzxoXPUmKdsAigXCWLUBC99OYotPP6dV8CCc8wk5GP";
+	private final String lambdaUrl = "https://" + lambdaUsername + ":" + lambdaAutomateKey + "@hub.lambdatest.com/wd/hub";
 	
-	public static final long SHORT_TIMEOUT = 5;
-	public static final long LONG_TIMEOUT = 30;
-	public static final long RETRY_TEST_FAIL = 3;
+	private final long shortTimeout = 5;
+	private final long longTimeout = 30;
+	private final long retryTestFail = 3;
 }

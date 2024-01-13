@@ -25,7 +25,7 @@ public class ChromeDriverManage implements BrowserFactory{
 		
 		HashMap<String, Object> chromePref = new HashMap<String, Object>();
 		chromePref.put("profile.default_content_settings.popups", 0);
-		chromePref.put("download.default_directory", GlobalConstants.DOWNLOAD_FILE_FOLDER);
+		chromePref.put("download.default_directory", GlobalConstants.getGlobalConstants().getDownloadFileFolder());
 		options.setExperimentalOption("prefs", chromePref);
 		
 		System.setProperty("webdriver.chrome.args", "--disable-logging");

@@ -78,7 +78,7 @@ public class GridFactory {
 			e.printStackTrace();
 		}
 		
-		driver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(GlobalConstants.getGlobalConstants().getLongTimeout(), TimeUnit.SECONDS);
 		return driver;
 	}
 }

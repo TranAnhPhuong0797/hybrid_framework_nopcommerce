@@ -42,8 +42,8 @@ import pageUIjQueryUploadFile.BasePageUIjQuery;
 public class BasePage {
 	// Open URL
 	// Common functions
-	private long longTimeout = GlobalConstants.LONG_TIMEOUT;
-	private long shortTimeout = GlobalConstants.SHORT_TIMEOUT;
+	private long longTimeout = GlobalConstants.getGlobalConstants().getLongTimeout();
+	private long shortTimeout = GlobalConstants.getGlobalConstants().getShortTimeout();
 	
 	public BasePage getBasePage(){
 		return new BasePage();
@@ -651,7 +651,7 @@ public class BasePage {
 	}
 	
 	public void uploadMultipleFiles(WebDriver driver, String... fileNames) {
-		String filePath = GlobalConstants.UPLOAD_FILE_FOLDER;
+		String filePath = GlobalConstants.getGlobalConstants().getUploadFileFolder();
 		String fullFileName = "";
 		for (String file : fileNames) {
 			fullFileName = fullFileName + filePath + file + "\n";

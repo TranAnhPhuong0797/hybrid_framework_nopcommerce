@@ -37,7 +37,7 @@ public class BaseTest extends BasePage{
 	private WebDriver driverBaseTest;
 	// private String projectpath = System.getProperty("user.dir");
 	protected final Log log;
-	private long longTimeout = GlobalConstants.LONG_TIMEOUT;
+	private long longTimeout = GlobalConstants.getGlobalConstants().getLongTimeout();
 
 	@BeforeSuite
 	public void initBeforeSuite() {
@@ -69,7 +69,7 @@ public class BaseTest extends BasePage{
 			throw new RuntimeException("Browser name invalid");
 		}
 		driverBaseTest.manage().timeouts().implicitlyWait(longTimeout, TimeUnit.SECONDS);
-		driverBaseTest.get(GlobalConstants.PORTAL_PAGE_URL);
+		driverBaseTest.get(GlobalConstants.getGlobalConstants().getPortalPageUrl());
 		driverBaseTest.manage().window().fullscreen();
 		// driverBaseTest.get("http://live.techpanda.org/index.php/");
 
@@ -82,7 +82,7 @@ public class BaseTest extends BasePage{
 
 	public void deleteAllureReport() {
 		try {
-			String pathFolderDownload = GlobalConstants.PROJECT_PATH + "/allure-json";
+			String pathFolderDownload = GlobalConstants.getGlobalConstants().getProjectPath() + "/allure-json";
 			File file = new File(pathFolderDownload);
 			File[] listOfFiles = file.listFiles();
 			for (int i = 0; i < listOfFiles.length; i++) {
@@ -193,7 +193,7 @@ public class BaseTest extends BasePage{
 			driverBaseTest = new LocalFactory(browserName).createDriver();
 			break;
 		}
-		driverBaseTest.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
+		driverBaseTest.manage().timeouts().implicitlyWait(GlobalConstants.getGlobalConstants().getLongTimeout(), TimeUnit.SECONDS);
 		driverBaseTest.manage().window().maximize();
 		driverBaseTest.get(getEnvironmentUrl(serverName));
 		return driverBaseTest;
@@ -204,7 +204,7 @@ public class BaseTest extends BasePage{
 			WebDriverManager.firefoxdriver().setup();
 			//Disabled driver logs for Firefox
 			System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true");
-			System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, GlobalConstants.PROJECT_PATH + "\\browserLogs\\FirefoxLog.log");
+			System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, GlobalConstants.getGlobalConstants().getProjectPath() + "\\browserLogs\\FirefoxLog.log");
 			FirefoxOptions options = new FirefoxOptions();
 			options.setAcceptInsecureCerts(true);
 			//Disabled Notification & Location for Firefox
@@ -212,7 +212,7 @@ public class BaseTest extends BasePage{
 			options.addArguments("--disable geolocation");
 			//Auto Save and Download files
 			options.addPreference("browser.download.folderList", 2);
-			options.addPreference("browser.download.dir", GlobalConstants.PROJECT_PATH + "\\downloadFiles");
+			options.addPreference("browser.download.dir", GlobalConstants.getGlobalConstants().getProjectPath() + "\\downloadFiles");
 			options.addPreference("browser.download.useDownloadDir", true);
 			options.addPreference("browser.helperApps.neverAsk.saveToDisk", "multipart/x-zip,application/zip.application/x-zip-compressed,application/x-compressed,application/msword,application/csv,text/csv,image/png,image/jpeg,application/pdf,text/html,text/plain,application/excel,application/vnd.ms-excel,application/x-excel,application/x-msexcel,application/octet-stream");
 			options.addPreference("pdfjs.disabled", true);
@@ -247,7 +247,7 @@ public class BaseTest extends BasePage{
 			//Auto Save and Download files
 			Map<String, Object> chromePrefs = new HashMap<String, Object>();
 			chromePrefs.put("profile.default_content_settings.popups", 0);
-			chromePrefs.put("download.default_directory", GlobalConstants.PROJECT_PATH + "\\downloadFiles");
+			chromePrefs.put("download.default_directory", GlobalConstants.getGlobalConstants().getProjectPath() + "\\downloadFiles");
 			options.setExperimentalOption("prefs", chromePrefs);
 			//Open private browser for Chrome
 //			options.addArguments("--incognito");
@@ -266,7 +266,7 @@ public class BaseTest extends BasePage{
 		} else {
 			throw new RuntimeException("Browser name invalid");
 		}
-		driverBaseTest.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
+		driverBaseTest.manage().timeouts().implicitlyWait(GlobalConstants.getGlobalConstants().getLongTimeout(), TimeUnit.SECONDS);
 		driverBaseTest.get(appUrl);
 		return driverBaseTest;
 	}
@@ -316,7 +316,7 @@ public class BaseTest extends BasePage{
 			e.printStackTrace();
 		}
 		
-		driverBaseTest.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
+		driverBaseTest.manage().timeouts().implicitlyWait(GlobalConstants.getGlobalConstants().getLongTimeout(), TimeUnit.SECONDS);
 		driverBaseTest.get(appUrl);
 		return driverBaseTest;
 	}
@@ -334,12 +334,12 @@ public class BaseTest extends BasePage{
 		capabilities.setCapability("name", "Run on" + osName + " | " + osVersion + " | " + browserName);
 		
 		try {
-			driverBaseTest = new RemoteWebDriver(new URL(GlobalConstants.BROWSER_STACK_URL), capabilities);
+			driverBaseTest = new RemoteWebDriver(new URL(GlobalConstants.getGlobalConstants().getBrowserStackUrl()), capabilities);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
 		
-		driverBaseTest.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
+		driverBaseTest.manage().timeouts().implicitlyWait(GlobalConstants.getGlobalConstants().getLongTimeout(), TimeUnit.SECONDS);
 		driverBaseTest.get(appUrl);
 		return driverBaseTest;
 	}
@@ -360,12 +360,12 @@ public class BaseTest extends BasePage{
 		capabilities.setCapability("sauce:options", sauceOptions);
 		
 		try {
-			driverBaseTest = new RemoteWebDriver(new URL(GlobalConstants.SAUCE_LAB_URL), capabilities);
+			driverBaseTest = new RemoteWebDriver(new URL(GlobalConstants.getGlobalConstants().getSauceLabUrl()), capabilities);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
 		
-		driverBaseTest.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
+		driverBaseTest.manage().timeouts().implicitlyWait(GlobalConstants.getGlobalConstants().getLongTimeout(), TimeUnit.SECONDS);
 		driverBaseTest.manage().window().maximize();
 		driverBaseTest.get(appUrl);
 		return driverBaseTest;
@@ -388,12 +388,12 @@ public class BaseTest extends BasePage{
 		capabilities.setCapability("name", "Run on" + osName + " | " + browserName);
 		
 		try {
-			driverBaseTest = new RemoteWebDriver(new URL(GlobalConstants.LAMBDA_URL), capabilities);
+			driverBaseTest = new RemoteWebDriver(new URL(GlobalConstants.getGlobalConstants().getLambdaUrl()), capabilities);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
 		
-		driverBaseTest.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
+		driverBaseTest.manage().timeouts().implicitlyWait(GlobalConstants.getGlobalConstants().getLongTimeout(), TimeUnit.SECONDS);
 		driverBaseTest.manage().window().maximize();
 		driverBaseTest.get(appUrl);
 		return driverBaseTest;
