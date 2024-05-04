@@ -9,13 +9,15 @@ import lombok.Setter;
 @Setter
 public class GlobalConstants {
 	
+	//Private static variables
 	private static GlobalConstants globalConstants;
 	
+	//Private constructor
 	private GlobalConstants() {
 		
 	}
 	
-	
+	//Public static methods
 	public static synchronized GlobalConstants getGlobalConstants() {
 		if (globalConstants == null) {
 			globalConstants = new GlobalConstants();

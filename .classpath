@@ -71,6 +71,6 @@
 	<classpathentry kind="lib" path="libOwner/junit-4.12.jar"/>
 	<classpathentry kind="lib" path="libOwner/mockito-core-2.15.0.jar"/>
 	<classpathentry kind="lib" path="libOwner/owner-1.0.10.jar"/>
-	<classpathentry kind="lib" path="libWeddriverManager/webdrivermanager-5.3.0.jar"/>
+	<classpathentry kind="lib" path="libWeddriverManager/webdrivermanager-5.3.0.jar" sourcepath="E:/Khoa Hoc Automation/Project/03- Java Hybrid Framework/hybrid_framework_nopcommerce/hybrid_framework_nopcommerce/libWeddriverManager/webdrivermanager-5.3.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
